@@ -1,0 +1,144 @@
+{
+  "main": {
+    "id": "85af1e777cf3804f",
+    "type": "split",
+    "children": [
+      {
+        "id": "555ada501a712560",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2d0dea0c11777eff",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "ComputationalNetBiology.pdf"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "280a1aa5d0ef79c1",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "812ac0d724f854f5",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "2f00307bcf3497df",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "6c795234d3cbbf6e",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          }
+        }
+      },
+      {
+        "id": "3dad4128038a4754",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "89a7103d448f483a",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "802c7c9ba98c3478",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "ComputationalNetBiology.pdf",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "2aa1ee40266c11e1",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "ComputationalNetBiology.pdf",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "03b6fd342cf4bf9f",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "ComputationalNetBiology.pdf"
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "2d0dea0c11777eff",
+  "lastOpenFiles": [
+    "Notes/06-04@1400.md",
+    "CNB_Paper_Notes.md",
+    "ComputationalNetBiology.pdf",
+    "BEEHIVE Research Project.md",
+    "Untitled.canvas",
+    "Hello World.md",
+    "Notes/06-03@1330.md",
+    "Notes/06-03@1000.md",
+    "Notes"
+  ]
+}

@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: vpohg-phdpk
+created: 2024-08-30T13:35:10-07:00
