@@ -1,0 +1,16 @@
+
+- Bandit1 solution: Found in readme of bandit0, pswd: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+- Bandit1->2 solution: Found by calling `cat ./-` , pswd: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+- Bandit2->3 solution: found by calling `cat “./spaces in the filename”`, pswd: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+- Bandit3->4 solution: found by calling `cat …Hiding_from_you`, pswd: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+- Bandit4->5 solution: found by calling `cat ./-file07`, pswd: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+- Bandit5->6 solution, found by calling ‘find’, pswd: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+- Bandit6->7 solution, found by calling ‘find’, pswd: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+- Bandit7->8 solution, found by calling `grep`, pswd: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+- Bandit 8 -> 9 solution, found by calling `sort | uniq -u`, pswd: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+- Bandit 9 -> 10 solution, found by calling `strings`, pswd: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+- Bandit 10 -> 11 solution, found by calling `base64 -d`, pswd: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+- Bandit 11 -> 12 solution, found by calling `tr 'A-Za-z' 'N-ZA-Mn-za-m'`, pswd: 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+- Bandit 12 -> 13 solution, found by doing ungodly amounts of decompression. Remember file name signatures! pswd: FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+- Bandit 13 -> 14 solution, found by ssh-ing into bandit14, then looking for the password in `/etc/bandit_pass/bandit14`, pass: MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+- Bandit 14 -15 solution, found by using `nc localhost 30000` and then sending the password, pswd: 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo

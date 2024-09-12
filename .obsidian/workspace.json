@@ -1,14 +1,14 @@
 {
   "main": {
-    "id": "37ea9946fe15041e",
+    "id": "d2fb03f33729ed4b",
     "type": "split",
     "children": [
       {
-        "id": "341eafdc3613d1b0",
+        "id": "5ff4223960b53f15",
         "type": "tabs",
         "children": [
           {
-            "id": "c7e92361bdcd2adf",
+            "id": "cc8e5ae489779741",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -25,15 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "6b007f94f2847e61",
+    "id": "fefd2cd23cae5e20",
     "type": "split",
     "children": [
       {
-        "id": "8d34bbcc7883de2e",
+        "id": "8e8362dd54e6223d",
         "type": "tabs",
         "children": [
           {
-            "id": "d1b8c2ac3d90765b",
+            "id": "70c2376057935b9e",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,7 +43,7 @@
             }
           },
           {
-            "id": "ca71d21e8f86c008",
+            "id": "f46d7bb5f66e7895",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -58,7 +58,7 @@
             }
           },
           {
-            "id": "6901ce5e17b05f0d",
+            "id": "74cd5bb2d61c0703",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -69,19 +69,18 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 300
   },
   "right": {
-    "id": "8241c6e36e559db9",
+    "id": "ef4fa813397c5395",
     "type": "split",
     "children": [
       {
-        "id": "e0f0f9ab15fd8338",
+        "id": "9af4a2ab85161568",
         "type": "tabs",
         "children": [
           {
-            "id": "a1ddda8773c76d74",
+            "id": "485b65c7a3a3b8ce",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -98,7 +97,7 @@
             }
           },
           {
-            "id": "42e6a119eb253024",
+            "id": "89343c82dc6695bc",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -110,7 +109,7 @@
             }
           },
           {
-            "id": "ef3b92e42ef33657",
+            "id": "3e9b267b99559be7",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -121,7 +120,7 @@
             }
           },
           {
-            "id": "049eebfbd0fa29ad",
+            "id": "3db23ee2ce3f249b",
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -147,26 +146,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c7e92361bdcd2adf",
+  "active": "cc8e5ae489779741",
   "lastOpenFiles": [
+    "ObsidianNotes/Thesis Menu.md",
     "Initial Thesis Meeting.md",
-    "2024-09-05.md",
-    "Graphix Menu.md",
-    "Bandit CTF Document.md",
-    "Hello World!.md",
-    "Thesis Menu.md",
-    "Untitled.canvas",
-    "Summer Research/BEEHIVE Research Project.md",
-    "Summer Research/ComputationalNetBiology.pdf",
-    "Summer Research",
-    "Summer Research/CNB_Paper_Notes.md",
-    "Summer Research/Notes/06-04@1400.md",
-    "Summer Research/Notes/06-03@1000.md",
-    "Notes/06-03@1330.md",
-    "Notes.md",
-    "2024-06-03.md",
-    "[[ComputationalNetBiology.pdf]].md",
-    "Summer Research/Notes",
-    "Hello World.md"
+    "ObsidianNotes/Hello World!.md",
+    "Graphix Menu.md"
   ]
 }

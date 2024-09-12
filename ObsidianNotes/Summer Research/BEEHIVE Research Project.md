@@ -5,4 +5,4 @@ This is the centerpoint for all files associated with the BEEHIVE research proje
 * [[06-04@1400]]
 
 # Important things to read:
-[Paper introducing Computational Network Biology](ComputationalNetBiology.pdf) -- [Paper Notes](CNB_Paper_Notes)
+[Paper introducing Computational Network Biology](ComputationalNetBiology.pdf) -- [Paper Notes](CNB_Paper_Notes.md)
