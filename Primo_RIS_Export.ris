@@ -1,0 +1,150 @@
+TY  - thes
+PB  - Reed College
+Y1  - 2016
+N1  - B.A. Reed College 2016
+ID  - alma99900191310201841
+AU  - Swann, Alex
+T1  - Sound design : a systems approach 
+ER  -
+TY  - BOOK
+PB  - Academic Press
+Y1  - 1990
+N1  - Includes bibliographical references (pages 507-540) and indexes.
+ID  - alma99125183230101841
+KW  - Computer vision
+T3  - Computer science and scientific computing
+AU  - Wechsler, Harry
+SN  - 012741245X
+CY  - Boston
+T1  - Computational vision 
+ER  -
+TY  - BOOK
+PB  - Cambridge University Press
+Y1  - 2000
+N1  - Includes bibliographical references and index.
+ID  - alma99135004540101841
+N2  - CD-ROM contains C programs that implement the algorithms discussed in the book, plus the LIBTIFF, LIBMIG, and LIBIP libraries and sample images in TIFF format. 
+KW  - Algorithms
+KW  - Image analysis -- Data processing
+KW  - Image processing -- Digital techniques
+AU  - Seul, Michael.
+AU  - O'Gorman, Lawrence.
+AU  - Sammon, Michael J.
+SN  - 0521660653
+CY  - Cambridge ;
+T1  - Practical algorithms for image analysis : description, examples, and code 
+ER  -
+TY  - BOOK
+PB  - MIT Press
+Y1  - 2001
+N1  - Includes bibliographical references (pages 597-634) and index.
+ID  - alma99153753160101841
+KW  - Computer vision
+KW  - Geometry
+KW  - Image processing -- Digital techniques
+AU  - Faugeras, Olivier
+AU  - Luong, Quang-Tuan.
+AU  - Papadopoulo, Théo.
+SN  - 0262062208
+CY  - Cambridge, Mass
+T1  - The geometry of multiple images : the laws that govern the formation of multiple images of a scene and some of their applications 
+ER  -
+TY  - BOOK
+PB  - Harper
+Y1  - 1957
+N1  - Includes bibliographical references and index.
+ID  - alma99120434120101841
+KW  - Stage lighting
+AU  - Bowman, Wayne
+AU  - Bowman, Jean
+CY  - New York
+T1  - Modern theatre lighting 
+ER  -
+TY  - BOOK
+PB  - By Design Press
+Y1  - 1997
+N1  - Includes bibliographical references (pages 471-472) and index.
+ID  - alma99152164570101841
+N2  - "Stage Lighting Design" covers the complete history, theory and - above all - practice of lighting design. It contains 450 black and white half tones, 60 colour photos and innumerable diagrams, lighting plots, etc. "Stage Lighting Design" is arranged in four sections: Design: the basic principles, illustrated with reference to specific productions; History: a brief survey of the historical development of stage lighting; Life: interviews with 14 other lighting designers, plus notes on Pilbrow's own career; and Mechanics: a vast section dealing with all the technical data today's designer will need."--Book description, Amazon.com. 
+KW  - Stage lighting
+AU  - Pilbrow, Richard.
+SN  - 0896761398
+CY  - New York
+T1  - Stage lighting design : the art, the craft, the life 
+ER  -
+TY  - BOOK
+PB  - Springer-Verlag
+Y1  - 1987
+N1  - Includes bibliographical references (pages 293-297).
+ID  - alma9910167470101841
+N2  - The purpose of computer vision is to make computers capable of understanding environments from visual information. Computer vision has been an interesting theme in the field of artificial intelligence. It involves a variety of intelligent information processing: both pattern processing for extraction of meaningful symbols from visual information and symbol processing for determining what the symbols represent. The term "3D computer vision" is used if visual information has to be interpreted as three-dimensional scenes. 3D computer vision is more challenging because objects are seen from limited directions and some objects are occluded by others. In 1980, the author wrote a book "Computer Vision" in Japanese to introduce an interesting new approach to visual information processing developed so far. Since then computer vision has made remarkable progress: various rangefinders have become available, new methods have been developed to obtain 3D informa­ tion, knowledge representation frameworks have been proposed, geometric models which were developed in CAD/CAM have been used for computer vision, and so on. The progress in computer vision technology has made it possible to understand more complex 3 D scenes. There is an increasing demand for 3D computer vision. In factories, for example, automatic assembly and inspection can be realized with fewer con­ straints than conventional ones which employ two-dimensional computer vision. 
+KW  - Computer vision
+KW  - Three-dimensional display systems
+T3  - Symbolic computation. Computer graphics--systems and applications
+AU  - Shirai, Yoshiaki.
+SN  - 0387151192
+CY  - Berlin ;
+T1  - Three-dimensional computer vision 
+ER  -
+TY  - BOOK
+PB  - Cambridge University Press
+Y1  - 2003
+N1  - Includes bibliographical references (pages 634-645) and index.
+ID  - alma99155285830101841
+N2  - A basic problem in computer vision is to understand the structure of a real world scene given several images of it. The authors cover the geometric principles and their algebraic representation in terms of camera projection matrices, the fundamental matrix and the trifocal tensor. 
+KW  - Computer vision
+KW  - Geometry, Projective
+AU  - Hartley, Richard.
+AU  - Zisserman, Andrew.
+SN  - 0521540518
+CY  - Cambridge, UK ;
+T1  - Multiple view geometry in computer vision 
+ET  - 2nd ed.
+ER  -
+TY  - BOOK
+PB  - Prestel
+Y1  - 2006
+N1  - Includes bibliographical references (page 238) and index.
+ID  - alma99109400040001451
+N2  - "A virtuoso in the field, Max Keller has set new standards of technical and artistic excellence. In this book he divulges his extensive knowledge of every aspect of stage lighting, from natural phenomena and the history of light in the theatre, to Goethe's and Runge's theories of colour, to the fundamentals of optics and projection. This revised edition of Light Fantastic includes new images from Keller's most recent productions as well as completely updated information on optics, lamps, lanterns, projection and lighting consoles. In more than 600 stunning photographs and illustrations, the power of Keller's expertise shines through, making this a visually exciting and highly informative work for those involved in theatre technology."--Jacket. 
+KW  - Stage lighting
+AU  - Keller, Max.
+AU  - Weiss, Johannes.
+AU  - Robinson, Michael.
+AU  - Klotz, Andreas.
+SN  - 9783791336855
+CY  - Munich ;
+T1  - Light fantastic : the art and design of stage lighting 
+T2  - Light
+ET  - 2nd rev. and updated ed.
+ER  -
+TY  - BOOK
+PB  - Boni and Liveright
+Y1  - 1921
+N1  - "A bibliographical appendix": pages 285-290
+ID  - alma99117333300101841
+KW  - Theater
+KW  - Theaters
+KW  - Theaters -- Stage-setting and scenery
+AU  - Macgowan, Kenneth
+CY  - New York
+T1  - The theatre of tomorrow 
+ER  -
+TY  - BOOK
+PB  - The MIT Press
+Y1  - 2007
+N1  - Includes bibliographical references (pages 737-776) and index.
+ID  - alma99219321770101841
+N2  - In the past decade digital media has been increasingly incorporated into live theater and dance, and forms of interactive performance have emerged in participatory installations, on CD-ROM, and on the Web. This text traces the evolution of these practices, and presents accounts of key practitioners and performances. 
+KW  - Arts, Modern -- 20th century
+KW  - Performing arts -- History -- 20th century
+KW  - Arts, Modern
+KW  - Digital media
+KW  - Performing arts
+KW  - Technology and the arts
+T3  - Leonardo
+AU  - Dixon, Steve
+SN  - 0262042355
+CY  - Cambridge, Massachusetts ;
+T1  - Digital performance : a history of new media in theater, dance, performance art, and installation 
+ER  -
