@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Initial Thesis Meeting.md",
+                "file": "Thesis Meetings.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Initial Thesis Meeting.md",
+                "file": "Thesis Meetings.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Initial Thesis Meeting.md",
+                "file": "Thesis Meetings.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Initial Thesis Meeting.md"
+                "file": "Thesis Meetings.md"
               }
             }
           }
@@ -149,7 +149,7 @@
   },
   "active": "c7e92361bdcd2adf",
   "lastOpenFiles": [
-    "Initial Thesis Meeting.md",
+    "Thesis Meetings.md",
     "2024-09-05.md",
     "Graphix Menu.md",
     "Bandit CTF Document.md",

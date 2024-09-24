@@ -4,4 +4,4 @@ This is the main site for all work relating to the Thesis of Gabe Howland.
 Notes should be backed up through Github and Syncthing whenever possible.
 
 ### Notes:
-[[Initial Thesis Meeting]]
+[[Thesis Meetings]]
