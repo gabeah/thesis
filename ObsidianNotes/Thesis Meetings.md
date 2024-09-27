@@ -1,3 +1,8 @@
+# Jim Meeting 9/24
+OpenCV looks like the library of choice to do work in
+
+Need to start learning how it works
+
 # Peter Meeting 9/20
 Grant is done and submitted!
 
@@ -20,7 +25,7 @@ satisfying a set of requirements
 and subject to constraints
 
 ToDo:
-Make a list of the design requirements (ideals, required)
+Make a list of the design requirements (ideals, required) [[Design Requirements]]
 - How big is the gear?
 - How advanced of the tech?
 - What designs choices do I need to make?

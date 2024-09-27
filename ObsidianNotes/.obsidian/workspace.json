@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Thesis Meetings.md",
+                "file": "Design Requirements.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Thesis Meetings.md",
+                "file": "Design Requirements.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Thesis Meetings.md",
+                "file": "Design Requirements.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Thesis Meetings.md"
+                "file": "Design Requirements.md"
               }
             }
           }
@@ -150,11 +150,12 @@
   "active": "c7e92361bdcd2adf",
   "lastOpenFiles": [
     "Thesis Meetings.md",
+    "Design Requirements.md",
+    "Thesis Menu.md",
     "2024-09-05.md",
     "Graphix Menu.md",
     "Bandit CTF Document.md",
     "Hello World!.md",
-    "Thesis Menu.md",
     "Untitled.canvas",
     "Summer Research/BEEHIVE Research Project.md",
     "Summer Research/ComputationalNetBiology.pdf",

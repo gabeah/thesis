@@ -5,3 +5,5 @@ Notes should be backed up through Github and Syncthing whenever possible.
 
 ### Notes:
 [[Thesis Meetings]]
+[[Design Requirements]]
+
