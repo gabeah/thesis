@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Thesis Meetings.md",
+                "file": "Log of progress.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Thesis Meetings.md",
+                "file": "Log of progress.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Thesis Meetings.md",
+                "file": "Log of progress.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Thesis Meetings.md"
+                "file": "Log of progress.md"
               }
             }
           }
@@ -149,9 +149,10 @@
   },
   "active": "c7e92361bdcd2adf",
   "lastOpenFiles": [
-    "Design Requirements.md",
-    "Thesis Meetings.md",
     "Thesis Menu.md",
+    "Log of progress.md",
+    "Thesis Meetings.md",
+    "Design Requirements.md",
     "2024-09-05.md",
     "Graphix Menu.md",
     "Bandit CTF Document.md",

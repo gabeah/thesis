@@ -21,6 +21,8 @@ while cap.isOpened():
         print("Can't receive frame (stream end?). Exiting ...")
         break
 
+    
+
     # Seeing if I can do pixel analysis
 
     # Example of applying Image Thresholding on a grayscale picture.
@@ -38,13 +40,18 @@ while cap.isOpened():
 
     result2 = cv.bitwise_and(result, result, mask = mask)
 
+    #(minVal, maxVal, minLoc,  maxLoc) = cv.minMaxLoc(frame, mask)
+
+    img_array = np.array(result2)
+    # Stuck trying to get a location of the bright-spot
+    minVal, maxVal, minLoc, maxLoc = cv.minMaxLoc(img_array)
+
+    cv.circle(result2, (933,543), 10, (255,234,132))
+
     cv.imshow('frame', frame)
     cv.imshow('mask', mask)
     cv.imshow('result', result2)
     #gray = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
-
-    
-    #(minVal, maxVal, minLoc,  maxLoc) = cv.minMaxLoc(frame)
 
     print(frame)
     print(type(frame))
