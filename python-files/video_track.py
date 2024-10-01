@@ -44,7 +44,7 @@ while cap.isOpened():
 
     img_array = np.array(result2)
     # Stuck trying to get a location of the bright-spot
-    minVal, maxVal, minLoc, maxLoc = cv.minMaxLoc(img_array)
+    #minVal, maxVal, minLoc, maxLoc = cv.minMaxLoc(img_array)
 
     cv.circle(result2, (933,543), 10, (255,234,132))
 
