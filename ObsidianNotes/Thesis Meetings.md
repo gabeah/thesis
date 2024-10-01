@@ -1,7 +1,21 @@
+
+# Peter Meeting 9/27
+Go talk to Jay Ewing about light filters and manufacturing the video system.
+
+Need to do a more specialized search for *what books are helpful for this thesis?*
+- Books on Lighting Control
+- Manuals for lighting consoles through the years
+- History of performance technology
+
+USE ARCHIVE.ORG!! They have stuff!
+
+Maybe reach out to Mark Coniglio
+
+Come back with an outline for what the first chapter would contain.
 # Jim Meeting 9/24
 OpenCV looks like the library of choice to do work in
 
-Need to start learning how it works
+Need to start learning how it works, come back with a video
 
 # Peter Meeting 9/20
 Grant is done and submitted!
