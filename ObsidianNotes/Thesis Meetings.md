@@ -1,4 +1,17 @@
 [[Thesis Menu]] <- Go up
+# Jim Meeting 10/1
+Jim is slacking me a document about learning opencv
+https://learnopencv.com/introduction-to-epipolar-geometry-and-stereo-vision/
+https://web.stanford.edu/class/cs231a/course_notes/03-epipolar-geometry.pdf
+https://medium.com/@dc.aihub/3d-reconstruction-with-stereo-images-part-3-epipolar-geometry-98b75e40f59d
+Mask looks cool, lets see if we can get some data output from the openCV stuff
+	Maybe even another camera????
+
+Also, look at trying to get the orangepi running to read data from DMX512
+Also, start figuring out how to control the icue (or other light)
+
+I should start working on this in two prongs, one dedicated to the furthering of OpenCV information, the other focusing on controlling a light
+
 # Peter Meeting 9/27
 Go talk to Jay Ewing about light filters and manufacturing the video system.
 
