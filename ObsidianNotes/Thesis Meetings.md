@@ -1,4 +1,11 @@
 [[Thesis Menu]] <- Go up
+
+# Peter Meeting 10/4
+You don't need 60fps, and you don't need 1080p. Compress the video/reduce the amount of data. Maybe use Davinci Resolve??
+
+See if you can make a bounding box (pixels that are never going to be tracked into because of heights in theatrical spaces.) Parameterize!!!
+	Then just calibrate with a person standing in space, maybe running a live feed and creating a bounding box.
+
 # Jim Meeting 10/1
 Jim is slacking me a document about learning opencv
 https://learnopencv.com/introduction-to-epipolar-geometry-and-stereo-vision/
