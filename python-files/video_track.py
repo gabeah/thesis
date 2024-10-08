@@ -37,54 +37,51 @@ def blob_dect(in_stream):
             print("Can't receive frame (stream end?). Exiting ...")
             break
 
+        threshold = 140
+        assignvalue = 255 # Value to assign the pixel if the threshold is met
+        threshold_method = cv.THRESH_BINARY
+
+        hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
+
+        lower_blue = np.array([0,0,255])
+        upper_blue = np.array([255,255,255])
+
         rgb = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
 
+        mask = cv.inRange(rgb, lower_blue, upper_blue)
+        _, result = cv.threshold(frame,threshold,assignvalue,threshold_method)
 
-        # Initializing parameter setting using cv.SimpleBlobDetector function
         params = cv.SimpleBlobDetector_Params()
-        
-        # Filter by area (value for area here defines the pixel value)
+
         params.filterByArea = True
         params.minArea = 100
-        
-        # Filter by circularity
-        params.filterByCircularity = True
-        params.minCircularity = 0.75
-        
-        # Filter by convexity
-        params.filterByConvexity = True
-        params.minConvexity = 0.2
-            
-        # Filter by inertia ratio
-        params.filterByInertia = True
-        params.minInertiaRatio = 0.01
-        
-        # Creating a blob detector using the defined parameters
+        params.filterByCircularity = False
+        params.filterByConvexity = False
+        params.filterByInertia = False
+
         detector = cv.SimpleBlobDetector_create(params)
-            
-        # Detecting the blobs in the image
-        keypoints = detector.detect(rgb)
-        
-        # Drawing the blobs that have been filtered with blue on the image
-        blank = np.zeros((1, 1))
-        blobs = cv.drawKeypoints(rgb, keypoints, blank, (0, 0, 0), cv.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
-        
-        cv.imshow("original", rgb)
-        cv.imshow("blobs", blobs)
-        
-        # Setting the grid size
-        plt.figure(figsize=(20,20))
-        
-        # Displaying the image
-        plt.subplot(121)
-        plt.title('Original')
-        plt.imshow(rgb, cmap='gray')
-        
-        plt.subplot(122)
-        plt.title('Blobs')
-        plt.imshow(blobs)
-        
-        plt.show()
+
+        keypoints = detector.detect(mask)
+        points = np.array([key_point.pt for key_point in keypoints])
+
+        for point in points:
+            #print(point)
+            #print(f"{int(point[0])}, {int(point[1])}")
+            #print(point.dtype)
+            cv.circle(mask, (int(point[0]),int(point[1])), 63, (255,255,255), 10)
+
+        frame_w_keypoints = cv.drawKeypoints(mask, keypoints, np.array([]), (0,255,0), cv.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+
+        cv.imshow("frame", frame)
+        cv.imshow("mask", mask)
+        cv.imshow("Blob Detection", frame_w_keypoints)
+
+        if cv.waitKey(1) == ord('q'):
+            break
+    
+    cap.release()
+    cv.destroyAllWindows()
+
 
 
 def capVid(in_stream):
