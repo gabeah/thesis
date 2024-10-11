@@ -8,3 +8,5 @@ Notes should be backed up through Github and Syncthing whenever possible.
 [[Design Requirements]]
 [[Log of progress]]
 
+[[Outlines]]
+

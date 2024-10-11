@@ -11,21 +11,61 @@ def main(args):
     
     print(args.input)
 
+    #color_test()
+
     print(f"testing various streams")
-    for stream in args.input:
-        print(f"testing stream through video {stream}")
-        #capVid(stream)
-        blob_dect(stream)
+    # for stream in args.input:
+    #     print(f"testing stream through video {stream}")
+    #     #capVid(stream)
+    #     blob_dect(stream)
+    for cam in range(0,10):
+        blob_dect(cam)
+
+def color_test():
+    print(f"Testing colors")
+
+    img = np.ones((720,720,3), dtype=np.uint8)
+    mult_r = np.array([0,0,255], dtype=np.uint8)
+    mult_g = np.array([0,255,0], dtype=np.uint8)
+    mult_b = np.array([255,0,0], dtype=np.uint8)
+
+    red = mult_r * img
+    grn = mult_g * img
+    blu = mult_b * img
+
+    red2 = cv.cvtColor(red, cv.COLOR_RGB2BGR)
+    grn2 = cv.cvtColor(grn, cv.COLOR_RGB2BGR)
+    blu2 = cv.cvtColor(blu, cv.COLOR_RGB2BGR)
+
+    # Not sure what this is doing, I should avoid HSV work
+    hsv0 = cv.cvtColor(red, cv.COLOR_RGB2HSV)
+    hsv1 = cv.cvtColor(grn, cv.COLOR_RGB2HSV)
+    hsv2 = cv.cvtColor(blu, cv.COLOR_RGB2HSV)
+
+    print(f"rendering...")
+    cv.imshow("red", red)
+    cv.imshow("grn", grn)
+    cv.imshow("blu", blu)
+
+    cv.imshow("red2", red2)
+    cv.imshow("grn2", grn2)
+    cv.imshow("blu2", blu2)
+
+    cv.imshow("hsv0", hsv0)
+    cv.imshow("hsv1", hsv1)
+    cv.imshow("hsv2", hsv2)
+    cv.waitKey(0)
+
 
 def blob_dect(in_stream):
     # Try to get a video captured
-    fstream = in_stream
-    cap = cv.VideoCapture(fstream)
+    fstream = int(in_stream)
+    cap = cv.VideoCapture(3)
     print("setup cap, starting loop")
 
     if not cap.isOpened():
         print("ERR")
-        exit()
+        #exit()
 
     while cap.isOpened():
         ret, frame = cap.read()
@@ -57,7 +97,7 @@ def blob_dect(in_stream):
         params.minArea = 100
         params.filterByCircularity = False
         params.filterByConvexity = False
-        params.filterByInertia = False
+        params.filterByInertia = True
 
         detector = cv.SimpleBlobDetector_create(params)
 
@@ -87,7 +127,8 @@ def blob_dect(in_stream):
 def capVid(in_stream):
     # Try to get a video captured
     fstream = in_stream
-    cap = cv.VideoCapture(fstream)
+    print(fstream)
+    cap = cv.VideoCapture(0)
     print("setup cap, starting loop")
 
     if not cap.isOpened():
@@ -102,8 +143,6 @@ def capVid(in_stream):
         if not ret:
             print("Can't receive frame (stream end?). Exiting ...")
             break
-
-        
 
         # Seeing if I can do pixel analysis
 

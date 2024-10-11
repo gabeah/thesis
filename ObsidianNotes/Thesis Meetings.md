@@ -1,5 +1,19 @@
 [[Thesis Menu]] <- Go up
 
+# Jim Meeting 10/8
+Blob recognition works!!
+
+Need to figure out how OpenCV uses color, and how those translations work for when I eventually have to recalibrate the system
+
+Next steps:
+- 2 cameras?
+- Live Feed?
+- Can i show the xy values
+
+When it comes to comparing two feeds. Pretend you are shooting a ray through each camera screen, and look for where the distance between the two rays in 3-space is minimized.
+
+Note, focal distance will have to be calibrated. Look for it from the webcam manufacturer, or calculate it yourself with Trig :{
+
 # Peter Meeting 10/4
 You don't need 60fps, and you don't need 1080p. Compress the video/reduce the amount of data. Maybe use Davinci Resolve??
 

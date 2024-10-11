@@ -1,3 +1,5 @@
+[[Thesis Menu]]
+[[Thesis Meetings]]
 Below is a log of progress made on the thesis. It serves to remind myself on all that I accomplished over the year. Here's hoping I continue to update it!!
 
 ## 10/6/24 - Some tracking works I guess?

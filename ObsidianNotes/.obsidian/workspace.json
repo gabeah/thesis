@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Log of progress.md",
+                "file": "Chapter 1 - History of Lighting Control.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Log of progress.md",
+                "file": "Chapter 1 - History of Lighting Control.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Log of progress.md",
+                "file": "Chapter 1 - History of Lighting Control.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Log of progress.md"
+                "file": "Chapter 1 - History of Lighting Control.md"
               }
             }
           }
@@ -149,6 +149,8 @@
   },
   "active": "c7e92361bdcd2adf",
   "lastOpenFiles": [
+    "Outlines.md",
+    "Chapter 1 - History of Lighting Control.md",
     "Thesis Menu.md",
     "Thesis Meetings.md",
     "Log of progress.md",
