@@ -11,15 +11,15 @@ def main(args):
     
     print(args.input)
 
-    #color_test()
+    color_test()
 
     print(f"testing various streams")
-    # for stream in args.input:
-    #     print(f"testing stream through video {stream}")
-    #     #capVid(stream)
-    #     blob_dect(stream)
-    for cam in range(0,10):
-        blob_dect(cam)
+    for stream in args.input:
+        print(f"testing stream through video {stream}")
+    # #     #capVid(stream)
+        blob_dect(stream)
+    # for cam in range(0,10):
+       # blob_dect(cam)
 
 def color_test():
     print(f"Testing colors")
@@ -59,8 +59,9 @@ def color_test():
 
 def blob_dect(in_stream):
     # Try to get a video captured
-    fstream = int(in_stream)
-    cap = cv.VideoCapture(3)
+    fstream = in_stream
+    cap = cv.VideoCapture(fstream)
+    cap2 = cv.VideoCapture(fstream)
     print("setup cap, starting loop")
 
     if not cap.isOpened():
@@ -68,57 +69,63 @@ def blob_dect(in_stream):
         #exit()
 
     while cap.isOpened():
-        ret, frame = cap.read()
-        print(ret)
+        while cap2.isOpened():
 
-        frame = cv.flip(frame, 0)
-        # if frame is read correctly ret is True
-        if not ret:
-            print("Can't receive frame (stream end?). Exiting ...")
-            break
+            ret2, frame2 = cap.read()
+            ret, frame = cap.read()
+            print(ret)
 
-        threshold = 140
-        assignvalue = 255 # Value to assign the pixel if the threshold is met
-        threshold_method = cv.THRESH_BINARY
+            frame = cv.flip(frame, 0)
+            frame2 = cv.flip(frame2, 0)
+            # if frame is read correctly ret is True
+            if not ret or not ret2:
+                print("Can't receive frame (stream end?). Exiting ...")
+                break
 
-        hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
+            threshold = 140
+            assignvalue = 255 # Value to assign the pixel if the threshold is met
+            threshold_method = cv.THRESH_BINARY
 
-        lower_blue = np.array([0,0,255])
-        upper_blue = np.array([255,255,255])
+            hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
 
-        rgb = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
+            lower_blue = np.array([0,0,255])
+            upper_blue = np.array([255,255,255])
 
-        mask = cv.inRange(rgb, lower_blue, upper_blue)
-        _, result = cv.threshold(frame,threshold,assignvalue,threshold_method)
+            rgb = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
 
-        params = cv.SimpleBlobDetector_Params()
+            mask = cv.inRange(rgb, lower_blue, upper_blue)
+            _, result = cv.threshold(frame,threshold,assignvalue,threshold_method)
 
-        params.filterByArea = True
-        params.minArea = 100
-        params.filterByCircularity = False
-        params.filterByConvexity = False
-        params.filterByInertia = True
+            params = cv.SimpleBlobDetector_Params()
 
-        detector = cv.SimpleBlobDetector_create(params)
+            params.filterByArea = True
+            params.minArea = 100
+            params.filterByCircularity = False
+            params.filterByConvexity = False
+            params.filterByInertia = True
 
-        keypoints = detector.detect(mask)
-        points = np.array([key_point.pt for key_point in keypoints])
+            detector = cv.SimpleBlobDetector_create(params)
 
-        for point in points:
-            #print(point)
-            #print(f"{int(point[0])}, {int(point[1])}")
-            #print(point.dtype)
-            cv.circle(mask, (int(point[0]),int(point[1])), 63, (255,255,255), 10)
+            keypoints = detector.detect(mask)
+            points = np.array([key_point.pt for key_point in keypoints])
 
-        frame_w_keypoints = cv.drawKeypoints(mask, keypoints, np.array([]), (0,255,0), cv.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+            for point in points:
+                #print(point)
+                #print(f"{int(point[0])}, {int(point[1])}")
+                #print(point.dtype)
+                cv.circle(mask, (int(point[0]),int(point[1])), 63, (255,255,255), 10)
 
-        cv.imshow("frame", frame)
-        cv.imshow("mask", mask)
-        cv.imshow("Blob Detection", frame_w_keypoints)
+            frame_w_keypoints = cv.drawKeypoints(mask, keypoints, np.array([]), (0,255,0), cv.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
 
-        if cv.waitKey(1) == ord('q'):
-            break
-    
+            cv.imshow("frame2", frame2)
+            cv.imshow("frame", frame)
+            cv.imshow("mask", mask)
+            cv.imshow("Blob Detection", frame_w_keypoints)
+
+            if cv.waitKey(1) == ord('q'):
+                break
+        break
+        
     cap.release()
     cv.destroyAllWindows()
 

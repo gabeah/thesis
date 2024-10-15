@@ -1,5 +1,8 @@
 [[Thesis Menu]] <- Go up
 
+# Peter Meeting 10/11
+Next week is a demo! Show Peter & Jim something!
+
 # Jim Meeting 10/8
 Blob recognition works!!
 
