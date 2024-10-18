@@ -5,21 +5,30 @@ import argparse
 import cv2 as cv
 import time
 import matplotlib.pyplot as plt
-
+from cv2_enumerate_cameras import enumerate_cameras
 
 def main(args):
     
+    for camera_info in enumerate_cameras():
+        print(f'{camera_info.index}: {camera_info.name}')
     print(args.input)
 
-    color_test()
+    #color_test()
 
     print(f"testing various streams")
     for stream in args.input:
         print(f"testing stream through video {stream}")
-    # #     #capVid(stream)
+        
+    # # capVid(stream)
         blob_dect(stream)
-    # for cam in range(0,10):
-       # blob_dect(cam)
+
+
+class trackbar_var(object):
+    def __init__(self, val=0):
+        self.val = val
+    def change(self, val):
+        print("CHANGING")
+        self.val = val
 
 def color_test():
     print(f"Testing colors")
@@ -59,42 +68,68 @@ def color_test():
 
 def blob_dect(in_stream):
     # Try to get a video captured
+    title_window = "mask result"
     fstream = in_stream
-    cap = cv.VideoCapture(fstream)
-    cap2 = cv.VideoCapture(fstream)
+    print("opening cap 1")
+    cap = cv.VideoCapture(2)
+    print("opening cap 2")
+    cap2 = cv.VideoCapture(206)
     print("setup cap, starting loop")
 
     if not cap.isOpened():
-        print("ERR")
-        #exit()
+        print("ERR CAP 1")
+        exit()
+    if not cap2.isOpened():
+        print("ERR CAP 2")
+        exit()
+
+# Trackbar settings:
+    hue_max = 169
+    sat_max = 255
+    val_max = 255
+    trackbar_uhue = trackbar_var(0)
+    trackbar_usat = trackbar_var(0)
+    trackbar_uval = trackbar_var(0)
+    trackbar_lhue = trackbar_var(0)
+    trackbar_lsat = trackbar_var(0)
+    trackbar_lval = trackbar_var(0)
+
+    cv.namedWindow(title_window)
+    cv.createTrackbar("uhue", title_window , 0, hue_max, trackbar_uhue.change)
+    cv.createTrackbar("usat", title_window , 0, sat_max, trackbar_usat.change)
+    cv.createTrackbar("uval", title_window , 0, val_max, trackbar_uval.change)
+
+    cv.createTrackbar("lhue", title_window , 0, hue_max, trackbar_lhue.change)
+    cv.createTrackbar("lsat", title_window , 0, sat_max, trackbar_lsat.change)
+    cv.createTrackbar("lval", title_window , 0, val_max, trackbar_lval.change)
 
     while cap.isOpened():
         while cap2.isOpened():
 
-            ret2, frame2 = cap.read()
-            ret, frame = cap.read()
-            print(ret)
+            ret2, frame2 = cap2.read()
+            ret, frame1 = cap.read()
+            #print(ret)
 
-            frame = cv.flip(frame, 0)
-            frame2 = cv.flip(frame2, 0)
+            # frame = cv.flip(frame, 0)
+            # frame2 = cv.flip(frame2, 0)
             # if frame is read correctly ret is True
-            if not ret or not ret2:
+            if not ret:
                 print("Can't receive frame (stream end?). Exiting ...")
                 break
 
-            threshold = 140
-            assignvalue = 255 # Value to assign the pixel if the threshold is met
-            threshold_method = cv.THRESH_BINARY
+            hsv1 = cv.cvtColor(frame1, cv.COLOR_BGR2HSV)
+            hsv2 = cv.cvtColor(frame2, cv.COLOR_BGR2HSV)
 
-            hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
+            lower_blue = np.array([trackbar_lhue.val, trackbar_lsat.val, trackbar_lval.val])
+            upper_blue = np.array([trackbar_uhue.val, trackbar_usat.val, trackbar_uval.val])
 
-            lower_blue = np.array([0,0,255])
-            upper_blue = np.array([255,255,255])
+            #rgb = cv.cvtColor(frame, cv.COLOR_RGB2BGR)
 
-            rgb = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
+            mask1 = cv.inRange(hsv1, lowerb=lower_blue, upperb=upper_blue)
+            mask2 = cv.inRange(hsv2, lowerb=lower_blue, upperb=upper_blue)
 
-            mask = cv.inRange(rgb, lower_blue, upper_blue)
-            _, result = cv.threshold(frame,threshold,assignvalue,threshold_method)
+            masked1 = cv.bitwise_and(hsv1, hsv1, mask=mask1)
+            masked2 = cv.bitwise_and(hsv2, hsv2, mask=mask2)
 
             params = cv.SimpleBlobDetector_Params()
 
@@ -106,21 +141,27 @@ def blob_dect(in_stream):
 
             detector = cv.SimpleBlobDetector_create(params)
 
-            keypoints = detector.detect(mask)
+            keypoints = detector.detect(mask1)
+            keypoints1 = detector.detect(mask2)
             points = np.array([key_point.pt for key_point in keypoints])
+            points1 = np.array([key_point.pt for key_point in keypoints1])
 
             for point in points:
-                #print(point)
-                #print(f"{int(point[0])}, {int(point[1])}")
-                #print(point.dtype)
-                cv.circle(mask, (int(point[0]),int(point[1])), 63, (255,255,255), 10)
+                cv.circle(mask1, (int(point[0]),int(point[1])), 63, (255,255,255), 10)
+            for point in points1:
+                cv.circle(mask2, (int(point[0]),int(point[1])), 63, (255,255,255), 10)
 
-            frame_w_keypoints = cv.drawKeypoints(mask, keypoints, np.array([]), (0,255,0), cv.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+            #frame_w_keypoints = cv.drawKeypoints(mask, keypoints, np.array([]), (0,255,0), cv.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
 
             cv.imshow("frame2", frame2)
-            cv.imshow("frame", frame)
-            cv.imshow("mask", mask)
-            cv.imshow("Blob Detection", frame_w_keypoints)
+            cv.imshow("frame1", frame1)
+            cv.imshow("mask1", mask1)
+            cv.imshow("mask2", mask2)
+            #cv.imshow("Blob Detection", frame_w_keypoints)
+            #cv.imshow("rgb", rgb)
+            #cv.imshow("hsv", hsv)
+            cv.imshow(title_window, masked1)
+            cv.imshow("masked 2", masked2)
 
             if cv.waitKey(1) == ord('q'):
                 break

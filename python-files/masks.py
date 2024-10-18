@@ -22,7 +22,8 @@ def main(args):
     #     mask(stream)
 
 def img_mask(args):
-    cap = cv.imread(cv.samples.findFile(args.input[0]))
+    #cap = cv.imread(cv.samples.findFile(args.input[0]))
+    cap = cv.VideoCapture(0)
 
     title_window = 'HSV Mask Test'
 
