@@ -13,10 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Thesis Meetings.md",
+                "file": "Automated Lighting - The Art and Science of Moving Light in Theatre.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Automated Lighting - The Art and Science of Moving Light in Theatre"
             }
           }
         ]
@@ -39,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -54,7 +58,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,7 +68,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -86,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Thesis Meetings.md",
+                "file": "Automated Lighting - The Art and Science of Moving Light in Theatre.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +102,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Automated Lighting - The Art and Science of Moving Light in Theatre"
             }
           },
           {
@@ -103,10 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Thesis Meetings.md",
+                "file": "Automated Lighting - The Art and Science of Moving Light in Theatre.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Automated Lighting - The Art and Science of Moving Light in Theatre"
             }
           },
           {
@@ -117,7 +129,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -126,8 +140,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Thesis Meetings.md"
-              }
+                "file": "Automated Lighting - The Art and Science of Moving Light in Theatre.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Automated Lighting - The Art and Science of Moving Light in Theatre"
             }
           }
         ]
@@ -149,11 +165,15 @@
   },
   "active": "c7e92361bdcd2adf",
   "lastOpenFiles": [
-    "Thesis Menu.md",
-    "Thesis Meetings.md",
-    "Log of progress.md",
+    "Patent_for_adjustible_projector.pdf",
+    "Initial Thesis Meeting.md",
+    "Thesis Notes.md",
+    "Automated Lighting - The Art and Science of Moving Light in Theatre.md",
     "Outlines.md",
+    "Thesis Menu.md",
     "Chapter 1 - History of Lighting Control.md",
+    "Log of progress.md",
+    "Thesis Meetings.md",
     "Design Requirements.md",
     "2024-09-05.md",
     "Graphix Menu.md",

@@ -1,5 +1,31 @@
 [[Thesis Menu]] <- Go up
 
+# Caleah Meeting
+
+## Various pathways to research
+* Psych of light/color, look outside of just light in live performance, and look at how light affects the body (SAD, how light creates an environment)
+* Look at interviews of lighting designers (check archive.org)
+* Does current lighting technology take away the "human element of a show"
+* History of lighting design for live music/rock performances (look around 1970's with performances around KISS and David Bowie)
+* History of the costs of theatrical equipment, and how it falls onto the consumer of art
+* Effect of this software on jobs.
+* Lighting in circus!! How do they track their people!?
+	* Connecticut catastrophe, how did lighting technology change in circus performance
+	* Hartford Circus Fire (Ringling Brothers) (1944)
+* Differences between how indoor and outdoor venues are lit
+## Research tips:
+- If you have a few pathways, start a google doc for each pathway and put all the information that you currently know.
+- Search library/websites for resources on that specific pathway, and compile little bibliographies for each pathway
+- Find what pathways are the most resource-rich, and focus further there.
+- Look for umbrella topics
+- USE https://libguides.reed.edu/theatre!!!
+- USE https://libguides.reed.edu/theatre/primary_historical_sources!!!
+- USE THE LIBGUIDES
+## Other notes:
+- Maybe reach out to Hopscotch artists and interview them
+- NYPL (look at their blog)
+# Peter Meeting & Jim Meeting
+Catch up on info
 # Peter Meeting 10/11
 Next week is a demo! Show Peter & Jim something!
 

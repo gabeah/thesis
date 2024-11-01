@@ -2,6 +2,9 @@
 [[Thesis Meetings]]
 Below is a log of progress made on the thesis. It serves to remind myself on all that I accomplished over the year. Here's hoping I continue to update it!!
 
+## 10/31/24 - 2 Cameras done! Now for some math stuff!!!
+Right before the break, in a burst of efficiency, we got two cameras to work at the same time. I have moved to start doing math (boo!). I also know I need to do more writing. Going to add some more below after I do more reading/writing
+
 ## 10/11/24 - Tracking is improving, now to just try to get more cameras working
 Interesting discoveries today. Looks like running more than one camera is pretty intensive on a USB hub. Looks like I need more than 1 USB controller for each. Luckily my laptop is capable of that.
 
