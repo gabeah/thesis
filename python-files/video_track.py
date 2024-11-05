@@ -6,10 +6,7 @@ import cv2 as cv
 import time
 import matplotlib.pyplot as plt
 import math
-from cv2_enumerate_cameras import enumerate_cameras
-
-def norm(vector, other_vector=np.array([0.0,0.0,0.0])):
-    return 
+from cv2_enumerate_cameras import enumerate_cameras 
 
 class Scene(object):
 
@@ -33,9 +30,6 @@ class Scene(object):
         pixel_size = hframe_mm / self.RESOLUTION[0]
         vframe_mm = pixel_size * self.RESOLUTION[1]
 
-
-
-    
 
 class Camera(object):
 
@@ -61,14 +55,76 @@ class Camera(object):
         self.up     = Camera.placeholder_val
         self.into   = Camera.placeholder_val
     
-    
+    def create_scene_frame(self):
+
+        vRange = np.array[-1,1]
+        hRange = np.array[-16/9, 16/9]
+        center_pixel = [self.RESOLUTION[0]/2,self.RESOLUTION[1]/2]
         
 
         # self.center = self.POS * (1/self.POS)
         # self.into = self.center
 
+def camera_dots_to_world(px1,py1,
+                        px2,py2):
+    DISTANCE_BETWEEN_CAMERAS = 2.0  # Meters between cameras
+    CAMERA_HEIGHT = 1.5             # Height of both cameras
+    MAX_X = 1920
+    MAX_Y = 1080
+    assert(MAX_X >= MAX_Y)
+    RATIO = MAX_X / MAX_Y
 
-        
+    FOV = 80.0 * 2.0 * math.pi / 180.0
+    FOV_RATIO = math.atan(FOV/2.0)
+
+    x1 = (2.0 * px1 / MAX_X - 1.0) * RATIO / FOV_RATIO
+    y1 = (2.0 * py1 / MAX_Y - 1.0)
+    x2 = (2.0 * px2 / MAX_X - 1.0) * RATIO / FOV_RATIO
+    y2 = (2.0 * py2 / MAX_Y - 1.0)
+
+    print(x1,y1)
+
+    x_y_z = frame2vector_cal(DISTANCE_BETWEEN_CAMERAS, x1, x2, y1, y2)
+    x = x_y_z[0]
+    y = x_y_z[1] + CAMERA_HEIGHT
+    z = x_y_z[2]
+
+    return np.array([x,y,z])
+
+def frame2vector_cal(D, x1, x2, y1, y2):
+
+    # D is distance between cameras
+    # x1 is meters from center on the 1 meter away screen
+    # x2 """" but offset by D
+    # y1 "" y SHOULD be equal across both screens
+    # y2 "" 
+
+    x = x1 * D / (x1-x2)
+    assert(abs(y1-y2) <= EPSILON)
+    y = y1 * D / (x1 - x2)
+    z = x / x1
+
+    return np.array([x,y,z])
+
+    # By Similar Triangles, x / x1 = z
+    #                       (D - x) / z == -x2
+    # Solving for z we get
+    #              (D - x) / (x / x1) == -x2
+    # Which means that
+    #               x = (D * x1) / (x1 - x2)
+    # as we wrote.
+
+    # This also means that
+    #               z = D / (x1 - x2)
+    # as written
+
+    # Note also that y / y1 = z
+    # That means that
+    #               y = z * y1
+
+
+    # Screen is 1m away, infinite projection screen
+    
 
 
 def main(args):
