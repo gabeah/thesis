@@ -1,5 +1,31 @@
 [[Thesis Menu]] <- Go up
 
+# Meeting with Peter 11/1:
+### What do I need to submit in writing in 2 weeks?
+- Introduction
+- Flushed out outline for Chapter 1.
+
+#### Structure of the thesis:
+- Introduction - adapted version of the thesis proposal (See guide)
+	- What is the motivation
+	- What is the scope
+	- What is the process
+	- Why is it important
+	- How will you approach it
+	- Maybe dive into the creation of the vari-light (how did the creation of the light drive the creation of other things)
+	- etc.
+- Chapter 1 (theatre history chapter) - background research / literature review
+	- I am making an argument that "liveness" has been taken away as lighting becomes more automated and timecoded
+	- Reverse centaur problems
+	- How did we get here?
+- Chapter 2 (the computer science i am engaging with)
+	- What is the CS problems
+	- How did I accomplish it/solve the problems?
+- Chapter 3 (the results and outcome???)
+	- How did this engage with the previous chapters
+
+By the end of the semester, I should submit about 20-25 pages.
+
 # Caleah Meeting
 
 ## Various pathways to research

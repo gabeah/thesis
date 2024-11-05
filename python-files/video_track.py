@@ -5,7 +5,55 @@ import argparse
 import cv2 as cv
 import time
 import matplotlib.pyplot as plt
+import math
 from cv2_enumerate_cameras import enumerate_cameras
+
+class Camera(object):
+
+    placeholder_val = None
+
+    def __init__(self, 
+                    id: int,            # camera id as assigned from enumerate_cameras()
+                    foc_len: float,     # float of focal_length in mm
+                    fov: int,           # int value of the horizontal FOV
+                    pos: (int, int, int),    # X,Y,Z position of the camera in mm
+                    resolution: (int, int) = (1920,1080),   # Set camera resolution
+                    origin: bool = False):                  # Is this camera the origin?
+        self.ID = id
+        self.POS = np.array(pos)
+        self.ORIGIN = origin
+        self.FOV = fov
+        self.FOCAL_LENGTH = foc_len
+        self.RESOLUTION = resolution
+        
+        # Create information for projection frame, to be calculated later
+        self.center = Camera.placeholder_val
+        self.right  = Camera.placeholder_val
+        self.up     = Camera.placeholder_val
+        self.into   = Camera.placeholder_val
+
+    def frame2vec(self, pixel_loc: [int, int]) -> [float, float, float]:
+        """
+        frame2vec:  take a pixel location and return a vector coming from the camera object
+                    and intersecting the image plane at the pixel location
+        
+        params:
+        @self = camera_object,
+        @pixel_loc = (x,y) location of the pixel
+        """
+
+        theta = self.FOV / 2
+        towards = np.array([0,0,self.FOCAL_LENGTH])
+        horizontal_frame = 2 * (np.tan(theta) * self.FOCAL_LENGTH)
+        pixel_size = horizontal_frame / self.RESOLUTION[0]
+        vertical_frame = pixel_size * self.RESOLUTION[1]
+
+        self.center = self.POS * (1/self.POS)
+        self.into = self.center
+
+
+        
+
 
 def main(args):
     
@@ -16,11 +64,15 @@ def main(args):
     #color_test()
 
     print(f"testing various streams")
-    for stream in args.input:
-        print(f"testing stream through video {stream}")
+    
+    if args.input:
+        for stream in args.input:
+            print(f"testing stream through video {stream}")
         
     # # capVid(stream)
-        blob_dect(stream)
+            blob_dect(stream)
+    else:
+        blob_dect()
 
 
 class trackbar_var(object):
@@ -30,46 +82,10 @@ class trackbar_var(object):
         print("CHANGING")
         self.val = val
 
-def color_test():
-    print(f"Testing colors")
-
-    img = np.ones((720,720,3), dtype=np.uint8)
-    mult_r = np.array([0,0,255], dtype=np.uint8)
-    mult_g = np.array([0,255,0], dtype=np.uint8)
-    mult_b = np.array([255,0,0], dtype=np.uint8)
-
-    red = mult_r * img
-    grn = mult_g * img
-    blu = mult_b * img
-
-    red2 = cv.cvtColor(red, cv.COLOR_RGB2BGR)
-    grn2 = cv.cvtColor(grn, cv.COLOR_RGB2BGR)
-    blu2 = cv.cvtColor(blu, cv.COLOR_RGB2BGR)
-
-    # Not sure what this is doing, I should avoid HSV work
-    hsv0 = cv.cvtColor(red, cv.COLOR_RGB2HSV)
-    hsv1 = cv.cvtColor(grn, cv.COLOR_RGB2HSV)
-    hsv2 = cv.cvtColor(blu, cv.COLOR_RGB2HSV)
-
-    print(f"rendering...")
-    cv.imshow("red", red)
-    cv.imshow("grn", grn)
-    cv.imshow("blu", blu)
-
-    cv.imshow("red2", red2)
-    cv.imshow("grn2", grn2)
-    cv.imshow("blu2", blu2)
-
-    cv.imshow("hsv0", hsv0)
-    cv.imshow("hsv1", hsv1)
-    cv.imshow("hsv2", hsv2)
-    cv.waitKey(0)
-
-
-def blob_dect(in_stream):
+def blob_dect(in_stream=None):
     # Try to get a video captured
     title_window = "mask result"
-    fstream = in_stream
+    #fstream = in_stream
     print("opening cap 1")
     cap = cv.VideoCapture(2)
     print("opening cap 2")
@@ -166,9 +182,30 @@ def blob_dect(in_stream):
             if cv.waitKey(1) == ord('q'):
                 break
         break
-        
+    print(f"Lower Blue Final Value: {lower_blue}\nUpper Blue Final Value: {upper_blue}")
+
     cap.release()
     cv.destroyAllWindows()
+
+def triangulate(cam1, cam2, distance):
+    # Add some stuff for the cameras, cam1 and cam2 are cam.type() objects
+    # All measurements will be in metric
+    # nexigo cam focal_length = 4.35mm
+    print(f"triangulating with {cam1.id} and {cam2.id}")
+    if cam1.origin == True:
+        assert cam1.pos == [0,0], "Not origin value"
+        origin = cam1
+    elif cam2.origin == True:
+        assert cam2.pos == [0,0], "Not origin value"
+        origin = cam2
+    else: assert False, "Mark a camera as an origin!"
+
+    assert cam1.focal_length == cam2.focal_length, "mismatch in focal_length"
+
+    D = distance
+
+
+
 
 
 
@@ -244,6 +281,41 @@ def capVid(in_stream):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--input', nargs='+', help="input video/stream(s)")
+    parser.add_argument('--input', nargs='?', help="input video/stream(s)")
     args = parser.parse_args()
     main(args)
+
+# def color_test():
+#     print(f"Testing colors")
+
+#     img = np.ones((720,720,3), dtype=np.uint8)
+#     mult_r = np.array([0,0,255], dtype=np.uint8)
+#     mult_g = np.array([0,255,0], dtype=np.uint8)
+#     mult_b = np.array([255,0,0], dtype=np.uint8)
+
+#     red = mult_r * img
+#     grn = mult_g * img
+#     blu = mult_b * img
+
+#     red2 = cv.cvtColor(red, cv.COLOR_RGB2BGR)
+#     grn2 = cv.cvtColor(grn, cv.COLOR_RGB2BGR)
+#     blu2 = cv.cvtColor(blu, cv.COLOR_RGB2BGR)
+
+#     # Not sure what this is doing, I should avoid HSV work
+#     hsv0 = cv.cvtColor(red, cv.COLOR_RGB2HSV)
+#     hsv1 = cv.cvtColor(grn, cv.COLOR_RGB2HSV)
+#     hsv2 = cv.cvtColor(blu, cv.COLOR_RGB2HSV)
+
+#     print(f"rendering...")
+#     cv.imshow("red", red)
+#     cv.imshow("grn", grn)
+#     cv.imshow("blu", blu)
+
+#     cv.imshow("red2", red2)
+#     cv.imshow("grn2", grn2)
+#     cv.imshow("blu2", blu2)
+
+#     cv.imshow("hsv0", hsv0)
+#     cv.imshow("hsv1", hsv1)
+#     cv.imshow("hsv2", hsv2)
+#     cv.waitKey(0)
