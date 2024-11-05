@@ -8,6 +8,35 @@ import matplotlib.pyplot as plt
 import math
 from cv2_enumerate_cameras import enumerate_cameras
 
+def norm(vector, other_vector=np.array([0.0,0.0,0.0])):
+    return 
+
+class Scene(object):
+
+    def __init__(self, camera1, camera2):
+        self.cam1 = camera1
+        self.cam2 = camera2
+
+    def frame2vec(self, pixel_loc: [int, int]) -> [float, float, float]:
+        """
+        frame2vec:  take a pixel location and return a vector coming from the camera object
+                    and intersecting the image plane at the pixel location
+        
+        params:
+        @self = camera_object,
+        @pixel_loc = (x,y) location of the pixel
+        """
+
+        theta = self.FOV / 2
+        towards = np.array([0,0,self.FOCAL_LENGTH])
+        hframe_mm = 2 * (np.tan(theta) * self.FOCAL_LENGTH)
+        pixel_size = hframe_mm / self.RESOLUTION[0]
+        vframe_mm = pixel_size * self.RESOLUTION[1]
+
+
+
+    
+
 class Camera(object):
 
     placeholder_val = None
@@ -31,25 +60,12 @@ class Camera(object):
         self.right  = Camera.placeholder_val
         self.up     = Camera.placeholder_val
         self.into   = Camera.placeholder_val
-
-    def frame2vec(self, pixel_loc: [int, int]) -> [float, float, float]:
-        """
-        frame2vec:  take a pixel location and return a vector coming from the camera object
-                    and intersecting the image plane at the pixel location
+    
+    
         
-        params:
-        @self = camera_object,
-        @pixel_loc = (x,y) location of the pixel
-        """
 
-        theta = self.FOV / 2
-        towards = np.array([0,0,self.FOCAL_LENGTH])
-        horizontal_frame = 2 * (np.tan(theta) * self.FOCAL_LENGTH)
-        pixel_size = horizontal_frame / self.RESOLUTION[0]
-        vertical_frame = pixel_size * self.RESOLUTION[1]
-
-        self.center = self.POS * (1/self.POS)
-        self.into = self.center
+        # self.center = self.POS * (1/self.POS)
+        # self.into = self.center
 
 
         
