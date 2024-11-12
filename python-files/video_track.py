@@ -7,6 +7,9 @@ import time
 import matplotlib.pyplot as plt
 import math
 from cv2_enumerate_cameras import enumerate_cameras 
+import graphics as g
+
+EPSILON = 0.05
 
 class Scene(object):
 
@@ -75,7 +78,7 @@ def camera_dots_to_world(px1,py1,
     RATIO = MAX_X / MAX_Y
 
     FOV = 80.0 * 2.0 * math.pi / 180.0
-    FOV_RATIO = math.atan(FOV/2.0)
+    FOV_RATIO = math.tan(FOV/2.0)
 
     x1 = (2.0 * px1 / MAX_X - 1.0) * RATIO / FOV_RATIO
     y1 = (2.0 * py1 / MAX_Y - 1.0)
@@ -125,6 +128,53 @@ def frame2vector_cal(D, x1, x2, y1, y2):
 
     # Screen is 1m away, infinite projection screen
     
+def graphics_loop():
+    win = g.GraphWin("My Circle", 1920, 1080)
+    c = g.Circle(g.Point(50,50), 10)
+    c.draw(win)
+
+    tESTING_INPUT = "testing_input"
+
+    cv_bg = np.ones((1080,1920,3), dtype=np.uint8)
+    cv_mult = np.array([255,255,255], dtype=np.uint8)
+
+    cv_blk = cv_mult * cv_bg
+
+    cv.namedWindow(tESTING_INPUT, cv.WINDOW_AUTOSIZE)
+    lcx = trackbar_var(640)
+    rcx = trackbar_var(1280)
+    cv.createTrackbar("LCX", tESTING_INPUT, 0, 1920, lcx.change)
+    cv.createTrackbar("RCX", tESTING_INPUT, 0, 1920, rcx.change)
+
+    while True:
+
+        cv_mult = np.array([255,255,255], dtype=np.uint8)
+
+        cv_blk = cv_mult * cv_bg
+
+        # Visualize the circles
+        cv.circle(cv_blk, (lcx.val, 540), 30, (255,0,255), 15)
+        cv.circle(cv_blk, (rcx.val, 540), 30, (0,255,255), 15)
+
+        cv.imshow(tESTING_INPUT, cv_blk)
+
+        cam1 = g.Circle(g.Point(640,1080), 100)
+        cam2 = g.Circle(g.Point(1280,1080), 100)
+        cam1.draw(win)
+        cam2.draw(win)
+
+        cam1_proj = g.Line(g.Point(640,1080), g.Point(lcx.val, 0))
+        cam1_proj.undraw()
+        cam1_proj.draw(win)
+
+        if cv.waitKey(1) == ord('q'):
+                break        
+
+    #win.getMouse() # pause for click in window
+
+    cv.destroyAllWindows()
+
+    win.close()
 
 
 def main(args):
@@ -135,6 +185,8 @@ def main(args):
 
     #color_test()
 
+    graphics_loop()
+
     print(f"testing various streams")
     
     if args.input:
@@ -143,15 +195,15 @@ def main(args):
         
     # # capVid(stream)
             blob_dect(stream)
-    else:
-        blob_dect()
+    # else:
+    #     blob_dect()
 
 
 class trackbar_var(object):
     def __init__(self, val=0):
         self.val = val
     def change(self, val):
-        print("CHANGING")
+        #print("CHANGING")
         self.val = val
 
 def blob_dect(in_stream=None):

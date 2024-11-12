@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Thesis Menu.md",
+                "file": "Thesis Meetings.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Thesis Menu"
+              "title": "Thesis Meetings"
             }
           }
         ]
@@ -149,6 +149,7 @@
   },
   "active": "2d0dea0c11777eff",
   "lastOpenFiles": [
+    "Thesis Menu.md",
     "Graphix Menu.md",
     "Design Requirements.md",
     "2024-09-05.md",
@@ -156,7 +157,6 @@
     "Log of progress.md",
     "Thesis Meetings.md",
     "Chapter 1 - History of Lighting Control.md",
-    "Thesis Menu.md",
     "Hello World!.md",
     "Notes/06-04@1400.md",
     "CNB_Paper_Notes.md",
