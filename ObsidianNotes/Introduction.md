@@ -38,10 +38,20 @@ most economically powerful countries, and I believe that a design that utilizes 
 
 *"There is a living principle in lighting, second only to that of the actor himself"* - Hiram K. Moderwell
 
-A dreaded moment that every stage technician knows is the drop in the pit of the stomach when a cue
+A dreaded moment for every lighting designer is when--during a show--a performer steps into a pool of light, and is only partially illuminated
+
+Lighting is missing a certain magic or alchemy (see Anne Bogart's Magnetism)
 
 How do we make lighting feel “live” again? As the technology for controlling lights has
 advanced, the lighting design for shows has gotten more complicated, but all programmed
 (save for some few spotlight operators). Although convenient, and necessary for
 high-complexity shows, sometimes that design fails to feel “live”, and does not keep the
-audience on the edge of their seat.
+audience on the edge of their seat, save for the inevitable mistake. 
+
+This thesis covers the creation process of show control software that tracks a performer in a theatrical space and trains a moving light onto them. This software is not a new concept in any means.
+
+---
+
+This thesis explores lighting control, specifically for live performance. It will take a look at how lighting was originally controlled manually, how the technology has advanced to today through the use of time coding, and proposes a system for control that is reactive to a performer. Lighting control has advanced at a breakneck speed over the past half-century as the world entered a digital age. Where lighting control rooms were packed with levers and room-scale dimming racks now sit lighting desks, or even just a laptop. As the technology for controlling lights has advanced, the lighting design for live performances has gotten more complicated, while being largely prerecorded. Thus, while a designer's vision is accomplished in collaboration with the director and performers, it stays static barring catastrophe.
+
+This thesis attempts to create a lighting control scheme that tracks a performer through a theatrical space. It is a reactive scheme that hopes to meet a few criteria: 1) The scheme must be lightweight; 2) The scheme must be able to run using off-the-shelf components and computing resources; 3) The scheme must be open source; 4) The scheme should run on top of existing theater infrastructure. 

@@ -1,5 +1,10 @@
 [[Thesis Menu]] <- Go up
 
+# jim
+- Plenoptic modeling
+- Get the cameras set up
+- also know that in the spring, I will have to actually care about the literature for the CS components, likely looking at how to generalize the program
+
 # Meeting with Peter 11/1:
 ### What do I need to submit in writing in 2 weeks?
 - Introduction
