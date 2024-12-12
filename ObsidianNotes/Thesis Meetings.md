@@ -1,5 +1,24 @@
 [[Thesis Menu]] <- Go up
 
+# Jim 12/3
+
+Talk about 3 technical specifics for CS-component
+- What is an image/how do we threshold an image
+- What is blob detection/ how er we use it
+- How do we locate someone in a space/what is the math for it
+Write 3-5 paragraphs and add pseudocode and images for each and send to Jim. That can easily take up multiple pages
+# Jim 11/19:
+
+Chapter 2 - CS Lit / Preliminaries
+- There is a chapter 4 problem that needs to be discussed
+	- Covering the basic CS concepts of blob detection / image processing / stereo
+# Peter 11/15:
+
+Initial thoughts on the writings:
+- Appia's thoughts around dance & movement cam serve as a good anchor
+- Also check out Joseph Svoboda
+- CHAPTER 1 IS DUE 12/6 AT NOON!!!! DON'T BE LATE!!!!
+- Thesis mini-oral is on 12/13 at 9am!!!
 # jim
 - Plenoptic modeling
 - Get the cameras set up

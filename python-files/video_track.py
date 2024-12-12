@@ -129,7 +129,7 @@ def frame2vector_cal(D, x1, x2, y1, y2):
     # Screen is 1m away, infinite projection screen
     
 def graphics_loop():
-    win = g.GraphWin("My Circle", 1920, 1080)
+    win = g.GraphWin("Graphic Demo", 1920, 1080)
     c = g.Circle(g.Point(50,50), 10)
     c.draw(win)
 
@@ -149,7 +149,6 @@ def graphics_loop():
     while True:
 
         cv_mult = np.array([255,255,255], dtype=np.uint8)
-
         cv_blk = cv_mult * cv_bg
 
         # Visualize the circles
@@ -408,38 +407,3 @@ if __name__ == '__main__':
     parser.add_argument('--input', nargs='?', help="input video/stream(s)")
     args = parser.parse_args()
     main(args)
-
-# def color_test():
-#     print(f"Testing colors")
-
-#     img = np.ones((720,720,3), dtype=np.uint8)
-#     mult_r = np.array([0,0,255], dtype=np.uint8)
-#     mult_g = np.array([0,255,0], dtype=np.uint8)
-#     mult_b = np.array([255,0,0], dtype=np.uint8)
-
-#     red = mult_r * img
-#     grn = mult_g * img
-#     blu = mult_b * img
-
-#     red2 = cv.cvtColor(red, cv.COLOR_RGB2BGR)
-#     grn2 = cv.cvtColor(grn, cv.COLOR_RGB2BGR)
-#     blu2 = cv.cvtColor(blu, cv.COLOR_RGB2BGR)
-
-#     # Not sure what this is doing, I should avoid HSV work
-#     hsv0 = cv.cvtColor(red, cv.COLOR_RGB2HSV)
-#     hsv1 = cv.cvtColor(grn, cv.COLOR_RGB2HSV)
-#     hsv2 = cv.cvtColor(blu, cv.COLOR_RGB2HSV)
-
-#     print(f"rendering...")
-#     cv.imshow("red", red)
-#     cv.imshow("grn", grn)
-#     cv.imshow("blu", blu)
-
-#     cv.imshow("red2", red2)
-#     cv.imshow("grn2", grn2)
-#     cv.imshow("blu2", blu2)
-
-#     cv.imshow("hsv0", hsv0)
-#     cv.imshow("hsv1", hsv1)
-#     cv.imshow("hsv2", hsv2)
-#     cv.waitKey(0)

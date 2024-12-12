@@ -173,3 +173,97 @@ def blob_dect(cam0_ID=2, cam1_ID=206):
     # release all the cameras and close all windows
     cap.release()
     cv.destroyAllWindows()
+
+def camera_dots_to_world(px1,py1,
+                        px2,py2):
+    """
+    camera_dots_to_world: Takes the input x,y of a blob in each camera and calculates the real-world
+    position of an object. This is used in conjunction with `blob_detect()`.
+
+    Inputs:
+    px1 - x-position of a blob detected in camera 1
+    py1 - y-position of a blob detected in camera 1
+    px2 - x-position ""                 "" camera 2
+    py2 - y-position ""                 "" camera 2
+
+    created in collaboration with Jim Fix
+    """
+    DISTANCE_BETWEEN_CAMERAS = 2.0  # Meters between cameras
+    CAMERA_HEIGHT = 1.5             # Height of both cameras
+    MAX_X = 1920                    # MAX_X and MAX_Y are the max frame size of an image
+    MAX_Y = 1080
+    assert(MAX_X >= MAX_Y)
+    RATIO = MAX_X / MAX_Y           # Aspect Ratio
+
+    FOV = 80.0 * 2.0 * math.pi / 180.0  # FOV taken from the cameras that are used in this thesis
+    FOV_RATIO = math.tan(FOV/2.0)
+
+
+    # The following lines takes a pixel location and converts it to a metric location, essentially locating the blob on a
+    # 1m x 16/9m screen, located 1m away from the cameras. It also reestablishes the blobs to be in relation to where the centerpoint of a camera is located
+
+    # Takes the x_position of the blob in the first camera and converts it from a range of -1.0 to 1.0, then multiplies by
+    # both the aspect ratio and the fov ratio to account for warping and the aspect ratio
+    x1 = (2.0 * px1 / MAX_X - 1.0) * RATIO / FOV_RATIO 
+    # we do not multiply the y_values by the ratios because we want to standardize for all y_values to be between -1.0 and 1.0
+    y1 = (2.0 * py1 / MAX_Y - 1.0)
+
+    # Same calculation but for the blob in the second window
+    x2 = (2.0 * px2 / MAX_X - 1.0) * RATIO / FOV_RATIO
+    y2 = (2.0 * py2 / MAX_Y - 1.0)
+
+    print(x1,y1)
+
+    # Now that we have physical locations, we run frame2vector_cal to find where vectors that intersect at x,y locations on each
+    # plane would intersect in 3-space
+    x_y_z = frame2vector_cal(DISTANCE_BETWEEN_CAMERAS, x1, x2, y1, y2)
+    
+    # Finally, we need to do a quick modification to adjust for camera height
+    x = x_y_z[0]
+    y = x_y_z[1] + CAMERA_HEIGHT
+    z = x_y_z[2]
+
+    return np.array([x,y,z])
+
+def frame2vector_cal(D, x1, x2, y1, y2):
+    """
+    frame2vector_cal: A function that takes the distance between 2 values, and the location in meters on where blobs
+    are located on a theoretical screen 1m away.
+
+    Inputs:
+    # D is distance between cameras
+    # x1 is meters from camera1_center on the 1 meter away screen
+    # x2 is meters from camera1_center on the 1 meter away screen but offset by D (which should be camera2_center)
+    # y1 "" y SHOULD be equal across both screens
+    # y2 "" 
+
+    Outputs:
+    (x,y,z) numpy array giving the actual location
+    Written in collaboration with Jim Fix
+    """
+    x = x1 * D / (x1-x2)
+    assert(abs(y1-y2) <= EPSILON)
+    y = y1 * D / (x1 - x2)
+    z = x / x1
+
+    return np.array([x,y,z])
+
+    # By Similar Triangles, x / x1 = z
+    #                       (D - x) / z == -x2
+    # Solving for z we get
+    #              (D - x) / (x / x1) == -x2
+    # Which means that
+    #               x = (D * x1) / (x1 - x2)
+    # as we wrote.
+
+    # This also means that
+    #               z = D / (x1 - x2)
+    # as written
+
+    # Note also that y / y1 = z
+    # That means that
+    #               y = z * y1
+
+
+    # Screen is 1m away, infinite projection screen
+    
