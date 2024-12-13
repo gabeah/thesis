@@ -687,7 +687,20 @@ class Line(_BBox):
             raise GraphicsError(BAD_OPTION)
         self._reconfig("arrow", option)
         
+# Added Vector Class(?) which just allows us to push it through a point
+class Vec2D(Line):
 
+    def __init__(self, p1, p2):
+        print(f"locations: y values: {p2.y,p1.y}, x values: {p2.x,p1.x}")
+        if abs(p2.x - p1.x) > 0.000000000001: 
+            slope = (p2.y-p1.y) / (p2.x-p1.x)
+            startPoint = p1
+            endPoint = (int(p1.x + (p2.y-p1.y)/slope),0)
+        else:
+            startPoint = p1
+            endPoint = (p1.x, 0)
+        Line.__init__(self, startPoint, Point(*endPoint))
+ 
 class Polygon(GraphicsObject):
     
     def __init__(self, *points):
