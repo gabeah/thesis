@@ -64,13 +64,26 @@ def blob_dect(upper_blu=None, lower_blu=None):
         cv.createTrackbar("lsat", title_window , 0, sat_max, trackbar_lsat.change)
         cv.createTrackbar("lval", title_window , 0, val_max, trackbar_lval.change)
 
-    win = g.GraphWin("Graphic Demo", 1500, 1500)
-    cam1_loc = (0,1500)
-    cam2_loc = (cam1_loc[0] + 1552,1500)
-    cam1 = g.Circle(g.Point(*cam1_loc), 100)
-    cam2 = g.Circle(g.Point(*cam2_loc), 100)
-    cam1.draw(win)
-    cam2.draw(win)
+    fig = plt.figure()
+    ax = fig.add_subplot()
+    ax.set_xlim(-100,100)
+    ax.set_ylim(-100,100)
+
+    # Move left y-axis and bottom x-axis to centre, passing through (0,0)
+    ax.spines['left'].set_position('center')
+    ax.spines['bottom'].set_position('center')
+
+    # Eliminate upper and right axes
+    ax.spines['right'].set_color('none')
+    ax.spines['top'].set_color('none')
+
+    x_locs = [0]
+    y_locs = [0]
+    z_locs = [0]
+
+    ax.plot(0,0,"bo")
+    plt.show(block=False)
+
 
 
     while cap.isOpened():
@@ -139,18 +152,20 @@ def blob_dect(upper_blu=None, lower_blu=None):
             cv.imshow("masked 2", masked2)
 
             try:
-                px1 = points[0][0] # pull the first point and see what happens
-                px2 = points1[0][0]
-                print("good")
-                cam1_proj = g.Vec2D(g.Point(*cam1_loc), g.Point(lcx.val, 540))
-                cam2_proj = g.Vec2D(g.Point(*cam2_loc), g.Point(rcx.val, 540))
-                cam2_proj.undraw()
-                cam2_proj.draw(win)
-                cam1_proj.undraw()
-                cam1_proj.draw(win)
+                p1 = points[0]
+                p2 = points1[0]
+                intersect = camera_dots_to_world(p1[0], p1[1],p2[0],p2[1])
+                print("got through intersect")
+                print(intersect)
+                print("clearing")
+                ax.plot(intersect[0],intersect[2], "r+")
+                # x_locs.append(intersect[0])
+                # y_locs.append(intersect[1])
+                # z_locs.append(intersect[2])
+                fig.canvas.draw()
+                print(f"updated?")
             except:
                 print("bad")
-
             if cv.waitKey(1) == ord('q'):
                 break
         break
@@ -158,6 +173,49 @@ def blob_dect(upper_blu=None, lower_blu=None):
 
     cap.release()
     cv.destroyAllWindows()
+
+def camera_dots_to_world(px1,py1,
+                        px2,py2):
+    DISTANCE_BETWEEN_CAMERAS = 2.0  # Meters between cameras
+    CAMERA_HEIGHT = 1.5             # Height of both cameras
+    MAX_X = 1920
+    MAX_Y = 1080
+    assert(MAX_X >= MAX_Y)
+    RATIO = MAX_X / MAX_Y
+
+    FOV = 80.0 * math.pi / 180.0
+    FOV_RATIO = math.tan(FOV/2.0)
+
+    x1 = (2.0 * px1 / MAX_X - 1.0) * RATIO / FOV_RATIO
+    y1 = (2.0 * py1 / MAX_Y - 1.0)
+    x2 = (2.0 * px2 / MAX_X - 1.0) * RATIO / FOV_RATIO
+    y2 = (2.0 * py2 / MAX_Y - 1.0)
+
+    print(f"{x1},{y1} starting dist cal")
+
+    x_y_z = frame2vector_cal(DISTANCE_BETWEEN_CAMERAS, x1, x2, y1, y2)
+    x = x_y_z[0]
+    y = x_y_z[1] + CAMERA_HEIGHT
+    z = x_y_z[2]
+
+    return np.array([x,y,z])
+
+def frame2vector_cal(D, x1, x2, y1, y2):
+
+    # D is distance between cameras
+    # x1 is meters from center on the 1 meter away screen
+    # x2 """" but offset by D
+    # y1 "" y SHOULD be equal across both screens
+    # y2 "" 
+    print("distcal")
+    x = x1 * D / (x1-x2)
+    print("x worked")
+    #assert(abs(y1-y2) <= EPSILON, "no similar y")
+    print("assert worked")
+    y = y1 * D / (x1 - x2)
+    z = x / x1
+
+    return np.array([x,y,z])
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

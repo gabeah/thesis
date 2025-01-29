@@ -1,5 +1,10 @@
 [[Thesis Menu]] <- Go up
 
+# Jim 1/29
+We're back!!
+
+Keep the software simple!
+Get writing!! There are a lot of different things you have the ability to 
 # Jim 12/3
 
 Talk about 3 technical specifics for CS-component
