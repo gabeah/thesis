@@ -1,6 +1,10 @@
 # Prerequisites
 *.d
 
+# Ignored Files
+*.png
+*.dat
+
 # Compiled Object files
 *.slo
 *.lo
