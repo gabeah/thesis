@@ -1,0 +1,4 @@
+menu_items:
+  - calibrate_camera
+  - run_video_track
+  - quit
