@@ -22,7 +22,7 @@ def DLT(P1, P2, point1, point2):
     B = A.transpose() @ A
     U, s, Vh = linalg.svd(B, full_matrices = False)
 
-    #print('Triangulated point: ')
+    print('Triangulated point: ')
     #print(Vh[3,0:3]/Vh[3,3])
     return Vh[3,0:3]/Vh[3,3]
 
@@ -522,7 +522,7 @@ def get_cam1_to_world_transforms(cmtx0, dist0, R_W0, T_W0,
     return R_W1, T_W1
 
 
-def save_extrinsic_calibration_parameters(R0, T0, R1, T1, prefix = ''):
+def save_extrinsic_calibration_parameters(R0, T0, R1, T1, lower_blue, upper_blue, prefix = ''):
     
     #create folder if it does not exist
     if not os.path.exists('camera_parameters'):
@@ -561,25 +561,33 @@ def save_extrinsic_calibration_parameters(R0, T0, R1, T1, prefix = ''):
         outf.write('\n')
     outf.close()
 
+    camera_mask_filename = os.path.join('camera_parameters', prefix + 'camera_mask_results.dat')
+    outf = open(camera_mask_filename, 'w')
+
+    outf.write(f'Lower Blue Values: {lower_blue} \n')
+    outf.write(f'Upper Blue Values: {upper_blue} \n')
+    outf.close()
+
     return R0, T0, R1, T1
 
 def triangulate(cam0_points, cam1_points, mtx1, mtx2, R, T):
 # Modified from original code by Temudge Batpurev
  
+    
     uvs1 = np.array(cam0_points)
     uvs2 = np.array(cam1_points)
  
+    # Not needed, this is to overlay the premade points
+    # frame1 = cv.imread('testing/_C1.png')
+    # frame2 = cv.imread('testing/_C2.png')
  
-    frame1 = cv.imread('testing/_C1.png')
-    frame2 = cv.imread('testing/_C2.png')
+    # plt.imshow(frame1[:,:,[2,1,0]])
+    # plt.scatter(uvs1[:,0], uvs1[:,1])
+    # plt.show() #this call will cause a crash if you use cv.imshow() above. Comment out cv.imshow() to see this.
  
-    plt.imshow(frame1[:,:,[2,1,0]])
-    plt.scatter(uvs1[:,0], uvs1[:,1])
-    plt.show() #this call will cause a crash if you use cv.imshow() above. Comment out cv.imshow() to see this.
- 
-    plt.imshow(frame2[:,:,[2,1,0]])
-    plt.scatter(uvs2[:,0], uvs2[:,1])
-    plt.show()#this call will cause a crash if you use cv.imshow() above. Comment out cv.imshow() to see this
+    # plt.imshow(frame2[:,:,[2,1,0]])
+    # plt.scatter(uvs2[:,0], uvs2[:,1])
+    # plt.show()#this call will cause a crash if you use cv.imshow() above. Comment out cv.imshow() to see this
  
     #RT matrix for C1 is identity.
     RT1 = np.concatenate([np.eye(3), [[0],[0],[0]]], axis = -1)
@@ -631,8 +639,107 @@ def triangulate(cam0_points, cam1_points, mtx1, mtx2, R, T):
     #uncomment to see the triangulated pose. This may cause a crash if youre also using cv.imshow() above.
     #plt.show()
 
-if __name__ == '__main__':
+def calib_mask():
 
+    cap0 = cv.VideoCapture(calibration_settings[camera0_name])
+    cap1 = cv.VideoCapture(calibration_settings[camera1_name])
+
+    title_window = "mask result"
+
+    if not cap0.isOpened():
+        print("ERR CAP 1")
+        exit()
+    if not cap1.isOpened():
+        print("ERR CAP 2")
+        exit()
+
+# Trackbar settings:
+    hue_max = 169
+    sat_max = 255
+    val_max = 255
+    trackbar_uhue = trackbar_var(0)
+    trackbar_usat = trackbar_var(0)
+    trackbar_uval = trackbar_var(0)
+    trackbar_lhue = trackbar_var(0)
+    trackbar_lsat = trackbar_var(0)
+    trackbar_lval = trackbar_var(0)
+
+    cv.namedWindow(title_window)
+    cv.createTrackbar("uhue", title_window , 0, hue_max, trackbar_uhue.change)
+    cv.createTrackbar("usat", title_window , 0, sat_max, trackbar_usat.change)
+    cv.createTrackbar("uval", title_window , 0, val_max, trackbar_uval.change)
+
+    cv.createTrackbar("lhue", title_window , 0, hue_max, trackbar_lhue.change)
+    cv.createTrackbar("lsat", title_window , 0, sat_max, trackbar_lsat.change)
+    cv.createTrackbar("lval", title_window , 0, val_max, trackbar_lval.change)
+
+    while cap0.isOpened():
+        while cap1.isOpened():
+
+            ret0, frame0 = cap0.read()
+            ret, frame1 = ca1.read()
+            #print(ret)
+
+            # frame = cv.flip(frame, 0)
+            # frame2 = cv.flip(frame2, 0)
+            # if frame is read correctly ret is True
+            if not ret:
+                print("Can't receive frame (stream end?). Exiting ...")
+                break
+
+            hsv0 = cv.cvtColor(frame0, cv.COLOR_BGR2HSV)
+            hsv1 = cv.cvtColor(frame1, cv.COLOR_BGR2HSV)
+
+            lower_blue = np.array([trackbar_lhue.val, trackbar_lsat.val, trackbar_lval.val])
+            upper_blue = np.array([trackbar_uhue.val, trackbar_usat.val, trackbar_uval.val])
+
+            #rgb = cv.cvtColor(frame, cv.COLOR_RGB2BGR)
+
+            mask0 = cv.inRange(hsv0, lowerb=lower_blue, upperb=upper_blue)
+            mask1 = cv.inRange(hsv1, lowerb=lower_blue, upperb=upper_blue)
+
+            masked0 = cv.bitwise_and(hsv0, hsv0, mask=mask0)
+            masked1 = cv.bitwise_and(hsv1, hsv1, mask=mask1)
+
+            params = cv.SimpleBlobDetector_Params()
+
+            params.filterByArea = True
+            params.minArea = 100
+            params.filterByCircularity = False
+            params.filterByConvexity = False
+            params.filterByInertia = True
+
+            detector = cv.SimpleBlobDetector_create(params)
+
+            keypoints = detector.detect(mask1)
+            keypoints1 = detector.detect(mask2)
+            points = np.array([key_point.pt for key_point in keypoints])
+            points1 = np.array([key_point.pt for key_point in keypoints1])
+
+            for point in points:
+                cv.circle(mask1, (int(point[0]),int(point[1])), 63, (255,255,255), 10)
+            for point in points1:
+                cv.circle(mask2, (int(point[0]),int(point[1])), 63, (255,255,255), 10)
+
+            cv.imshow("frame2", frame2)
+            cv.imshow("frame1", frame1)
+            cv.imshow("mask1", mask1)
+            cv.imshow("mask2", mask2)
+            #cv.imshow("Blob Detection", frame_w_keypoints)
+            #cv.imshow("rgb", rgb)
+            #cv.imshow("hsv", hsv)
+            cv.imshow(title_window, masked1)
+            cv.imshow("masked 2", masked2)
+
+            if cv.waitKey(1) == ord(' '):
+                print(f"Lower Blue Final Value: {lower_blue}\nUpper Blue Final Value: {upper_blue}")
+                cv.destroyAllWindows
+                return lower_blue, upper_blue
+            
+        
+
+if __name__ == '__main__':
+    
     if len(sys.argv) != 2:
         print('Call with settings filename: "python3 calibrate.py calibration_settings.yaml"')
         quit()
@@ -667,17 +774,22 @@ if __name__ == '__main__':
     R, T = stereo_calibrate(cmtx0, dist0, cmtx1, dist1, frames_prefix_c0, frames_prefix_c1)
 
 
-    """Step5. Save calibration data where camera0 defines the world space origin."""
+    """Step5. Open both camera feeds and modify the masking for the feeds to detect the LED well."""
+    # Added to the process!!
+    upper_blue, lower_blue = calib_mask()
+
+    """Step6. Save calibration data where camera0 defines the world space origin."""
     #camera0 rotation and translation is identity matrix and zeros vector
     R0 = np.eye(3, dtype=np.float32)
     T0 = np.array([0., 0., 0.]).reshape((3, 1))
 
-    save_extrinsic_calibration_parameters(R0, T0, R, T) #this will write R and T to disk
+    save_extrinsic_calibration_parameters(R0, T0, R, T, upper_blue, lower_blue) #this will write R and T to disk
     R1 = R; T1 = T #to avoid confusion, camera1 R and T are labeled R1 and T1
     #check your calibration makes sense
     camera0_data = [cmtx0, dist0, R0, T0]
     camera1_data = [cmtx1, dist1, R1, T1]
     check_calibration('camera0', camera0_data, 'camera1', camera1_data, _zshift = 60.)
+
 
 
     """Optional. Define a different origin point and save the calibration data"""
@@ -691,4 +803,3 @@ if __name__ == '__main__':
 
     # #save rotation and translation parameters to disk
     # save_extrinsic_calibration_parameters(R_W0, T_W0, R_W1, T_W1, prefix = 'world_to_') #this will write R and T to disk
-
