@@ -9,7 +9,7 @@ import yaml
 import os
 import dmx
 from dmx.colour import RED, GREEN, BLUE
-import calib
+import calib_cam as c
 
 #This will contain the calibration settings from the calibration_settings.yaml file
 calibration_settings = {}
@@ -24,50 +24,50 @@ def main():
     print("Beginning with Camera Calibration")
 
     #Open and parse the settings file
-    parse_calibration_settings_file(sys.argv[1])
+    c.parse_calibration_settings_file(sys.argv[1])
 
 
     """Step1. Save calibration frames for single cameras"""
-    save_frames_single_camera('camera0') #save frames for camera0
-    save_frames_single_camera('camera1') #save frames for camera1
+    c.save_frames_single_camera('camera0') #save frames for camera0
+    c.save_frames_single_camera('camera1') #save frames for camera1
 
 
     """Step2. Obtain camera intrinsic matrices and save them"""
     #camera0 intrinsics
     images_prefix = os.path.join('frames', 'camera0*')
-    cmtx0, dist0 = calibrate_camera_for_intrinsic_parameters(images_prefix) 
-    save_camera_intrinsics(cmtx0, dist0, 'camera0') #this will write cmtx and dist to disk
+    cmtx0, dist0 = c.calibrate_camera_for_intrinsic_parameters(images_prefix) 
+    c.save_camera_intrinsics(cmtx0, dist0, 'camera0') #this will write cmtx and dist to disk
     #camera1 intrinsics
     images_prefix = os.path.join('frames', 'camera1*')
-    cmtx1, dist1 = calibrate_camera_for_intrinsic_parameters(images_prefix)
-    save_camera_intrinsics(cmtx1, dist1, 'camera1') #this will write cmtx and dist to disk
+    cmtx1, dist1 = c.calibrate_camera_for_intrinsic_parameters(images_prefix)
+    c.save_camera_intrinsics(cmtx1, dist1, 'camera1') #this will write cmtx and dist to disk
 
 
     """Step3. Save calibration frames for both cameras simultaneously"""
-    save_frames_two_cams('camera0', 'camera1') #save simultaneous frames
+    c.save_frames_two_cams('camera0', 'camera1') #save simultaneous frames
 
 
     """Step4. Use paired calibration pattern frames to obtain camera0 to camera1 rotation and translation"""
     frames_prefix_c0 = os.path.join('frames_pair', 'camera0*')
     frames_prefix_c1 = os.path.join('frames_pair', 'camera1*')
-    R, T = stereo_calibrate(cmtx0, dist0, cmtx1, dist1, frames_prefix_c0, frames_prefix_c1)
+    R, T = c.stereo_calibrate(cmtx0, dist0, cmtx1, dist1, frames_prefix_c0, frames_prefix_c1)
 
 
     """Step5. Open both camera feeds and modify the masking for the feeds to detect the LED well."""
     # Added to the process!!
-    upper_blue, lower_blue = calib_mask()
+    upper_blue, lower_blue = c.calib_mask('camera0', 'camera1')
 
     """Step6. Save calibration data where camera0 defines the world space origin."""
     #camera0 rotation and translation is identity matrix and zeros vector
     R0 = np.eye(3, dtype=np.float32)
     T0 = np.array([0., 0., 0.]).reshape((3, 1))
 
-    save_extrinsic_calibration_parameters(R0, T0, R, T, upper_blue, lower_blue) #this will write R and T to disk
+    c.save_extrinsic_calibration_parameters(R0, T0, R, T, upper_blue, lower_blue) #this will write R and T to disk
     R1 = R; T1 = T #to avoid confusion, camera1 R and T are labeled R1 and T1
     #check your calibration makes sense
     camera0_data = [cmtx0, dist0, R0, T0]
     camera1_data = [cmtx1, dist1, R1, T1]
-    check_calibration('camera0', camera0_data, 'camera1', camera1_data, _zshift = 60.)
+    c.check_calibration('camera0', camera0_data, 'camera1', camera1_data, _zshift = 60.)
 
     print("Calibration complete, ready for loop!")
 
@@ -144,3 +144,6 @@ def main():
             # This is going to be worked on tomorrow
             # DLT(P1, P2, pt0, pt1) # ADD STUFF HERE...
 
+if __name__ == '__main__':
+
+    main()

@@ -30,6 +30,18 @@ def main():
 
         # Play lights randomly for a bit
         for _ in range(2000):
+            random_colour = Colour(0x88, 0x26, 0xff)
+            light.set_colour(random_colour)
+
+            interface.set_frame(universe.serialise())
+            interface.send_update()
+            print(interface._frame_state)
+
+            sleep(0.5 - (15.0 / 1000.0))
+
+            random_colour = Colour(0xFF, 0x26, 0x88)
+            light.set_colour(random_colour)
+            
             interface.set_frame(universe.serialise())
             interface.send_update()
             print(interface._frame_state)

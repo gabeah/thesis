@@ -2,12 +2,20 @@ import cv2 as cv
 import glob
 import numpy as np
 import sys
-from scipy import linalg
 import yaml
 import os
+from scipy import linalg
+
 
 #This will contain the calibration settings from the calibration_settings.yaml file
 calibration_settings = {}
+
+class trackbar_var(object):
+    def __init__(self, val=0):
+        self.val = val
+    def change(self, val):
+        print("CHANGING")
+        self.val = val
 
 #Given Projection matrices P1 and P2, and pixel coordinates point1 and point2, return triangulated 3D point.
 def DLT(P1, P2, point1, point2):
@@ -23,7 +31,7 @@ def DLT(P1, P2, point1, point2):
     U, s, Vh = linalg.svd(B, full_matrices = False)
 
     print('Triangulated point: ')
-    #print(Vh[3,0:3]/Vh[3,3])
+    print(Vh[3,0:3]/Vh[3,3])
     return Vh[3,0:3]/Vh[3,3]
 
 
@@ -609,7 +617,6 @@ def triangulate(cam0_points, cam1_points, mtx1, mtx2, R, T):
         #print(A)
  
         B = A.transpose() @ A
-        from scipy import linalg
         U, s, Vh = linalg.svd(B, full_matrices = False)
  
         print('Triangulated point: ')
@@ -639,7 +646,7 @@ def triangulate(cam0_points, cam1_points, mtx1, mtx2, R, T):
     #uncomment to see the triangulated pose. This may cause a crash if youre also using cv.imshow() above.
     #plt.show()
 
-def calib_mask():
+def calib_mask(camera0_name, camera1_name):
 
     cap0 = cv.VideoCapture(calibration_settings[camera0_name])
     cap1 = cv.VideoCapture(calibration_settings[camera1_name])
@@ -677,7 +684,7 @@ def calib_mask():
         while cap1.isOpened():
 
             ret0, frame0 = cap0.read()
-            ret, frame1 = ca1.read()
+            ret, frame1 = cap1.read()
             #print(ret)
 
             # frame = cv.flip(frame, 0)
@@ -711,32 +718,33 @@ def calib_mask():
 
             detector = cv.SimpleBlobDetector_create(params)
 
-            keypoints = detector.detect(mask1)
-            keypoints1 = detector.detect(mask2)
+            keypoints = detector.detect(mask0)
+            keypoints1 = detector.detect(mask1)
             points = np.array([key_point.pt for key_point in keypoints])
             points1 = np.array([key_point.pt for key_point in keypoints1])
 
             for point in points:
-                cv.circle(mask1, (int(point[0]),int(point[1])), 63, (255,255,255), 10)
+                cv.circle(mask0, (int(point[0]),int(point[1])), 63, (255,255,255), 10)
             for point in points1:
-                cv.circle(mask2, (int(point[0]),int(point[1])), 63, (255,255,255), 10)
+                cv.circle(mask1, (int(point[0]),int(point[1])), 63, (255,255,255), 10)
 
-            cv.imshow("frame2", frame2)
-            cv.imshow("frame1", frame1)
-            cv.imshow("mask1", mask1)
-            cv.imshow("mask2", mask2)
+            cv.imshow("frame2", frame1)
+            cv.imshow("frame1", frame0)
+            cv.imshow("mask1", mask0)
+            cv.imshow("mask2", mask1)
             #cv.imshow("Blob Detection", frame_w_keypoints)
             #cv.imshow("rgb", rgb)
             #cv.imshow("hsv", hsv)
-            cv.imshow(title_window, masked1)
-            cv.imshow("masked 2", masked2)
+            cv.imshow(title_window, masked0)
+            cv.imshow("masked 2", masked1)
 
             if cv.waitKey(1) == ord(' '):
                 print(f"Lower Blue Final Value: {lower_blue}\nUpper Blue Final Value: {upper_blue}")
+                cap0.release()
+                cap1.release()
                 cv.destroyAllWindows
+                
                 return lower_blue, upper_blue
-            
-        
 
 if __name__ == '__main__':
     
@@ -762,7 +770,6 @@ if __name__ == '__main__':
     images_prefix = os.path.join('frames', 'camera1*')
     cmtx1, dist1 = calibrate_camera_for_intrinsic_parameters(images_prefix)
     save_camera_intrinsics(cmtx1, dist1, 'camera1') #this will write cmtx and dist to disk
-
 
     """Step3. Save calibration frames for both cameras simultaneously"""
     save_frames_two_cams('camera0', 'camera1') #save simultaneous frames
