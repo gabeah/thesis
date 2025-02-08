@@ -290,6 +290,8 @@ def save_frames_two_cams(camera0_name, camera1_name):
         if saved_count == number_to_save: break
 
     cv.destroyAllWindows()
+    cap0.release()
+    cap1.release()
 
 
 #open paired calibration frames and stereo calibrate for cam0 to cam1 coorindate transformations
@@ -462,7 +464,10 @@ def check_calibration(camera0_name, camera0_data, camera1_name, camera1_data, _z
         cv.imshow('frame1', frame1)
 
         k = cv.waitKey(1)
-        if k == 27: break
+        if k == 27: 
+            cap0.release()
+            cap1.release()
+            break
 
     cv.destroyAllWindows()
 
@@ -572,8 +577,8 @@ def save_extrinsic_calibration_parameters(R0, T0, R1, T1, lower_blue, upper_blue
     camera_mask_filename = os.path.join('camera_parameters', prefix + 'camera_mask_results.dat')
     outf = open(camera_mask_filename, 'w')
 
-    outf.write(f'Lower Blue Values: {lower_blue} \n')
-    outf.write(f'Upper Blue Values: {upper_blue} \n')
+    outf.write(f'{lower_blue} \n')
+    outf.write(f'{upper_blue} \n')
     outf.close()
 
     return R0, T0, R1, T1
@@ -680,6 +685,16 @@ def calib_mask(camera0_name, camera1_name):
     cv.createTrackbar("lsat", title_window , 0, sat_max, trackbar_lsat.change)
     cv.createTrackbar("lval", title_window , 0, val_max, trackbar_lval.change)
 
+    params = cv.SimpleBlobDetector_Params()
+
+    params.filterByArea = True
+    params.minArea = 100
+    params.filterByCircularity = False
+    params.filterByConvexity = False
+    params.filterByInertia = True
+
+    detector = cv.SimpleBlobDetector_create(params)
+
     while cap0.isOpened():
         while cap1.isOpened():
 
@@ -708,16 +723,6 @@ def calib_mask(camera0_name, camera1_name):
             masked0 = cv.bitwise_and(hsv0, hsv0, mask=mask0)
             masked1 = cv.bitwise_and(hsv1, hsv1, mask=mask1)
 
-            params = cv.SimpleBlobDetector_Params()
-
-            params.filterByArea = True
-            params.minArea = 100
-            params.filterByCircularity = False
-            params.filterByConvexity = False
-            params.filterByInertia = True
-
-            detector = cv.SimpleBlobDetector_create(params)
-
             keypoints = detector.detect(mask0)
             keypoints1 = detector.detect(mask1)
             points = np.array([key_point.pt for key_point in keypoints])
@@ -728,8 +733,6 @@ def calib_mask(camera0_name, camera1_name):
             for point in points1:
                 cv.circle(mask1, (int(point[0]),int(point[1])), 63, (255,255,255), 10)
 
-            cv.imshow("frame2", frame1)
-            cv.imshow("frame1", frame0)
             cv.imshow("mask1", mask0)
             cv.imshow("mask2", mask1)
             #cv.imshow("Blob Detection", frame_w_keypoints)
@@ -740,10 +743,10 @@ def calib_mask(camera0_name, camera1_name):
 
             if cv.waitKey(1) == ord(' '):
                 print(f"Lower Blue Final Value: {lower_blue}\nUpper Blue Final Value: {upper_blue}")
+                cv.destroyAllWindows()
                 cap0.release()
                 cap1.release()
-                cv.destroyAllWindows
-                
+                print("Returning")
                 return lower_blue, upper_blue
 
 if __name__ == '__main__':

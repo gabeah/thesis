@@ -7,22 +7,40 @@ import sys
 from scipy import linalg
 import yaml
 import os
-import dmx
-from dmx.colour import RED, GREEN, BLUE
+# from dmx import DMXInterface, DMXUniverse, DMXLight
+# from dmx.colour import RED, GREEN, BLUE
 import calib_cam as c
+import pyenttec as ent
+from esprite_profile import Esprite
 
 #This will contain the calibration settings from the calibration_settings.yaml file
 calibration_settings = {}
+cam0_settings = {}
+cam1_settings = {}
 
-def main():
-    if len(sys.argv) != 2:
-        print('Call with settings filename: "python3 calibrate.py calibration_settings.yaml"')
-        quit()
+universe = ent.DMXConnection("/dev/ttyUSB0")
 
-    print("Light Tracking Software: Version 0 (Prototype)")
+# Build the lighting profile for the ROBE Esprite (TODO TOMORROW)
+lights = []
 
-    print("Beginning with Camera Calibration")
 
+title_window = "testing world"
+class trackbar_var(object):
+    def __init__(self, val=0):
+        self.val = val
+    def change(self, val):
+        print("CHANGING")
+        self.val = val
+
+def write_dmx():
+    for light in lights:
+        #print(light.serialise_pydmx())
+        for i, chan in enumerate(light.serialise_pydmx()):
+            universe.set_channel(i, chan)
+    universe.render()
+
+def calibrate_cam_settings():
+    print("The big kahuna")
     #Open and parse the settings file
     c.parse_calibration_settings_file(sys.argv[1])
 
@@ -69,80 +87,162 @@ def main():
     camera1_data = [cmtx1, dist1, R1, T1]
     c.check_calibration('camera0', camera0_data, 'camera1', camera1_data, _zshift = 60.)
 
+def calibrate_instrument():
+    print("TODO")
+
+def main():
+    if len(sys.argv) != 2:
+        print('Call with settings filename: "python3 calibrate.py calibration_settings.yaml"')
+        quit()
+
+    print("Light Tracking Software: Version 0 (Prototype)")
+    print("Beginning with Camera Calibration")
+    menu = True
+    while menu:
+        choice = input("Input Option (type help for menu): ").lower()
+        print(choice)
+        if choice == "help" or choice == "h":
+            print("Options: \n\t 1. calib_cam (or cc) \n\t2. calib_lamp (or cl) \n\t3. send_it (or go)")
+        if choice == "calib_cam" or choice == "cc":
+            calibrate_cam_settings()
+        # ADD CALIB LAMP WHEN READY
+        if choice == "send_it" or choice == "go":
+            print("SENDING IT")
+            menu = False
+
     print("Calibration complete, ready for loop!")
+    print("Opening generated parameters, dont rename them!")
 
-    with DMXInterface("AVRDMX") as interface:
+    # TODO ADD INTRENSIC AND ROT AND TRANS LATER
 
-        universe = DMXUniverse()
+    with open("./camera_parameters/camera_mask_results.dat", "r") as blus:
+        blu_types = blus.readlines()
+        print(blu_types)
+        calibration_settings["upper blue"] = np.array(blu_types[0][1:12].strip().split(), dtype=np.uint8)
+        calibration_settings["lower blue"] = np.array(blu_types[1][1:12].strip().split(), dtype=np.uint8)
 
-        # Build the lighting profile for the ROBE Esprite (TODO TOMORROW)
-        lights = []
+        print(calibration_settings)
 
-        esprite = DMXLight3Slot(1) # Placeholder Address... Add 14 to account for Esprite addr.
-        #(We will add an esprite profile later....)
+    esprite = Esprite(1)
 
-        cap0 = cv.VideoCapture(calibration_settings[camera0_name])
-        cap1 = cv.VideoCapture(calibration_settings[camera1_name])
+    cv.VideoCapture(200).release()
+    cv.VideoCapture(204).release()
 
-        if not cap0.isOpened():
-            print("ERR CAP 1")
-            exit()
-        if not cap1.isOpened():
-            print("ERR CAP 2")
-            exit()
+    cap0 = cv.VideoCapture(200)
+    cap1 = cv.VideoCapture(204)
 
-        #RT matrix for C1 is identity.
-        RT1 = np.concatenate([np.eye(3), [[0],[0],[0]]], axis = -1)
-        P1 = cmtx1 @ RT1 #projection matrix for C1
-    
-        #RT matrix for C2 is the R and T obtained from stereo calibration.
-        RT2 = np.concatenate([R, T], axis = -1)
-        P2 = cmtx2 @ RT2 #projection matrix for C2
+    if not cap0.isOpened():
+        print("ERR CAP 1")
+        exit()
+    if not cap1.isOpened():
+        print("ERR CAP 2")
+        exit()
 
-        while True:
+    # #RT matrix for C1 is identity.
+    # RT1 = np.concatenate([np.eye(3), [[0],[0],[0]]], axis = -1)
+    # P1 = cmtx1 @ RT1 #projection matrix for C1
 
-            ret0, frame0 = cap0.read()
-            ret1, frame1 = cap1.read()
+    # #RT matrix for C2 is the R and T obtained from stereo calibration.
+    # RT2 = np.concatenate([R, T], axis = -1)
+    # P2 = cmtx2 @ RT2 #projection matrix for C2
 
-            if not ret0 or ret1:
-                print("Error.. Cannot recieve frame.. Exiting")
-                quit()
-            
-            hsv0 = cv.cvtColor(frame0, cv.COLOR_BGR2HSV)
-            hsv1 = cv.cvtColor(frame1, cv.COLOR_BGR2HSV)
+    hue_max = 169
+    sat_max = 255
+    val_max = 255
+    trackbar_uhue = trackbar_var(0)
+    trackbar_usat = trackbar_var(0)
+    trackbar_uval = trackbar_var(0)
+    trackbar_lhue = trackbar_var(0)
+    trackbar_lsat = trackbar_var(0)
+    trackbar_lval = trackbar_var(0)
 
-            mask0 = cv.inRange(hsv0, lowerb=lower_blue, upperb=upper_blue)
-            mask1 = cv.inRange(hsv1, lowerb=lower_blue, upperb=upper_blue)
+    cv.namedWindow(title_window)
+    cv.createTrackbar("uhue", title_window , 0, hue_max, trackbar_uhue.change)
+    cv.createTrackbar("usat", title_window , 0, sat_max, trackbar_usat.change)
+    cv.createTrackbar("uval", title_window , 0, val_max, trackbar_uval.change)
 
-            params = cv.SimpleBlobDetector_Params()
+    cv.createTrackbar("lhue", title_window , 0, hue_max, trackbar_lhue.change)
+    cv.createTrackbar("lsat", title_window , 0, sat_max, trackbar_lsat.change)
+    cv.createTrackbar("lval", title_window , 0, val_max, trackbar_lval.change)
 
-            params.filterByArea = True
-            params.minArea = 100
-            params.filterByCircularity = False
-            params.filterByConvexity = False
-            params.filterByInertia = True
+    # upper_blue = calibration_settings["upper blue"]
+    # lower_blue = calibration_settings["lower blue"]
 
-            detector = cv.SimpleBlobDetector_create(params)
+    lights.append(esprite)
+    esprite.set_intensity(255)
+    esprite.go_home()
 
-            keypoints = detector.detect(mask1)
-            keypoints1 = detector.detect(mask2)
-            pts0 = np.array([key_point.pt for key_point in keypoints])
-            pts1 = np.array([key_point.pt for key_point in keypoints1])
+    while True:
 
-            pt0 = [sum(x)/len(x) for x in zip(*pts0)]
-            pt1 = [sum(y)/len(y) for y in zip(*pts1)]
-            
-            # If light is detected in both keypoints, send update \o/
-            if pt0 and pt1:
-                esprite.set_colour(GREEN)
-            else:
-                esprite.set_colour(RED)
+        # Temporary, while i pretend not to bash my own brain out
+        lower_blue = np.array([trackbar_lhue.val, trackbar_lsat.val, trackbar_lval.val])
+        upper_blue = np.array([trackbar_uhue.val, trackbar_usat.val, trackbar_uval.val])
 
-            interface.set_frame(universe.serialise())
-            interface.send_update()
+        ret0, frame0 = cap0.read()
+        ret1, frame1 = cap1.read()
 
-            # This is going to be worked on tomorrow
-            # DLT(P1, P2, pt0, pt1) # ADD STUFF HERE...
+        if not ret0 or not ret1:
+            print(f"Error.. Cannot recieve frame.. Exiting {ret0} {ret1}")
+            quit()
+        
+        hsv0 = cv.cvtColor(frame0, cv.COLOR_BGR2HSV)
+        hsv1 = cv.cvtColor(frame1, cv.COLOR_BGR2HSV)
+
+        mask0 = cv.inRange(hsv0, lowerb=lower_blue, upperb=upper_blue)
+        mask1 = cv.inRange(hsv1, lowerb=lower_blue, upperb=upper_blue)
+
+        params = cv.SimpleBlobDetector_Params()
+
+        params.filterByArea = True
+        params.minArea = 100
+        params.filterByCircularity = False
+        params.filterByConvexity = False
+        params.filterByInertia = True
+
+        detector = cv.SimpleBlobDetector_create(params)
+
+        keypoints = detector.detect(mask1)
+        keypoints1 = detector.detect(mask0)
+        pts0 = np.array([key_point.pt for key_point in keypoints])
+        pts1 = np.array([key_point.pt for key_point in keypoints1])
+
+        print(f"keypoints detected: {pts0} and {pts1}")
+
+        pt0 = [sum(x)/len(x) for x in zip(*pts0)]
+        pt1 = [sum(y)/len(y) for y in zip(*pts1)]
+        
+        # If light is detected in both keypoints, send update \o/
+        if pt0 and pt1:
+            print("YES")
+            esprite.set_color([255,0,255])
+            write_dmx()
+        else:
+            print("NO")
+            esprite.set_color([0,255,255])
+            write_dmx()
+
+        print("passed if")
+        #print(universe.dmx_frame)
+        cv.imshow("mask0", mask0)
+
+        cv.imshow("cam0 hsv", hsv0)
+        cv.imshow("cam0 reg", frame0)
+
+        k = cv.waitKey(1)
+
+        if k == 27:
+            print("cancelling")
+            esprite.go_home()
+            esprite.set_intensity(0)
+            cap0.release()
+            cap1.release()
+            write_dmx()
+            cv.destroyAllWindows()
+            quit()
+
+
+        # This is going to be worked on tomorrow
+        # DLT(P1, P2, pt0, pt1) # ADD STUFF HERE...
 
 if __name__ == '__main__':
 

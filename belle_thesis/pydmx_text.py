@@ -3,50 +3,34 @@
 
 from sys import exit as sys_exit
 from time import sleep
-
+import pyenttec as ent
 from dmx import Colour, DMXInterface, DMXLight3Slot, DMXUniverse
+from esprite_profile import Esprite
 
+def write_dmx(universe,light):
+    for i, chan in enumerate(light.serialise_pydmx()):
+        print(i+1, chan)
+        universe.set_channel(i, chan)
+        #robe.set_color([i,0,i])
+    universe.render()
 
 def main():
     """Entry point function."""
-    with DMXInterface("AVRDMX") as interface:
+    universe = ent.DMXConnection("/dev/ttyUSB0")
+    robe = Esprite()
+    robe.set_intensity(255)
+    robe.set_color([0,0,0])
 
-        # Define DMX universe
-        universe = DMXUniverse()
+    for i in range(50):
+        robe.set_color([0,0,4*i])
+        robe.set_tilt(i)
+        write_dmx(universe,robe)
+        sleep(0.1)
+    robe.go_home()
+    write_dmx(universe, robe)
+        
 
-        # Define DMX lights
-        lights = []
-        for i in range(16):
-            light = DMXLight3Slot(address=1 + (3 * i))
-            lights.append(light)
-            universe.add_light(light)
-        light = DMXLight3Slot(address=510)
-        lights.append(light)
-        universe.add_light(light)
-
-        for light in lights:
-            random_colour = Colour(0x88, 0x26, 0xff)
-            light.set_colour(random_colour)
-
-        # Play lights randomly for a bit
-        for _ in range(2000):
-            random_colour = Colour(0x88, 0x26, 0xff)
-            light.set_colour(random_colour)
-
-            interface.set_frame(universe.serialise())
-            interface.send_update()
-            print(interface._frame_state)
-
-            sleep(0.5 - (15.0 / 1000.0))
-
-            random_colour = Colour(0xFF, 0x26, 0x88)
-            light.set_colour(random_colour)
-            
-            interface.set_frame(universe.serialise())
-            interface.send_update()
-            print(interface._frame_state)
-
-            sleep(0.5 - (15.0 / 1000.0))
+    
 
     return 0
 
