@@ -1,5 +1,8 @@
 [[Thesis Menu]] <- Go up
 
+# Peter 2/14
+The progress is okay. Put the dang things to paper. Write about the progress and such
+
 # Jim 1/29
 We're back!!
 

@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Thesis Meetings.md",
+                "file": "Log of progress.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Thesis Meetings"
+              "title": "Log of progress"
             }
           }
         ],
@@ -120,7 +120,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "8241c6e36e559db9",
@@ -207,17 +208,18 @@
   },
   "active": "11815192d3a2664b",
   "lastOpenFiles": [
+    "belle thesis update.md",
+    "Log of progress.md",
+    "Thesis Menu.md",
+    "Thesis Meetings.md",
     "Automated Lighting - The Art and Science of Moving Light in Theatre.md",
     "Chapter 1 - History of Lighting Control.md",
-    "Thesis Meetings.md",
     "Initial Thesis Meeting.md",
     "Introduction.md",
     "Thesis Notes.md",
     "Outlines.md",
-    "Thesis Menu.md",
     "Dixon - Digital Performance.md",
     "Patent_for_adjustible_projector.pdf",
-    "Log of progress.md",
     "Design Requirements.md",
     "2024-09-05.md",
     "Graphix Menu.md",

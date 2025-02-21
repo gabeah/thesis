@@ -9,7 +9,8 @@ import yaml
 import os
 # from dmx import DMXInterface, DMXUniverse, DMXLight
 # from dmx.colour import RED, GREEN, BLUE
-import calib_cam as c
+import calib_cam as cc
+import calib_lamp as cl
 import pyenttec as ent
 from esprite_profile import Esprite
 
@@ -42,33 +43,33 @@ def write_dmx():
 def calibrate_cam_settings():
     print("The big kahuna")
     #Open and parse the settings file
-    c.parse_calibration_settings_file(sys.argv[1])
+    cc.parse_calibration_settings_file(sys.argv[1])
 
 
     """Step1. Save calibration frames for single cameras"""
-    c.save_frames_single_camera('camera0') #save frames for camera0
-    c.save_frames_single_camera('camera1') #save frames for camera1
+    cc.save_frames_single_camera('camera0') #save frames for camera0
+    cc.save_frames_single_camera('camera1') #save frames for camera1
 
 
     """Step2. Obtain camera intrinsic matrices and save them"""
     #camera0 intrinsics
     images_prefix = os.path.join('frames', 'camera0*')
-    cmtx0, dist0 = c.calibrate_camera_for_intrinsic_parameters(images_prefix) 
-    c.save_camera_intrinsics(cmtx0, dist0, 'camera0') #this will write cmtx and dist to disk
+    cmtx0, dist0 = cc.calibrate_camera_for_intrinsic_parameters(images_prefix) 
+    cc.save_camera_intrinsics(cmtx0, dist0, 'camera0') #this will write cmtx and dist to disk
     #camera1 intrinsics
     images_prefix = os.path.join('frames', 'camera1*')
-    cmtx1, dist1 = c.calibrate_camera_for_intrinsic_parameters(images_prefix)
-    c.save_camera_intrinsics(cmtx1, dist1, 'camera1') #this will write cmtx and dist to disk
+    cmtx1, dist1 = cc.calibrate_camera_for_intrinsic_parameters(images_prefix)
+    cc.save_camera_intrinsics(cmtx1, dist1, 'camera1') #this will write cmtx and dist to disk
 
 
     """Step3. Save calibration frames for both cameras simultaneously"""
-    c.save_frames_two_cams('camera0', 'camera1') #save simultaneous frames
+    cc.save_frames_two_cams('camera0', 'camera1') #save simultaneous frames
 
 
     """Step4. Use paired calibration pattern frames to obtain camera0 to camera1 rotation and translation"""
     frames_prefix_c0 = os.path.join('frames_pair', 'camera0*')
     frames_prefix_c1 = os.path.join('frames_pair', 'camera1*')
-    R, T = c.stereo_calibrate(cmtx0, dist0, cmtx1, dist1, frames_prefix_c0, frames_prefix_c1)
+    R, T = cc.stereo_calibrate(cmtx0, dist0, cmtx1, dist1, frames_prefix_c0, frames_prefix_c1)
 
 
     """Step5. Open both camera feeds and modify the masking for the feeds to detect the LED well."""
@@ -80,12 +81,12 @@ def calibrate_cam_settings():
     R0 = np.eye(3, dtype=np.float32)
     T0 = np.array([0., 0., 0.]).reshape((3, 1))
 
-    c.save_extrinsic_calibration_parameters(R0, T0, R, T, upper_blue, lower_blue) #this will write R and T to disk
+    cc.save_extrinsic_calibration_parameters(R0, T0, R, T, upper_blue, lower_blue) #this will write R and T to disk
     R1 = R; T1 = T #to avoid confusion, camera1 R and T are labeled R1 and T1
     #check your calibration makes sense
     camera0_data = [cmtx0, dist0, R0, T0]
     camera1_data = [cmtx1, dist1, R1, T1]
-    c.check_calibration('camera0', camera0_data, 'camera1', camera1_data, _zshift = 60.)
+    cc.check_calibration('camera0', camera0_data, 'camera1', camera1_data, _zshift = 60.)
 
 def calibrate_instrument():
     print("TODO")
@@ -97,6 +98,48 @@ def main():
 
     print("Light Tracking Software: Version 0 (Prototype)")
     print("Beginning with Camera Calibration")
+    
+    try:
+        with open("./camera_parameters/camera_mask_results.dat", "r") as blus:
+            blu_types = blus.readlines()
+            print(blu_types)
+            calibration_settings["upper blue"] = np.array(blu_types[0][1:12].strip().split(), dtype=np.uint8)
+            calibration_settings["lower blue"] = np.array(blu_types[1][1:12].strip().split(), dtype=np.uint8)
+
+            print(calibration_settings)
+
+        with open("./camera_parameters/camera0_intrinsics.dat", "r") as cam0_int:
+            lines = cam0_int.readlines()
+            cam0_settings[lines[0][:-1]] = np.array([lines[1].strip().split(),lines[2].strip().split(), lines[3].strip().split()], dtype=np.float32)
+            cam0_settings[lines[4][:-1]] = np.array(lines[5].strip().split(), dtype=np.float32)
+
+        with open("./camera_parameters/camera1_intrinsics.dat", "r") as cam1_int:
+            lines = cam1_int.readlines()
+            cam1_settings[lines[0][:-1]] = np.array([lines[1].strip().split(),lines[2].strip().split(), lines[3].strip().split()], dtype=np.float32)
+            cam1_settings[lines[4][:-1]] = np.array(lines[5].strip().split(), dtype=np.float32)
+
+        with open("./camera_parameters/camera0_rot_trans.dat", "r") as cam0_rt:
+            lines = cam0_rt.readlines()
+            cam0_settings[lines[0][:-1]] = np.array([lines[1].strip().split(),lines[2].strip().split(), lines[3].strip().split()], dtype=np.float32)
+            cam0_settings[lines[4][:-1]] = np.array([lines[5].strip().split(),lines[6].strip().split(), lines[7].strip().split()], dtype=np.float32)
+
+        with open("./camera_parameters/camera1_rot_trans.dat", "r") as cam1_rt:
+            lines = cam1_rt.readlines()
+            cam1_settings[lines[0][:-1]] = np.array([lines[1].strip().split(),lines[2].strip().split(), lines[3].strip().split()], dtype=np.float32)
+            cam1_settings[lines[4][:-1]] = np.array([lines[5].strip().split(),lines[6].strip().split(), lines[7].strip().split()], dtype=np.float32)
+
+        RT0 = np.concatenate([np.eye(3), [[0],[0],[0]]], axis=-1)
+        P0 = cam0_settings["intrinsic:"] @ RT0
+
+        RT1 = np.concatenate([cam1_settings["R:"],cam1_settings["T:"]], axis= -1)
+        P1 = cam1_settings["intrinsic:"] @ RT1
+    except Exception as e:
+        print(e)
+        print("Error in loading in settings, calibration may be in order")
+
+    esprite = Esprite(1)
+
+
     menu = True
     while menu:
         choice = input("Input Option (type help for menu): ").lower()
@@ -106,30 +149,30 @@ def main():
         if choice == "calib_cam" or choice == "cc":
             calibrate_cam_settings()
         # ADD CALIB LAMP WHEN READY
+        if choice == "calib_lamp" or choice == "cl":
+            cl.calib_lamp("camera0", "camera1", calibration_settings["upper blue"], calibration_settings["lower blue"], P0, P1, esprite)
         if choice == "send_it" or choice == "go":
             print("SENDING IT")
             menu = False
-
+        if choice == "quit" or choice == "q":
+            quit()
     print("Calibration complete, ready for loop!")
     print("Opening generated parameters, dont rename them!")
 
     # TODO ADD INTRENSIC AND ROT AND TRANS LATER
 
-    with open("./camera_parameters/camera_mask_results.dat", "r") as blus:
-        blu_types = blus.readlines()
-        print(blu_types)
-        calibration_settings["upper blue"] = np.array(blu_types[0][1:12].strip().split(), dtype=np.uint8)
-        calibration_settings["lower blue"] = np.array(blu_types[1][1:12].strip().split(), dtype=np.uint8)
+    
 
-        print(calibration_settings)
-
-    esprite = Esprite(1)
+    print(cam0_settings)
+    print(cam1_settings)
 
     cv.VideoCapture(200).release()
     cv.VideoCapture(204).release()
 
     cap0 = cv.VideoCapture(200)
     cap1 = cv.VideoCapture(204)
+
+    cv.resizeWindow
 
     if not cap0.isOpened():
         print("ERR CAP 1")
@@ -228,6 +271,9 @@ def main():
         cv.imshow("cam0 hsv", hsv0)
         cv.imshow("cam0 reg", frame0)
 
+        # This is going to be worked on tomorrow
+        DLT(P1, P2, pt0, pt1) # ADD STUFF HERE...
+
         k = cv.waitKey(1)
 
         if k == 27:
@@ -239,10 +285,6 @@ def main():
             write_dmx()
             cv.destroyAllWindows()
             quit()
-
-
-        # This is going to be worked on tomorrow
-        # DLT(P1, P2, pt0, pt1) # ADD STUFF HERE...
 
 if __name__ == '__main__':
 

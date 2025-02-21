@@ -5,7 +5,9 @@ import time
 import matplotlib.pyplot as plt
 import math
 
-def blob_dect(in_stream=None):
+
+
+def blob_dect():
     # Try to get a video captured
     title_window = "mask result"
     #fstream = in_stream

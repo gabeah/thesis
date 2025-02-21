@@ -211,7 +211,8 @@ def main(args):
 
     #color_test()
 
-    graphics_loop()
+    
+    #graphics_loop()
 
     print(f"testing various streams")
     
@@ -221,8 +222,8 @@ def main(args):
         
     # # capVid(stream)
             blob_dect(stream)
-    # else:
-    #     blob_dect()
+    else:
+        blob_dect()
 
 
 class trackbar_var(object):
@@ -237,10 +238,16 @@ def blob_dect(in_stream=None):
     title_window = "mask result"
     #fstream = in_stream
     print("opening cap 1")
-    cap = cv.VideoCapture(2)
+    cap = cv.VideoCapture(200)
     print("opening cap 2")
-    cap2 = cv.VideoCapture(206)
+    cap2 = cv.VideoCapture(204)
     print("setup cap, starting loop")
+
+    cap.set(cv.CAP_PROP_FRAME_WIDTH, 1280)
+    cap.set(cv.CAP_PROP_FRAME_HEIGHT, 720)
+
+    cap2.set(cv.CAP_PROP_FRAME_WIDTH, 1280)
+    cap2.set(cv.CAP_PROP_FRAME_HEIGHT, 720)
 
     if not cap.isOpened():
         print("ERR CAP 1")

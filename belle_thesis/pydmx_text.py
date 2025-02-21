@@ -18,7 +18,7 @@ def main():
     """Entry point function."""
     universe = ent.DMXConnection("/dev/ttyUSB0")
     robe = Esprite()
-    robe.set_intensity(255)
+    robe.set_intensity(0)
     robe.set_color([0,0,0])
 
     for i in range(50):

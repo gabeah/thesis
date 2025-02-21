@@ -35,8 +35,8 @@ def camPreview(previewName, camID):
 
 def main(args):
     print("hello world")
-    thread0 = camThread("laptop-cam", 201)
-    thread1 = camThread("webcam 1", 2)
+    thread0 = camThread("laptop-cam", 204)
+    thread1 = camThread("webcam 1", 200)
     thread0.start()
     thread1.start()
 
