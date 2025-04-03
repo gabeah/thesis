@@ -133,8 +133,8 @@
 % Double spacing: if you want to double space, or one and a half 
 % space, uncomment one of the following lines. You can go back to 
 % single spacing with the \singlespacing command.
- \onehalfspacing
-% \doublespacing
+%\onehalfspacing
+ \doublespacing
 	
 This thesis explores lighting control, specifically for live performance. It will take a look at how lighting was originally controlled manually, how the technology has advanced to today through the use of time coding, and proposes a system for control that is reactive to a performer. Lighting control has advanced at a breakneck speed over the past half-century as the world entered a digital age. Where lighting control rooms were packed with levers and room-scale dimming racks now sit lighting desks, or even just a laptop. As the technology for controlling lights has advanced, the lighting design for live performances has gotten more complicated, while being largely prerecorded. Thus, while a designer's vision is accomplished in collaboration with the director and performers, it stays static barring catastrophe, which introduces interesting problems. Consider the actor who moves in tandem to a moving light. This is usually accomplished through hours of rehearsal, and fine-tuning movements in order to keep pace with the light. However, if the actor in a particular showing wanted to modify a movement, either in the route or in the speed, they would be constrained by the lighting.
 
@@ -169,287 +169,123 @@ Technology still trudged on. In the 1980’s, the US Institute for Theatre Techn
 
 
 
-\chapter{Mathematics and Science}	
-\section{Math}
-	\TeX\ is the best way to typeset mathematics. Donald Knuth designed \TeX\ when he got frustrated at how long it was taking the typesetters to finish his book, which contained a lot of mathematics. 
-	
-	If you are doing a thesis that will involve lots of math, you will want to read the following section which has been commented out. If you're not going to use math, skip over this next big red section. (It's red in the .tex file but does not show up in the .pdf.)
-%	
-%% MATH and PHYSICS majors: Uncomment the following section	
-%	$$\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
-%\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
-%$$
+\chapter{Oops all Cameras}	
+\section{Introduction}
+	Now that we are equipped with the context behind this problem, it’s time to dive into the theory and calculations that power my proposed solution. The vast majority of the following content falls under the field of “photogrammetry” or “the art, science, and technology of obtaining reliable information about physical objects and the environment, through processes of recording, measuring, and interpreting images and patterns of electromagnetic radiant energy and other phenomena” i.e. the measurement of life through images.
+\section{Camera Parameters}
+To start, we must have the same idea on what a “camera” is, and how we use cameras in this process. For this, we develop a camera model based off of the pinhole camera. A pinhole camera is the most basic form of camera, where light from the world enters the camera body through a small “pinhole”. 
 
-%From Informational Dynamics, we have the following (Dave Braden):
-
-%After {\it n} such encounters the posterior density for $\theta$ is
-
-%$$
-%\pi(\theta|X_1< y_1,\dots,X_n<y_n) \varpropto \pi(\theta) \prod_{i=1}^n\int_{-\infty}^{y_i}
-%   \exp\left(-{(x-\theta)^2\over{2\sigma^2}}\right)\ dx
-%$$
-
-%
-
-%Another equation:
-
-%$$\det\left|\,\begin{matrix}%
-%c_0&c_1\hfill&c_2\hfill&\ldots&c_n\hfill\cr
-%c_1&c_2\hfill&c_3\hfill&\ldots&c_{n+1}\hfill\cr
-%c_2&c_3\hfill&c_4\hfill&\ldots&c_{n+2}\hfill\cr
-%\,\vdots\hfill&\,\vdots\hfill&
-%  \,\vdots\hfill&&\,\vdots\hfill\cr
-%c_n&c_{n+1}\hfill&c_{n+2}\hfill&\ldots&c_{2n}\hfill\cr
-%\end{matrix}\right|>0$$
-
-%
-%Lapidus and Pindar, Numerical Solution of Partial Differential Equations in Science and
-%Engineering.  Page 54
-
-%$$
-%\int_t\left\{\sum_{j=1}^3 T_j \left({d\phi_j\over dt}+k\phi_j\right)-kT_e\right\}w_i(t)\ dt=0,
-%   \qquad\quad i=1,2,3. 
-%$$
-
-%L\&P  Galerkin method weighting functions.  Page 55
-
-%$$
-%\sum_{j=1}^3 T_j\int_0^1\left\{{d\phi_j\over dt} + k\phi_j\right\} \phi_i\ dt 
-%   = \int_{0}^1k\,T_e\phi_idt, \qquad i=1,2,3 $$
-%   
-%Another L\&P (p145)
-
-%$$
-%\int_{-1}^1\!\int_{-1}^1\!\int_{-1}^1 f\big(\xi,\eta,\zeta\big) 
-%   = \sum_{k=1}^n\sum_{j=1}^n\sum_{i=1}^n w_i w_j w_k f\big( \xi,\eta,\zeta\big).
-%$$
-
-%Another L\&P (p126)
-
-%$$
-%\int_{A_e} (\,\cdot\,) dx dy = \int_{-1}^1\!\int_{-1}^1 (\,\cdot\,) \det[J] d\xi d\eta.
-%$$
-
-\section{Chemistry 101: Symbols}
-Chemical formulas will look best if they are not italicized. Get around math mode's automatic italicizing by using the argument \verb=$\mathrm{formula here}$=, with your formula inside the curly brackets.
-
-So, $\mathrm{Fe_2^{2+}Cr_2O_4}$ is written \verb=$\mathrm{Fe_2^{2+}Cr_2O_4}$=\\
-Exponent or Superscript: O$^{-}$\\
-Subscript: CH$_{4}$\\
-
-To stack numbers or letters as in $\mathrm{Fe_2^{2+}}$, the subscript is defined first, and then the superscript is defined.\\
-Angstrom: {\AA}\\
-Bullet: CuCl $\bullet$ 7H${_2}$O\\
-Double Dagger: \ddag \/\\
-Delta: $\Delta$\\
-Reaction Arrows: $\longrightarrow$ or  $\xrightarrow{solution}$\\
-Resonance Arrows: $\leftrightarrow$\\
-Reversible Reaction Arrows: $\rightleftharpoons$ or $\xrightleftharpoons[ ]{solution}$ (the latter requires the chemarr package)\\
-
-
-\subsection{Typesetting reactions}
-You may wish to put your reaction in a figure environment, which means that LaTeX will place the reaction where it fits and you can have a figure legend if desired:
-\begin{figure}[htbp]
-\begin{center}
-$\mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}$
-\caption{Combustion of glucose}
-\label{combustion of glucose}
-\end{center}
-\end{figure}
-
-\subsection{Other examples of reactions}
-$\mathrm{NH_4Cl_{(s)}} \rightleftharpoons \mathrm{NH_{3(g)}+HCl_{(g)}}$\\
-$\mathrm{MeCH_2Br + Mg} \xrightarrow[below]{above} \mathrm{MeCH_2\bullet Mg \bullet Br}$
-
-\section{Physics}
-
-Many of the symbols you will need can be found on the math page (\url{http://web.reed.edu/cis/help/latex/math.html}) and the Comprehensive \LaTeX\ Symbol Guide (enclosed in this template download).  You may wish to create custom commands for commonly used symbols, phrases or equations, as described in Chapter \ref{commands}.
-
-\section{Biology}
-You will probably find the resources at \url{http://www.lecb.ncifcrf.gov/~toms/latex.html} helpful, particularly the links to bsts for various journals. You may also be interested in TeXShade for nucleotide typesetting (\url{http://homepages.uni-tuebingen.de/beitz/txe.html}).  Be sure to read the proceeding chapter on graphics and tables, and remember that the thesis template has versions of Ecology and Science bsts which support webpage citation formats. 
-
-\chapter{Tables and Graphics}
-
-\section{Tables}
-	The following section contains examples of tables, most of which have been commented out for brevity. (They will show up in the .tex document in red, but not at all in the .pdf). For more help in constructing a table (or anything else in this document), please see the LaTeX pages on the CUS site. 
-
-\begin{table}[htbp] % begins the table floating environment. This enables LaTeX to fit the table where it works best and lets you add a caption.
-\caption[Correlation of Inheritance Factors between Parents and Child]{Correlation of Inheritance Factors between Parents and Child} 
-% The words in square brackets of the caption command end up in the Table of Tables. The words in curly braces are the caption directly over the table.
-\begin{center} 
-% makes the table centered
-\begin{tabular}{c c c c} 
-% the tabular environment is used to make the table itself. The {c c c c} specify that the table will have four columns and they will all be center-aligned. You can make the cell contents left aligned by replacing the Cs with Ls or right aligned by using Rs instead. Add more letters for more columns, and pipes (the vertical line above the backslash) for vertical lines. Another useful type of column is the p{width} column, which forces text to wrap within whatever width you specify e.g. p{1in}. Text will wrap badly in narrow columns though, so beware.
-\toprule % a horizontal line, slightly thicker than \hline, depends on the booktabs package
-  Factors &  Correlation between Parents \& Child & Inherited \\ % the first row of the table. Separate columns with ampersands and end the line with two backslashes. An environment begun in one cell will not carry over to adjacent rows.
-  \midrule % another horizontal line
-	Education 				& -0.49 & Yes 	 \\ % another row
-	Socio-Economic Status 	& 0.28 	& Slight \\
-	Income 					& 0.08 	& No	 \\
-	Family Size 			& 0.19 	& Slight \\
-	Occupational Prestige 	& 0.21 	& Slight \\
-\bottomrule % yet another horizontal line
-\end{tabular}
-\end{center}
-\label{inheritance} % labels are useful when you have more than one table or figure in your document. See our online documentation for more on this.
-\end{table}
-
-	\clearpage 
-%% \clearpage ends the page, and also dumps out all floats. 
-%% Floats are things like tables and figures.
-
-If you want to make a table that is longer than a page, you will want to use the longtable environment. Uncomment the table below to see an example, or see our online documentation.
-
-%% An example of a long table, with headers that repeat on each subsequent page: Results from the summers of 1998 and 1999 work at Reed College done by Grace Brannigan, Robert Holiday and Lien Ngo in 1998 and Kate Brown and Christina Inman in 1999.
-
-	\begin{longtable}{||c|c|c|c||}
-	 	\caption[Chromium Hexacarbonyl Data Collected in 1998--1999]{Chromium Hexacarbonyl Data Collected in 1998--1999}\\ \hline
-	    	  \multicolumn{4}{||c||}{Chromium Hexacarbonyl} \\\hline
-		   State & Laser wavelength & Buffer gas & Ratio of $\frac{\textrm{Intensity
-at vapor pressure}}{\textrm{Intensity at 240 Torr}}$ \\ \hline
-		  \endfirsthead
-		\hline     State & Laser wavelength & Buffer gas & Ratio of
-$\frac{\textrm{Intensity at vapor pressure}}{\textrm{Intensity at 240 Torr}}$\\
-\hline
-		    \endhead
-
-	    $z^{7}P^{\circ}_{4}$ & 266 nm & Argon & 1.5 \\\hline
-	    $z^{7}P^{\circ}_{2}$ & 355 nm & Argon & 0.57 \\\hline
-	    $y^{7}P^{\circ}_{3}$ & 266 nm & Argon & 1 \\\hline
-	    $y^{7}P^{\circ}_{3}$ & 355 nm & Argon & 0.14 \\\hline
-	    $y^{7}P^{\circ}_{2}$ & 355 nm & Argon & 0.14 \\\hline
-	    $z^{5}P^{\circ}_{3}$ & 266 nm & Argon & 1.2 \\\hline
-	    $z^{5}P^{\circ}_{3}$ & 355 nm & Argon & 0.04 \\\hline
-	    $z^{5}P^{\circ}_{3}$ & 355 nm & Helium & 0.02 \\\hline
-	    $z^{5}P^{\circ}_{2}$ & 355 nm & Argon & 0.07 \\\hline
-	    $z^{5}P^{\circ}_{1}$ & 355 nm & Argon & 0.05 \\\hline
-	    $y^{5}P^{\circ}_{3}$ & 355 nm & Argon & 0.05, 0.4 \\\hline
-	    $y^{5}P^{\circ}_{3}$ & 355 nm & Helium & 0.25 \\\hline
-	    $z^{5}F^{\circ}_{4}$ & 266 nm & Argon & 1.4 \\\hline
-	    $z^{5}F^{\circ}_{4}$ & 355 nm & Argon & 0.29 \\\hline
-	    $z^{5}F^{\circ}_{4}$ & 355 nm & Helium & 1.02 \\\hline
-	    $z^{5}D^{\circ}_{4}$ & 355 nm & Argon & 0.3 \\\hline
-	    $z^{5}D^{\circ}_{4}$ & 355 nm & Helium & 0.65 \\\hline
-	    $y^{5}H^{\circ}_{7}$ & 266 nm & Argon & 0.17 \\\hline
-	    $y^{5}H^{\circ}_{7}$ & 355 nm & Argon & 0.13 \\\hline
-	    $y^{5}H^{\circ}_{7}$ & 355 nm & Helium & 0.11 \\\hline
-	    $a^{5}D_{3}$ & 266 nm & Argon & 0.71 \\\hline
-	    $a^{5}D_{2}$ & 266 nm & Argon & 0.77 \\\hline
-	    $a^{5}D_{2}$ & 355 nm & Argon & 0.63 \\\hline
-	    $a^{3}D_{3}$ & 355 nm & Argon & 0.05 \\\hline
-	    $a^{5}S_{2}$ & 266 nm & Argon & 2 \\\hline
-	    $a^{5}S_{2}$ & 355 nm & Argon & 1.5 \\\hline
-	    $a^{5}G_{6}$ & 355 nm & Argon & 0.91 \\\hline
-	    $a^{3}G_{4}$ & 355 nm & Argon & 0.08 \\\hline
-	    $e^{7}D_{5}$ & 355 nm & Helium & 3.5 \\\hline
-	    $e^{7}D_{3}$ & 355 nm & Helium & 3 \\\hline
-	    $f^{7}D_{5}$ & 355 nm & Helium & 0.25 \\\hline
-	    $f^{7}D_{5}$ & 355 nm & Argon & 0.25 \\\hline
-	    $f^{7}D_{4}$ & 355 nm & Argon & 0.2 \\\hline
-	    $f^{7}D_{4}$ & 355 nm & Helium & 0.3 \\\hline
-	    \multicolumn{4}{||c||}{Propyl-ACT} \\\hline
-%	    State & Laser wavelength & Buffer gas & Ratio of $\frac{\textrm{Intensity
-%at vapor pressure}}{\textrm{Intensity at 240 Torr}}$\\ \hline
-	    $z^{7}P^{\circ}_{4}$ & 355 nm & Argon & 1.5 \\\hline
-	    $z^{7}P^{\circ}_{3}$ & 355 nm & Argon & 1.5 \\\hline
-	    $z^{7}P^{\circ}_{2}$ & 355 nm & Argon & 1.25 \\\hline
-	    $z^{7}F^{\circ}_{5}$ & 355 nm & Argon & 2.85 \\\hline
-	    $y^{7}P^{\circ}_{4}$ & 355 nm & Argon & 0.07 \\\hline
-	    $y^{7}P^{\circ}_{3}$ & 355 nm & Argon & 0.06 \\\hline
-	    $z^{5}P^{\circ}_{3}$ & 355 nm & Argon & 0.12 \\\hline
-	    $z^{5}P^{\circ}_{2}$ & 355 nm & Argon & 0.13 \\\hline
-	    $z^{5}P^{\circ}_{1}$ & 355 nm & Argon & 0.14 \\\hline
-	    \multicolumn{4}{||c||}{Methyl-ACT} \\\hline
-%	    State & Laser wavelength & Buffer gas & Ratio of $\frac{\textrm{Intensity
-% at vapor pressure}}{\textrm{Intensity at 240 Torr}}$\\ \hline
-	    $z^{7}P^{\circ}_{4}$ & 355 nm & Argon & 1.6, 2.5 \\\hline
-	    $z^{7}P^{\circ}_{4}$ & 355 nm & Helium & 3 \\\hline
-	    $z^{7}P^{\circ}_{4}$ & 266 nm & Argon & 1.33 \\\hline
-	    $z^{7}P^{\circ}_{3}$ & 355 nm & Argon & 1.5 \\\hline
-	    $z^{7}P^{\circ}_{2}$ & 355 nm & Argon & 1.25, 1.3 \\\hline
-	    $z^{7}F^{\circ}_{5}$ & 355 nm & Argon & 3 \\\hline
-	    $y^{7}P^{\circ}_{4}$ & 355 nm & Argon & 0.07, 0.08 \\\hline
-	    $y^{7}P^{\circ}_{4}$ & 355 nm & Helium & 0.2 \\\hline
-	    $y^{7}P^{\circ}_{3}$ & 266 nm & Argon & 1.22 \\\hline
-	    $y^{7}P^{\circ}_{3}$ & 355 nm & Argon & 0.08 \\\hline
-	    $y^{7}P^{\circ}_{2}$ & 355 nm & Argon & 0.1 \\\hline
-	    $z^{5}P^{\circ}_{3}$ & 266 nm & Argon & 0.67 \\\hline
-	    $z^{5}P^{\circ}_{3}$ & 355 nm & Argon & 0.08, 0.17 \\\hline
-	    $z^{5}P^{\circ}_{3}$ & 355 nm & Helium & 0.12 \\\hline
-	    $z^{5}P^{\circ}_{2}$ & 355 nm & Argon & 0.13 \\\hline
-	    $z^{5}P^{\circ}_{1}$ & 355 nm & Argon & 0.09 \\\hline
-	    $y^{5}H^{\circ}_{7}$ & 355 nm & Argon & 0.06, 0.05 \\\hline
-	    $a^{5}D_{3}$ & 266 nm & Argon & 2.5 \\\hline
-	    $a^{5}D_{2}$ & 266 nm & Argon & 1.9 \\\hline
-	    $a^{5}D_{2}$ & 355 nm & Argon & 1.17 \\\hline
-	    $a^{5}S_{2}$ & 266 nm & Argon & 2.3 \\\hline
-	    $a^{5}S_{2}$ & 355 nm & Argon & 1.11 \\\hline
-	    $a^{5}G_{6}$ & 355 nm & Argon & 1.6 \\\hline
-	    $e^{7}D_{5}$ & 355 nm & Argon & 1 \\\hline
-
-		\end{longtable}
-
-   
-   \section{Figures}
-   
-	If your thesis has a lot of figures, \LaTeX\ might behave better for you than that other word processor.  One thing that may be annoying is the way it handles ``floats'' like tables and figures. \LaTeX\ will try to find the best place to put your object based on the text around it and until you're really, truly done writing you should just leave it where it lies.   There are some optional arguments to the figure and table environments to specify where you want it to appear; see the comments in the first figure.
-
-	If you need a graphic or tabular material to be part of the text, you can just put it inline. If you need it to appear in the list of figures or tables, it should be placed in the floating environment. 
-	
-	To get a figure from StatView, JMP, SPSS or other statistics program into a figure, you can print to pdf or save the image as a jpg or png. Precisely how you will do this depends on the program: you may need to copy-paste figures into Photoshop or other graphic program, then save in the appropriate format.
-	
-	Below we have put a few examples of figures. For more help using graphics and the float environment, see our online documentation.
-	
-	And this is how you add a figure with a graphic:
-	\begin{figure}[h]
-	% the options are h = here, t = top, b = bottom, p = page of figures.
-	% you can add an exclamation mark to make it try harder, and multiple
-	% options if you have an order of preference, e.g.
-	% \begin{figure}[h!tbp]
+\begin{figure}[h]
+	%ANY FIGURE USING THE "SUBDIVISION" GRAPHIC NEEDS TO BE REPLACED!!!
 	   
 	       \centering
 	    % DO NOT ADD A FILENAME EXTENSION TO THE GRAPHIC FILE
 	    \includegraphics{subdivision}
-	     \caption{A Figure}
-	 \label{subd}
+	     \caption{A Figure Test}
+	 \label{Testing Figure Label}
 	\end{figure}
 
-\clearpage %% starts a new page and stops trying to place floats such as tables and figures
+The image that is seen by a pinhole camera is flipped because the ray of light entering the pinhole continues through to the projection surface on the backside. Most modern cameras operate in similar fashion, where the lens acts as the pinhole. The camera body contains a sensor that detects the amount of light (or photons) that hit a certain area. Each area is representative of a pixel. In the figure above, the back plate is equivalent to the sensor. The image is not perfect, however; the use of lenses introduces various distortions, and while it is easy to imagine a ray of light entering the camera and hitting the sensor, it isn’t that easy. We need to create a model for the camera to allow us to map any object in 3D space onto a 2D image.
 
-\section{More Figure Stuff}
-You can also scale and rotate figures.
- 	\begin{figure}[h!]
-	   
-	       \centering
-	    % DO NOT ADD A FILENAME EXTENSION TO THE GRAPHIC FILE
-	    \includegraphics[scale=0.5,angle=180]{subdivision}
-	    % if your figure shows up not where you want it, it may just be too big to fit. You can use the scale argument to shrink it, e.g. scale=0.85 is 85 percent of the original size. 
-	     \caption{A Smaller Figure, Flipped Upside Down}
-	 \label{subd2}
-	\end{figure}
+We have camera intrinsics and extrinsics. The intrinsics represent the various distortions and qualities intrinsic to the camera itself. The main values we care about are the focal length, FOV, and optical center, that is, the distance between the lens of the camera and the sensor, the field of view for the camera, and the pixel location for the center of the image. This allows us to take an object in 3D space and map it onto pixels in 2D space. We aren’t finished yet, because we have no frame of reference to where the camera exists in the world, these are the extrinsics. For a single camera system this is trivial, we consider the camera to be the center of the world, with no rotation issues whatsoever. When a second camera is involved, things get more complicated. In order to reconstruct a 3D location for an object given two cameras, we need to have a single origin. Otherwise we are unable to recreate all three dimensions accurately As part of the calibration process, we will take an object seen in both cameras, and figure out where the second camera is in relation to the first camera (or the center of the world). The camera extrinsics are represented in rotation and translation matrices. We will cover the calibration part later in this chapter; but the takeaway from this moment is that with these intrinsics and extrinsics that we can calculate through calibration, we can treat the cameras as a “black box” and toss in information about objects in 3D space into the appropriate matrices and the camera will spit out a corresponding image (or collection of pixels representing 3D space). More importantly, we can do this process in reverse, pointing out areas of interest on the cameras’ images, and retrieve information on where those areas are represented in 3D space.
 
-\section{Even More Figure Stuff}
-With some clever work you can crop a figure, which is handy if (for instance) your EPS or PDF is a little graphic on a whole sheet of paper. The viewport arguments are the lower-left and upper-right coordinates for the area you want to crop.
+Cameras are not perfect however. Lenses contain distortions as light travels through the lens unevenly, especially when going from the center of the lens to the edge of the lens. There are two typical distortions present in our calculations: radial distortion–often dubbed the “fisheye effect” or, inversely, the “pincushion effect”--and tangential distortion, created by a misalignment of the lens and the image plane.. This can be calibrated for, and corrected relatively easily. Lenses have three radial distortion coefficients and two tangential distortion coefficients that can be calculated during calibration and corrected thusly, 
 
- 	\begin{figure}[h!]
-	    	       \centering
-	    % DO NOT ADD A FILENAME EXTENSION TO THE GRAPHIC FILE
-	   \includegraphics[clip=true, viewport=.0in .0in 1in 1in]{subdivision}
-	    \caption{A Cropped Figure}
-	 \label{subd3}
-	\end{figure}
+The final modification we will make to our camera is to establish a “projection plane” for each camera (this will come up again). In short, we create a plane that is a focal length away from the lens in the opposite direction of the camera sensor. Unlike the candle example, where the resulting image is flipped, we are creating a plane for the image to appear “unflipped”. This allows us to visualize and explain higher-level concepts more simply, as we don’t have to internally flip every image we see.
+
+\section{A (brief) Linear Algebra Primer}
+Before we get too deep into the world of matrices and various transformations, it’s important to establish a baseline understanding of the calculations that are happening behind the scenes. We live in a three-dimensional world–at least that is our perception of the world. Thus, we can represent the locations of things in our world using vectors that take three values: $(X, Y, Z)$. Those values represent three different perpendicular directions. Taking those directions and scaling them accordingly, we can represent the location of anything in relation to those original directions. This can be done at home. Take your hand and create the shape of a “finger-gun” (where your index finger and thumb are both fully extended), now extend your middle finger halfway. That creates a coordinate system in terms of your fingers, and you can represent the location of objects in terms of: “how many thumbs, index fingers, and middle fingers does it take to reach an object?”
+
+When it comes to the camera, we have two of our directions (the $X$ and $Y$ directions) that are parallel to the $X$ and $Y$ axes of the projection plane and a third direction ($Z$) which is perpendicular to the projection plane. We can then take locations represented by these vectors, and run them through our intrinsic and extrinsic matrices that define the camera to map the location onto the image. The intrinsic and extrinsic parameters of a camera can be represented with matrices. For intrinsic values, they are mapped in the following way:
+
+We call this matrix the “camera matrix” and it is represented as $K$. Sidenote: This matrix is called “upper diagonal” which allows it some special properties that will be helpful when calibrating and mapping points.
+Extrinsic parameters are commonly represented as $[R t]$, as in, the concatenated matrices of the rotation matrix (which is 3x3) and the translation matrix (which is 1x3). The resulting matrix $[R t]$ is a 3x4 matrix. With these two matrices, the equation to map a point in three-space to pixel coordinates is as follows:
+
+Notice that the vectors representing the location in three-space and the location on the image plane contain an extra value. That is because these vectors are homogeneous coordinates. Homogeneous coordinates are representations of points in computer graphics (and in our case, photogrammetry) where perspective plays a key role. Here, the vectors take the form of $[X,Y,Z,W]$ or $[X,Y,W]$. W plays numerous roles, but its primary purpose is to aid in speedy calculations for computers by allowing translation, scaling, and rotation to be represented by matrices. An important metric of vector spaces, i.e. the three-space that we represent our three-dimensional reality in, is that the origin cannot be moved by a linear transformation, or other matrix operation. The operation of translation to a vector runs the risk of moving the origin of the vector space. If translation is the addition or subtraction of values to a vector, inputting the origin (or a vector of all zeroes) will add or subtract those values to the origin. If one tries to translate a point through clever scaling (to get around the issue of moving the origin), inputting other vectors into the same translation matrix yields wildly different results. With the introduction of a $W$ value, we can represent transformations as the following (without moving the origin).
 	
-      \subsection{Common Modifications}
-      The following figure features the more popular changes thesis students want to their figures. This information is also on the web at \url{web.reed.edu/cis/help/latex/graphics.html}.
-    %\renewcommand{\thefigure}{0.\arabic{figure}} 	% Renumbers the figure to the type 0.x
-    %\addtocounter{figure}{4} 						% starts the figure numbering at 4
-    \begin{figure}[htbp]
-    \begin{center}
-   \includegraphics[scale=0.5]{subdivision}
-    \caption[Subdivision of arc segments]{\footnotesize{Subdivision of arc segments. You can see that $ p_3 = p_6^\prime$.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
-    \label{barplot}
-    \end{center}
-    \end{figure} 
+\section{The Stereo Normal Example}
+
+Triangulation is relatively straightforward if the cameras are stereo normal (the cameras are adjacent, and on the same plane of X and Z axes). In order to get to DLT, first we should cover the stereo normal base case. Cyrill Stachniss provides a great example, which I will modify for this use case.
+
+	Imagine two cameras $O’$ and $O’’$ which share the same $Z$ and $Y$ values, pointing in the same direction (specifically the $Z$ axis), with a distance $D$ being the distance between the two cameras on the X-axis. Now, imagine a projection plane that is infinitely large, is perpendicular to the view direction to the cameras, and located a distance $F$ from the cameras on the $Z$ axis. To finish setting up, draw lines $Z’$ and $Z’’$ perpendicular to the projection plane that go through both cameras respectively. A top down view of this setup would result in the following image: 
+
+For our stereo normal example, we are going to continue to use this view in our calculations, as we can assume any $Y$ or height information in the image will remain consistent between the two cameras (and in 3D space). This allows for a more simplistic base case, and we can elaborate on how further examples require more thought.
+
+Now, imagine that, on the projection plane, there exists two points that map to where our blob detector has spat out the locations of the LED on each camera. Because we imagine the projection plane to be infinitely large, we map the pixel locations onto this plane using the projection, translation, and rotation matrices we were given in the initial calibration process. We will name these two points $P’$ and $P’’$ which map to cameras $O’$ and $O’’$ respectively. If we draw a line from $O’$ through $P’$ and the same for the other camera, the point at which both cameras intersect will be the location of the LED, which we will call $P$. To get that result, the math is pretty straightforward.
+
+First, note the distance from $P’$ to $Z’$ and $P’’$ to $Z’’$ on the projection plane which we will label $x’$ and $x’’$. Through the intercept theorem, we can find the $Z$ coordinate of $P$ by solving the following relation:
+\[\frac{Z}{c} = \frac{D}{-(x'' - x')}\]
+Once that’s done, through Law of Similar Triangles, we can find the X coordinate of P using Z. That relation is as follows:
+\[\frac{X}{x'}=\frac{Z}{c}\]
+Finally, we can assume that the Y value of the coordinates is whatever the Y pixel value maps to the projection plane. This value is less important for placing the light as we can assume performers stay within the same height for this demo.
+
+\section{Camera Calibration Process}
+The camera calibration is largely done automatically through OpenCV. The method for calibrating the camera that we use is called Zhang’s method. The goal here is to gather the extrinsic and intrinsic parameters of the camera. Remember, the extrinsic and intrinsic parameters of a camera allow us to map an object in three-dimensional space onto a two-dimensional plane. To start, we want to begin with just determining the intrinsic parameters for each camera. We can assume that each camera is in the origin of their own world. The high-level explanation of this process is to choose points whose locations are known in two-dimensional space (the image) and in three-dimensional space (the world). Using that information, and the knowledge that the camera is in the origin, we can reverse engineer the camera matrix (and its parameters). However, this method is easier said than done. The current issues we face is that we want a fast way to calibrate a camera and we may not have points measured out (in three-space where the camera is the origin). We need to do some tricks.
+
+Zhang’s method relies on the usage of a checkerboard with defined parameters; these parameters are the size of squares and the size of the grid (e.g. a 3 X 5 grid). We assume that the checkerboard is planar–or flat–on some surface. If we are able to detect the corners of the squares on the checkerboard, we could pick a single corner and know where all other corners exist in relation to it. Our first trick is setting the world coordinate system to the bottom-left corner of the checkerboard, with the $-Z$ axis being normal to the checkerboard. Then, for all corner locations on the checkerboard, they all have a single thing in common. The $Z$ coordinate of each point in three-space is 0 (or all points lie in the X/Y plane). This trick simplifies the current matrices by a significant amount. Recall that the way to convert a three-dimensional point to a two-dimensional one is as follows:
+%$$\begin{matrix}{ x \\ y \\ 1} } = \begin{matrix}{ c & cs & x_H \\ 0 & c(1+m) & y_H \\ 0 & 0 & 1} \begin{matrix}{ & cs & x_H \\ 0 & c(1+m) & y_H \\ 0 & 0 & 1}\;\;\begin{matrix}{ X \\ Y \\ Z \\ 1} $$
+
+% FIX THE MATH
+
+Since Z = 0, we can simplify down to:
+%$$\begin{matrix}{ x \\ y \\ 1} = \begin{matrix}{ c & cs & x_H \\ 0 & c(1+m) & y_H \\ 0 & 0 & 1}\left[ \matrix & cs & x_H \\ 0 & c(1+m) & y_H \\ 0 & 0 & 1} \right]\;\;\left[ \matrix{ X \\ Y \\ 1} \right]$$
+
+During this process, we take multiple photos of the checkerboard in view of the camera. For each image we take, we find the bottom left corner of the checkerboard and establish it as the world origin. Then, knowing the size of the checkerboard squares in the real world, we generate a version of the above matrices for each corner in the checkerboard, where $K$ and $[R t]$ are the same. At this point, all we care about is what $[X, Y, 1]$ and $[x, y, 1]$ are. With that information, we can reverse engineer what K and [R t] are.
+
+\section{DLT to 3D}
+With the knowledge of the stereo normal example under our belt, alongside the knowledge of how the calibration process works, it’s time to create a non-normalized version. With the generation of projection matrices for each camera through calibration, we can theoretically take two points (one on each image), plug their location into the camera matrices, and get a point in three-space that represents the object seen in both cameras. Neither camera can output all the location information about the object on its own. A single camera can calculate the line that would intersect the object, but the second camera is needed to provide feedback on where the object is located along said line.
+
+	One method to accomplish this is through a process called Direct Linear Transformation. At its core, it is the process of taking a matrix $Ax = w$ and minimizing $w$ (which allows us to account for noise or imperfect measurements). In this scenario, we know A is the camera matrix containing intrinsic and extrinsic parameters, and we are solving for some point $x$ such that $w$ is minimized. Note here that A is representing all the camera matrices, which is done using singular value decomposition. Essentially, the matrices that we described as the properties of the camera are in special formats that allow them to be merged into a single matrix A. Using SVD and DLT, we can take our two points on the image planes, and find a point in three-space where $w$ (or the distance between the two vectors) is minimized.
+
+\section{From Pixels to Position}
+Finally, we are in a position to cover the pipeline that exists in this project. We begin with setting up the cameras in the performance space and calibrating the cameras to the space. The program contains a calibration mode which is modified from Dr. Batpurev’s work in stereo calibration. The script takes advantage of the OpenCV library which has in-built functions to calibrate the cameras individually and as a stereo pair through Zhang’s method. We take a couple of photos for each calibration step.
+
+Once that calibration is complete, we need to calibrate the cameras to be sensitive to only the LED that we hope to have tracked. Modern representations of images are as a matrix of three vectors, where each pixel corresponds to a set of red, green, and blue (RGB) values (sidenote, OpenCV defaults to a format of green, red, blue (GRB) values). The webcams that are used in this project operate at a resolution of 1080 pixels by 720 pixels, so to analyze a single frame of video data, the computer needs to work with 777,600 three vectors of GRB data. In order to aid the software, we want to filter out the data we don’t care about.
+
+I used a blue LED light because it was visually distinct. That way, I can filter out pixels that don’t appear as shades of blue. This technique is called “masking”, and is pretty straightforward: First, we need to discuss a different representation of color referred to as HSV. While BGR (and other representations of RGB color) store the image as representations of the amount of red, green, and blue appear in a pixel, HSV approaches color through hue, saturation, and value. Hue represents the color, and is a value from 0-359. Colors that feature red range in the hue values of 0-60, green in the range of 60-180, blue in the range from 180-300, and back to red in the range of 300-359. The peak or most pure forms of red, green, and blue are at hues 0, 120, and 240, and allows for easy translation between RGB and HSV. Saturation represents the distance from white a color sits, and is a range from 0-100. Value is the distance from black a color sits.
+
+HSV is actually great for image processing because it interprets color in a similar way the brain perceives color. For example, we do not see a color as a specific mix of red, green, and blue light, and when comparing two shades of the same, or similar color, we may say that one is darker or lighter, which HSV primarily encodes. In this use case, if we want to mask the image down to a certain color, we can first convert all the pixels to an HSV format, then go pixel-by-pixel, and look for pixels that fall within a certain range of hue. Because the LED light reflects off of objects, we can also filter by saturation and values to remove darker blues and focus purely on the brighter shades coming directly out of the LED.
+
+	When we have the masked frames, the next step is to run a blob detection algorithm. The basic idea is to search the mask for blobs. A high-level description of the algorithm is to search the mask for pixels of similar color. Because the mask results in an image with only fully black or white pixels based on the hue of the LED, the light emanating from the LED results in a large clump of pixels. The blob detection algorithm allows the user to filter out blobs based on certain qualities (like the roundness of a certain blob). In our case, because we are putting so much work into filtering the image before running it through the blob detection, we allow the detector to be lenient and to flag any blobs. The detector outputs a list of all blobs it detects, specifically the image coordinates of the center of each blob. With those image coordinates, we can input into our DLT solver that we declared before. Because we calibrated the cameras, the vast majority of the work is done already. We know the camera matrix and the rotation-translation matrix for each camera, so we can input the pixel location on each camera and get a point in three-space representing the location of the LED.
+	
+Now that we have this location, the final step is to pick a location for the instrument and to transmit it to said instrument. Theoretically this is pretty easy. If we know the instrument’s position in relation to the world we have defined with the cameras, we can convert the location of the LED to polar coordinates. At this point, there are defined values that exist for the lighting instrument to use, and all that is left is to transmit it. I take advantage of the numerous existing python libraries that exist that allow someone to transmit a universe of data through a serial port. One of the most common serial ports that people encounter is the USB port (which stands for Universal Serial Bus). We can plug in an off-the-shelf USB to DMX decoder which–through the magic of some electronics cleverness–will output a DMX signal that runs on a five-pin DMX cable to the instrument. Rinse and repeat at least fifteen times a second and we have a functional performer tracking program!
+
+\chapter{Bringing the Project to Life \(?\)}
+The original idea was to demo the tracking software in Belle's thesis, Chronicle of a Planet. The show explores the various relationships between Belle and mother. Those representations were her own mother, her motherland as a student from China, and her mother tongue of Mandarin.
+
+The original goal was to include the tracker in the chapter exploring motherland. In that chapter, Belle moves around a white umbrella. The intended effect was to track the umbrella in certain sections when Belle was criticizing the CCP most, to serve as the "watchful eye of a surveillance state". The show was set to open on February 14th.
+
+\section{Where we started (this semester):}
+
+I had ended the semester feeling a bit disheartened. At that moment I was hoping for a fully functional demo of the tracking software ready to plug into a moving light. I realize now it was a lofty task. Over that winter break, I spent some time digging around the internet to see if someone had done work with stereo vision to see what I was missing; this was when I discovered the work by Temuge Batpurev, a researcher with a PhD in Computer Science from Osaka University. Dr. Batpurev had spent time working with stereo vision, and had developed a script to calibrate stereo cameras. The issue with my project so far was that even if I had gotten a good track with the stereo cameras, the data coming out with my back-of-the-napkin math made no sense for the current context. That was because of two things: I hadn't calibrated for the distortion that a camera experiences through lenses and the fisheye effect, and I tried to rely on perfect placement of the two cameras with a measured distance instead of calibrating the two. Dr. Batpurev's script handled both of those problems.
+
+I began the semester integrating and testing Dr. Batpurev's code. His code relies on calibrating through using a checkerboard with a specific size and row/column count. In fact, opencv provides infrastructure for detecting a checkerboard for this exact purpose (!!!). The integration proved to be fairly straightforward. The next challenge was to send instructions over DMX.
+
+\section{DMX "Hell"}
+DMX is an interesting protocol (Describe aspects of DMX and how it works as a serial protocol). While I had done some work in networking \& protocols, my knowledge of implementing it in python wasn't the greatest. Thankfully, through the magic of open-source software, there were multiple people who had created python modules designed to work in DMX transmission. One of the defining characteristics of DMX was that every packet of data to be transmitted *had* to be 513 bytes; the first one is the **start code** and it denotes the way the signal should be interpreted (usually 0x00). The other 512 bytes communicate the behavior of the following 512 addresses, with one byte assigned to each address. Because of this, the majority of open-source software I encountered would have me either create the entire 513 byte packet, or to define what addresses were needed for the light (and what data it used).
+
+The light for this was a ROBE Esprite, provided by Outlaw Lighting--A local supplier of lighting gear. It required, on average, 49 addresses to run, to control various aspects of the light. That made for an interesting evening of starting at datasheets provided by ROBE, and using the magic of object orientation to create a consistent way to *serialize* all the attributes I needed. I ended up getting it working on its own, but I wasn't let off that easily. (Talk about the issues with USB ports \& bus space and such).
+
+\section{So how did you get so close?}
+
+I felt really good going into the final week before Tech (the period where all technical aspects of a show are combined). I had a way to communicate with the light, and I had a way to track the LED. Sure, I needed to still find a way to communicate the position of the LED to the Esprite, but even if I could just start to feed junk data, and just see what happens, it would have been awesome. Wishful thinking.
+
+In order to try and speed up the tracking to be as close to real-time as possible, I downgraded the resolution from 1920x1080 to 640x480. That's a difference of 2457600 pixels to analyze to 307200 pixels (all at a hopeful speed of 20-30fps). The tracking works great when close up, but I was hoping for Belle to be dancing with the umbrella more than 15 feet from the camera, and with that resolution, the cameras had a *bit* of trouble even putting the pinprick of light that was the LED on screen. Oops.
+
+However, if I tried to upscale the resolution, it would scale the calculations by a factor of at least 8. I am not the most efficient programmer, and some of the algorithms I used absolutely did not run in constant time (maybe elaborate on wtf that means). Even when I tried that, the computer struggled to keep pace (and also the LED did appear at a far distance very well).
+
+Unfortunately, at that point, tech arrived and I resolved to put the project on hold while I finished designing for Belle's thesis.
+
+\section{Where does that put us now:}
+
+Well, it was certainly a step back, but the encouraging thing is that there is a pipeline that exists. After discussing with my advisors, the best step forward was to try to work on the pipeline in sections to figure out the capacity, and to generate demos for each particular step. That way, even if the final, full pipeline never came to completion, I would still be able to showcase my work in the various sections. The three demos Jim and I came up with were as follows:
+
+1. [ ] A working demo showing my ability to write programmed sequences for a moving light to follow. This showcases my ability to just write onto DMX from my laptop.
+2. [ ] A working demo tracking an LED with stereo camera, and displaying all the points (or points found every second) on a graph. Likely using matplotlib
+3. [ ] A working demo that takes a generated graph (like one created through the previous demo), and sends it to the light.
+
+If I can get all three working, then the pipeline should be trivial. This still means I need to work through calibrating the light, but I have some ideas on how to accomplish that. Although we are facing obstacles, this is a two step forward, one step back process.
+
 
 \chapter*{Conclusion}
          \addcontentsline{toc}{chapter}{Conclusion}

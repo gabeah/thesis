@@ -1,7 +1,7 @@
 camera0: 200
 camera1: 204
-frame_width: 1920
-frame_height: 1080
+frame_width: 1280
+frame_height: 720
 mono_calibration_frames: 1
 stereo_calibration_frames: 1
 view_resize: 1

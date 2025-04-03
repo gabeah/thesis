@@ -9,6 +9,13 @@ from scipy import linalg
 
 #This will contain the calibration settings from the calibration_settings.yaml file
 calibration_settings = {}
+camera_calib_results = {
+    "camera0": {"cam_id": None, "rot_mat": None, "trans_mat": None, "dist_mat": None, "intr_mat": None}, 
+    "camera1": {"cam_id": None, "rot_mat": None, "trans_mat": None, "dist_mat": None, "intr_mat": None}, 
+    "upper_blue": None, 
+    "lower_blue": None
+    }
+
 
 class trackbar_var(object):
     def __init__(self, val=0):
@@ -199,6 +206,11 @@ def save_camera_intrinsics(camera_matrix, distortion_coefs, camera_name):
 
     out_filename = os.path.join('camera_parameters', camera_name + '_intrinsics.dat')
     outf = open(out_filename, 'w')
+
+    camera_calib_results[camera_name]['intr_mat'] = camera_matrix.tolist()
+    camera_calib_results[camera_name]['dist_mat'] = distortion_coefs.tolist()
+
+    print(camera_calib_results)
 
     outf.write('intrinsic:\n')
     for l in camera_matrix:
@@ -542,7 +554,26 @@ def save_extrinsic_calibration_parameters(R0, T0, R1, T1, lower_blue, upper_blue
         os.mkdir('camera_parameters')
 
     camera0_rot_trans_filename = os.path.join('camera_parameters', prefix + 'camera0_rot_trans.dat')
+
+    camera_calib_outputs = os.path.join('camera_parameters', prefix + 'camera_calib_results.yaml')
+
+    # Update calib_results with Rotation and translation matrices (and the blue values)
+    camera_calib_results["camera0"]["cam_id"] = calibration_settings["camera0"]
+    camera_calib_results["camera1"]["cam_id"] = calibration_settings["camera1"]
+    camera_calib_results["camera0"]["rot_mat"] = R0.tolist()
+    camera_calib_results["camera1"]["rot_mat"] = R1.tolist()
+    camera_calib_results["camera0"]["trans_mat"] = T0.tolist()
+    camera_calib_results["camera1"]["trans_mat"] = T1.tolist()
+    camera_calib_results["upper_blue"] = upper_blue.tolist()
+    camera_calib_results["lower_blue"] = lower_blue.tolist()
+
+    #calib_yaml_outputs = yaml.safe_load(camera_calib_results)
+
+    # Add YAML File with information:
     outf = open(camera0_rot_trans_filename, 'w')
+    outyf = open(camera_calib_outputs, 'w')
+
+    yaml.dump(camera_calib_results, outyf)
 
     outf.write('R:\n')
     for l in R0:
@@ -580,6 +611,7 @@ def save_extrinsic_calibration_parameters(R0, T0, R1, T1, lower_blue, upper_blue
     outf.write(f'{lower_blue} \n')
     outf.write(f'{upper_blue} \n')
     outf.close()
+    outyf.close()
 
     return R0, T0, R1, T1
 
@@ -786,7 +818,7 @@ if __name__ == '__main__':
 
     """Step5. Open both camera feeds and modify the masking for the feeds to detect the LED well."""
     # Added to the process!!
-    upper_blue, lower_blue = calib_mask()
+    upper_blue, lower_blue = calib_mask("camera0", "camera1")
 
     """Step6. Save calibration data where camera0 defines the world space origin."""
     #camera0 rotation and translation is identity matrix and zeros vector

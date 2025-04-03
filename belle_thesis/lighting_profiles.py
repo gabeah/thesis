@@ -184,3 +184,70 @@ class Esprite():
         #print(serial_out)
         #print(len(serial_out))
         return serial_out
+
+class ICueAndIris():
+    
+    # The class representing the Rosco ICue w/ Iris attachment (assuming DMX footprint is the same)
+
+    def __init__(self, address: int = 1, mode: int = 1):
+        # All values here must be between 0-255
+        self._address = address
+        self._pan = 128
+        self._tilt = 128
+        self._iris = 128
+        self._mode = mode
+        self._slot_count = 2
+
+    @property
+    def mode(self) -> int:
+        return self._mode
+
+    @property
+    def iris(self) -> int:
+        return self._iris
+
+    @property
+    def pan_tilt(self):
+        return [self._pan, self._tilt]
+
+    @property
+    def start_address(self) -> int:
+        return self._address
+    
+    @property
+    def end_address(self) -> int:
+        """End address (inclusive) of the light."""
+        end_address = self._address + self.slot_count - 1
+        if end_address > DMX_MAX_ADDRESS or end_address < DMX_MIN_ADDRESS:
+            return ((end_address - DMX_MIN_ADDRESS) % DMX_MAX_ADDRESS) + DMX_MIN_ADDRESS
+        return end_address
+
+    @property
+    def highest_address(self) -> int:
+        """Highest address used by this light."""
+        if self.end_address < self.start_address:
+            return DMX_MAX_ADDRESS
+        return self.end_address
+
+    def set_pan_tilt(self, p: int, t: int):
+        # Take pan value between 0 - 540 degrees, convert to range between 0-255
+        # Take tilt value between 0 - 265, convert to range between 0 - 255
+        self.set_pan(p)
+        self.set_tilt(t)
+    
+    def set_pan(self, p: int):
+        if -270 < p < 270:
+            self._pan = round(((p+270)/540) * 255)
+        else:
+            print(f"Error: Value {p} out of pan range")
+    
+    def set_tilt(self, t: int):
+        if -135 < t < 135:
+            self._tilt = round((t+135)/270 * 255)
+        else:
+            print(f"Error: Value {t} out of tilt range")
+    
+    def serialise_pydmx(self):
+        serial_out = pan_tilt() + [iris()]
+        return serial_out
+    

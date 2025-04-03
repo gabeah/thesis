@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Log of progress.md",
+                "file": "Outlines.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Log of progress"
+              "title": "Outlines"
             }
           }
         ],
@@ -208,14 +208,14 @@
   },
   "active": "11815192d3a2664b",
   "lastOpenFiles": [
-    "belle thesis update.md",
-    "Log of progress.md",
     "Thesis Menu.md",
-    "Thesis Meetings.md",
+    "belle thesis update.md",
     "Automated Lighting - The Art and Science of Moving Light in Theatre.md",
     "Chapter 1 - History of Lighting Control.md",
-    "Initial Thesis Meeting.md",
     "Introduction.md",
+    "Log of progress.md",
+    "Thesis Meetings.md",
+    "Initial Thesis Meeting.md",
     "Thesis Notes.md",
     "Outlines.md",
     "Dixon - Digital Performance.md",
