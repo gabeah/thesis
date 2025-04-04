@@ -1,18 +1,19 @@
-\contentsline {chapter}{Introduction}{1}{}%
-\contentsline {chapter}{Chapter 1: A History of Lighting Control}{5}{}%
-\contentsline {chapter}{Chapter 2: Oops all Cameras}{11}{}%
-\contentsline {section}{\numberline {2.1}Introduction}{11}{}%
-\contentsline {section}{\numberline {2.2}Camera Parameters}{11}{}%
-\contentsline {section}{\numberline {2.3}A (brief) Linear Algebra Primer}{14}{}%
-\contentsline {section}{\numberline {2.4}The Stereo Normal Example}{16}{}%
-\contentsline {section}{\numberline {2.5}Camera Calibration Process}{18}{}%
-\contentsline {section}{\numberline {2.6}DLT to 3D}{20}{}%
-\contentsline {section}{\numberline {2.7}From Pixels to Position}{21}{}%
-\contentsline {chapter}{Chapter 3: Bringing the Project to Life (?)}{25}{}%
-\contentsline {section}{\numberline {3.1}Where we started (spring semester):}{25}{}%
-\contentsline {section}{\numberline {3.2}DMX "Hell"}{26}{}%
-\contentsline {section}{\numberline {3.3}So how did you get so close?}{27}{}%
-\contentsline {section}{\numberline {3.4}Where does that put us now:}{28}{}%
-\contentsline {chapter}{Conclusion}{31}{}%
-\contentsline {chapter}{Appendix A: The Code of the Project}{33}{}%
-\contentsline {chapter}{Appendix B: Photos of the demo (?)}{35}{}%
+\contentsline {chapter}{Introduction}{1}{chapter*.6}%
+\contentsline {chapter}{Chapter 1: A History of Lighting Control}{5}{chapter.1}%
+\contentsline {chapter}{Chapter 2: Oops all Cameras}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introduction}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Camera Parameters}{11}{section.2.2}%
+\contentsline {section}{\numberline {2.3}A (brief) Linear Algebra Primer}{14}{section.2.3}%
+\contentsline {section}{\numberline {2.4}The Stereo Normal Example}{16}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Camera Calibration Process}{19}{section.2.5}%
+\contentsline {section}{\numberline {2.6}DLT to 3D}{21}{section.2.6}%
+\contentsline {section}{\numberline {2.7}From Pixels to Position}{22}{section.2.7}%
+\contentsline {chapter}{Chapter 3: Bringing the Project to Life (?)}{27}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Where we started (spring semester):}{27}{section.3.1}%
+\contentsline {section}{\numberline {3.2}DMX "Hell"}{28}{section.3.2}%
+\contentsline {section}{\numberline {3.3}So how did you get so close?}{29}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Where does that put us now:}{30}{section.3.4}%
+\contentsline {chapter}{Conclusion}{33}{chapter*.7}%
+\contentsline {chapter}{Appendix A: The Code of the Project}{35}{appendix.A}%
+\contentsline {chapter}{Appendix B: Photos of the demo (?)}{37}{appendix.B}%
+\contentsline {chapter}{References}{39}{appendix*.8}%

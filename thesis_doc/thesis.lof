@@ -1,10 +1,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces A Pinhole Camera}}{12}{}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Dimentional Fingers showcasing 2-Space and 3-Space}}{14}{}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces An example of translation with homogeneous coordinates:}}{16}{}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces A Stereo Normal Example}}{16}{}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Left: Image of LED, Right: Mask of LED by HSV}}{22}{}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces A Pinhole Camera}}{12}{figure.2.1}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Dimentional Fingers showcasing 2-Space and 3-Space}}{15}{figure.2.2}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces An example of translation with homogeneous coordinates:}}{17}{figure.2.3}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces A Stereo Normal Example}}{18}{figure.2.4}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Left: Image of LED, Right: Mask of LED by HSV}}{23}{figure.2.5}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
