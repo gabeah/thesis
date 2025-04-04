@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2025.1.27)  4 APR 2025 04:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=latex 2025.1.27)  4 APR 2025 06:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -54,10 +54,10 @@ Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 107.
+Package graphics Info: Driver file: dvips.def on input line 107.
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/dvips.def
+File: dvips.def 2022/09/22 v3.1e Graphics/color driver for dvips
 ))
 \Gin@req@height=\dimen141
 \Gin@req@width=\dimen142
@@ -201,9 +201,8 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 )
 (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
-) (./chemarr.sty
-Package: chemarr 2001/06/22 v1.1 Chemical reaction arrows (HO)
-) (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -230,94 +229,58 @@ LaTeX Info: Redefining \cite on input line 694.
 Package: bookman 2020/03/25 PSNFSS-v9.3 (SPQR) 
 )
 LaTeX Font Info:    Trying to load font information for OT1+pbk on input line 7
-1.
+0.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pbk.fd
 File: ot1pbk.fd 2001/06/04 font definitions for OT1/pbk.
 )
 LaTeX Font Info:    Font shape `OT1/pbk/m/n' in size <12> not available
-(Font)              Font shape `OT1/pbk/l/n' tried instead on input line 71.
+(Font)              Font shape `OT1/pbk/l/n' tried instead on input line 70.
 
-(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count283
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
+File: l3backend-dvips.def 2023-01-16 L3 backend support: dvips
 \l__pdf_internal_box=\box59
+\g__pdf_backend_object_int=\count283
+\l__pdf_backend_content_box=\box60
+\l__pdf_backend_model_box=\box61
+\g__pdf_backend_annotation_int=\count284
+\g__pdf_backend_link_int=\count285
+\g__pdf_backend_link_sf_int=\count286
 )
 (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count284
-\scratchdimen=\dimen166
-\scratchbox=\box60
-\nofMPsegments=\count285
-\nofMParguments=\count286
-\everyMPshowfont=\toks31
-\MPscratchCnt=\count287
-\MPscratchDim=\dimen167
-\MPnumerator=\count288
-\makeMPintoPDFobject=\count289
-\everyMPtoPDFconversion=\toks32
-) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 73
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 72
 .
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 73.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 72.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 73.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 72.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
-Non-PDF special ignored!
-<special> !% Reed College LaTeX Thesis Class 2001/12/04 SN
-Non-PDF special ignored!
-<special> rawpostscript % Reed College LaTeX Thesis Class 2001/12/04 SN
-
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
-st/fonts/enc/dvips/base/8r.enc}] [2
-
-] [3] [4
-
-]
-LaTeX Font Info:    Font shape `OT1/pbk/m/n' in size <24.88> not available
-(Font)              Font shape `OT1/pbk/l/n' tried instead on input line 79.
-LaTeX Font Info:    Font shape `OT1/pbk/b/n' in size <24.88> not available
-(Font)              Font shape `OT1/pbk/db/n' tried instead on input line 79.
- [1
 
 
 ] [2
@@ -325,26 +288,34 @@ LaTeX Font Info:    Font shape `OT1/pbk/b/n' in size <24.88> not available
 ] [3] [4
 
 ]
-LaTeX Font Info:    Font shape `OT1/pbk/b/n' in size <12> not available
-(Font)              Font shape `OT1/pbk/db/n' tried instead on input line 95.
- [5] [6
+LaTeX Font Info:    Font shape `OT1/pbk/m/n' in size <24.88> not available
+(Font)              Font shape `OT1/pbk/l/n' tried instead on input line 78.
+LaTeX Font Info:    Font shape `OT1/pbk/b/n' in size <24.88> not available
+(Font)              Font shape `OT1/pbk/db/n' tried instead on input line 78.
+
+[1
+
+
+] [2
 
 ]
-(./thesis.toc)
+LaTeX Font Info:    Font shape `OT1/pbk/b/n' in size <12> not available
+(Font)              Font shape `OT1/pbk/db/n' tried instead on input line 91.
+ [3] [4
+
+] (./thesis.toc)
 \tf@toc=\write3
 \openout3 = `thesis.toc'.
 
- [7] [8
+ [5] [6
 
 ] (./thesis.lof)
 \tf@lof=\write4
 \openout4 = `thesis.lof'.
 
- [9] [10
+ [7] [8
 
-] [11] [12
-
-] [13] [14
+] [9] [10
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -355,7 +326,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `OT1/pbk/m/sl' in size <12> not available
-(Font)              Font shape `OT1/pbk/l/sl' tried instead on input line 151.
+(Font)              Font shape `OT1/pbk/l/sl' tried instead on input line 147.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -406,7 +377,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [7]
-Overfull \hbox (1.15787pt too wide) in paragraph at lines 168--169
+Overfull \hbox (1.15787pt too wide) in paragraph at lines 164--165
 []\OT1/pbk/l/n/12 The con-cept of time-cod-ing is that there is a global clock 
 run-ning through
  []
@@ -437,16 +408,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 Chapter 2.
 LaTeX Font Info:    Font shape `OT1/pbk/m/n' in size <17.28> not available
-(Font)              Font shape `OT1/pbk/l/n' tried instead on input line 177.
+(Font)              Font shape `OT1/pbk/l/n' tried instead on input line 173.
 LaTeX Font Info:    Font shape `OT1/pbk/b/n' in size <17.28> not available
-(Font)              Font shape `OT1/pbk/db/n' tried instead on input line 177.
-<./figures/pinhole_example.png, id=95, 1896.08376pt x 1002.74625pt>
-File: ./figures/pinhole_example.png Graphic file (type png)
-<use ./figures/pinhole_example.png>
-Package pdftex.def Info: ./figures/pinhole_example.png  used on input line 187.
+(Font)              Font shape `OT1/pbk/db/n' tried instead on input line 173.
 
-(pdftex.def)             Requested size: 379.21004pt x 200.5457pt.
+! LaTeX Error: Cannot determine size of graphic in ~/thesis/thesis_doc/figures/
+pinhole_example.png (no BoundingBox).
 
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.183 ...s/thesis_doc/figures/pinhole_example.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+File: ~/thesis/thesis_doc/figures/pinhole_example.png Graphic file (type eps)
+<~/thesis/thesis_doc/figures/pinhole_example.png>
 Underfull \vbox (badness 1789) has occurred while \output is active []
 
  [11]
@@ -458,7 +437,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[12 <./figures/pinhole_example.png>]
+[12]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -471,25 +450,33 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [13]
-<./figures/2-space-fingers.png, id=108, 1425.325pt x 1003.75pt>
-File: ./figures/2-space-fingers.png Graphic file (type png)
-<use ./figures/2-space-fingers.png>
-Package pdftex.def Info: ./figures/2-space-fingers.png  used on input line 209.
 
-(pdftex.def)             Requested size: 213.78952pt x 150.556pt.
-<./figures/3-space-fingers.png, id=109, 1329.96875pt x 1003.75pt>
-File: ./figures/3-space-fingers.png Graphic file (type png)
-<use ./figures/3-space-fingers.png>
-Package pdftex.def Info: ./figures/3-space-fingers.png  used on input line 211.
+! LaTeX Error: File `./figures/2-space-fingers' not found.
 
-(pdftex.def)             Requested size: 199.48671pt x 150.556pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.205 ...cs[scale=0.15]{./figures/2-space-fingers}
+                                                  
+I could not locate the file with any of these extensions:
+.eps,.ps,.eps.gz,.ps.gz,.eps.Z,.mps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
-Underfull \vbox (badness 1297) has occurred while \output is active []
+! LaTeX Error: File `./figures/3-space-fingers' not found.
 
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.207 ...cs[scale=0.15]{./figures/3-space-fingers}
+                                                  
+I could not locate the file with any of these extensions:
+.eps,.ps,.eps.gz,.ps.gz,.eps.Z,.mps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -501,9 +488,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [14]
 LaTeX Font Info:    Font shape `OT1/pbk/m/n' in size <8> not available
-(Font)              Font shape `OT1/pbk/l/n' tried instead on input line 219.
+(Font)              Font shape `OT1/pbk/l/n' tried instead on input line 215.
 LaTeX Font Info:    Font shape `OT1/pbk/m/n' in size <6> not available
-(Font)              Font shape `OT1/pbk/l/n' tried instead on input line 219.
+(Font)              Font shape `OT1/pbk/l/n' tried instead on input line 215.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -516,13 +503,40 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[15 <./figures/2-space-fingers.png> <./figures/3-space-fingers.png>]
-<./figures/translation_example.png, id=121, 2434.09375pt x 1003.75pt>
-File: ./figures/translation_example.png Graphic file (type png)
-<use ./figures/translation_example.png>
-Package pdftex.def Info: ./figures/translation_example.png  used on input line 
-235.
-(pdftex.def)             Requested size: 243.42363pt x 100.38087pt.
+[15]
+
+! LaTeX Error: File `./figures/translation_example' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.231 ...cale=0.10]{./figures/translation_example}
+                                                  
+I could not locate the file with any of these extensions:
+.eps,.ps,.eps.gz,.ps.gz,.eps.Z,.mps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 242.
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 242.
+
+
+! LaTeX Error: File `./figures/stereo_normal' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.251 ...phics[scale=0.3]{./figures/stereo_normal}
+                                                  
+I could not locate the file with any of these extensions:
+.eps,.ps,.eps.gz,.ps.gz,.eps.Z,.mps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -532,20 +546,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[16 <./figures/translation_example.png>]
+[16]
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 246.
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 260.
 
 
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 246.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<./figures/stereo_normal.png, id=128, 1295.84125pt x 1003.75pt>
-File: ./figures/stereo_normal.png Graphic file (type png)
-<use ./figures/stereo_normal.png>
-Package pdftex.def Info: ./figures/stereo_normal.png  used on input line 255.
-(pdftex.def)             Requested size: 388.75537pt x 301.12732pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -556,11 +563,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [17]
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 264.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1297) has occurred while \output is active []
 
 
 
@@ -571,8 +574,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[18 <./figures/stereo_normal.png>]
-Underfull \vbox (badness 1297) has occurred while \output is active []
+[18]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
@@ -596,9 +599,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [20]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -609,6 +609,34 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [21]
 
+! LaTeX Error: File `./figures/example_img' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.298 ...raphics[scale=0.4]{./figures/example_img}
+                                                  
+I could not locate the file with any of these extensions:
+.eps,.ps,.eps.gz,.ps.gz,.eps.Z,.mps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: File `./figures/example_mask' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.300 ...aphics[scale=0.4]{./figures/example_mask}
+                                                  
+I could not locate the file with any of these extensions:
+.eps,.ps,.eps.gz,.ps.gz,.eps.Z,.mps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\headheight}{14.49998pt}.
@@ -617,9 +645,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [22]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -628,20 +653,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[23]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[24]
-Chapter 3.
-[25
+[23] [24
 
 ]
+Chapter 3.
+[25]
+LaTeX Font Info:    Font shape `OT1/pbk/m/it' in size <12> not available
+(Font)              Font shape `OT1/pbk/l/it' tried instead on input line 321.
+
 Underfull \vbox (badness 1297) has occurred while \output is active []
 
 
@@ -689,44 +708,35 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [29] [30
 
 ]
-LaTeX Font Info:    Font shape `OT1/pbk/m/it' in size <12> not available
-(Font)              Font shape `OT1/pbk/l/it' tried instead on input line 349.
- [31] [32
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-]
+ [31]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[32]
 Appendix A.
-[33] [34
+[33
+
+] [34
 
 ]
 Appendix B.
 [35] [36
 
-]
-No file thesis.bbl.
-(./thesis.aux) ) 
+] (./thesis.bbl) (./thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 3951 strings out of 477985
- 59924 string characters out of 5839380
- 1865388 words of memory out of 6000000
- 24073 multiletter control sequences out of 15000+600000
- 531091 words of font info for 91 fonts, out of 8000000 for 9000
+ 3552 strings out of 477986
+ 55257 string characters out of 5839406
+ 1864385 words of memory out of 6000000
+ 23675 multiletter control sequences out of 15000+600000
+ 521618 words of font info for 63 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 57i,14n,69p,1836b,269s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/urw/bookman/ubkd8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/book
-man/ubkl8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/bookman/ubkl8a.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/urw/bookman/ubkli8a.pfb>
-Output written on thesis.pdf (54 pages, 5732813 bytes).
-PDF statistics:
- 251 PDF objects out of 1000 (max. 8388607)
- 159 compressed objects within 2 object streams
- 0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 57i,12n,69p,1836b,281s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
+Output written on thesis.dvi (50 pages, 70536 bytes).

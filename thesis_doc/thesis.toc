@@ -4,16 +4,15 @@
 \contentsline {section}{\numberline {2.1}Introduction}{11}{}%
 \contentsline {section}{\numberline {2.2}Camera Parameters}{11}{}%
 \contentsline {section}{\numberline {2.3}A (brief) Linear Algebra Primer}{14}{}%
-\contentsline {section}{\numberline {2.4}The Stereo Normal Example}{17}{}%
-\contentsline {section}{\numberline {2.5}Camera Calibration Process}{19}{}%
-\contentsline {section}{\numberline {2.6}DLT to 3D}{21}{}%
-\contentsline {section}{\numberline {2.7}From Pixels to Position}{22}{}%
-\contentsline {chapter}{Chapter 3: Bringing the Project to Life \(?\)}{25}{}%
-\contentsline {section}{\numberline {3.1}Where we started (this semester):}{25}{}%
+\contentsline {section}{\numberline {2.4}The Stereo Normal Example}{16}{}%
+\contentsline {section}{\numberline {2.5}Camera Calibration Process}{18}{}%
+\contentsline {section}{\numberline {2.6}DLT to 3D}{20}{}%
+\contentsline {section}{\numberline {2.7}From Pixels to Position}{21}{}%
+\contentsline {chapter}{Chapter 3: Bringing the Project to Life (?)}{25}{}%
+\contentsline {section}{\numberline {3.1}Where we started (spring semester):}{25}{}%
 \contentsline {section}{\numberline {3.2}DMX "Hell"}{26}{}%
 \contentsline {section}{\numberline {3.3}So how did you get so close?}{27}{}%
 \contentsline {section}{\numberline {3.4}Where does that put us now:}{28}{}%
 \contentsline {chapter}{Conclusion}{31}{}%
-\contentsline {section}{\numberline {4.1}More info}{31}{}%
-\contentsline {chapter}{Appendix A: The First Appendix}{33}{}%
-\contentsline {chapter}{Appendix B: The Second Appendix, for Fun}{35}{}%
+\contentsline {chapter}{Appendix A: The Code of the Project}{33}{}%
+\contentsline {chapter}{Appendix B: Photos of the demo (?)}{35}{}%

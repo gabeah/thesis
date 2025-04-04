@@ -5,6 +5,18 @@
 *.png
 *.dat
 
+# Tex Files
+*.aux
+*.bbf
+*.bbl
+*.lof
+*.log
+*.toc
+*.dvi
+*.blg
+*.bcf
+Unused/
+
 # Compiled Object files
 *.slo
 *.lo
