@@ -7,7 +7,7 @@
 %
 % See http://web.reed.edu/cis/help/latex.html for help. There are a 
 % great bunch of help pages there, with notes on
-% getting started, bibtex, etc. Go there and read it if you're not
+% getting started, biblatex, etc. Go there and read it if you're not
 % already familiar with LaTeX.
 %
 % Any line that starts with a percent symbol is a comment. 
@@ -23,8 +23,29 @@
 %%
 %% Preamble
 %%
-% \documentclass{<something>} must begin each LaTeX document
-\documentclass[12pt,twoside]{reedthesis}
+
+% The `reedthesis' class (.cls) file has a number of options. Most of these
+% options are passed directly to the book class, but we have a number of custom options:
+% - `tocchapterdots=false' - disable the Table of Contents dots between chapters.
+%	This only affects the dots between the Chapter N: ... heading and their respective page numbers.
+% - `tocchaptername=false' - shows just "N" instead of "Chapter N" in each ToC entry.
+% - `headerstyle' - chooses the format in which header titles are displayed
+%	- `headerstyle=uppercase' - displays header titles in upper case
+%	- `headerstyle=smallcaps` - displays header titles in small caps.
+% - `linkstyle' - changes the style of links. by default, this is "unstyled" (black)
+%	(Note: If you go to print, and links don't show up, check your LaTeX engine! This should work fine on Overleaf, but you may need to
+%		change which LaTeX engine you use (e.g. for LaTeX Workshop on Visual Studio Code, use the recipe `pdflatex'))
+%   - `linkstyle=web` - the color of a link is always blue ("website"-style)
+% 	- `linkstyle=labelled` - the color of a link depends on its type
+% - `bibstyle` - choose the bibliography style in use. defaults to numeric
+% - `bibfile=???.bib' - the name of the bibliography file. defaults to bibliography.bib
+\documentclass[
+    12pt,
+    twoside,
+    bibstyle=chicago,
+    headerstyle=uppercase,
+	bibfile=thesis.bib
+]{reedthesis}
 % Packages are extensions to the basic LaTeX functions. Whatever you
 % want to typeset, there is probably a package out there for it.
 % Chemistry (chemtex), screenplays, you name it.
@@ -33,23 +54,21 @@
 \usepackage{graphicx,latexsym} 
 \usepackage{amssymb,amsthm,amsmath}
 \usepackage{longtable,booktabs,setspace} 
-\usepackage[hyphens]{url}
-\usepackage{rotating}
-\usepackage{hyperref}
-\usepackage{natbib}
-% Comment out the natbib line above and uncomment the following two lines to use the new 
-% biblatex-chicago style, for Chicago A. Also make some changes at the end where the 
-% bibliography is included. 
-%\usepackage{biblatex-chicago}
-%\bibliography{thesis}
+\usepackage{rotating} 
+\usepackage[english]{babel}
 
-\usepackage{bookman} % other fonts are available like times, bookman, charter, palatino
+\newcommand{\rt}{\left[\begin{smallmatrix}R &| t\end{smallmatrix}\right]}
 
-\title{Lighting: A systems Approach}
+\newcommand{\RT}{\begin{bmatrix}R & t\end{bmatrix}}
+
+
+% \usepackage{times} % other fonts are available like times, bookman, charter, palatino
+
+\title{Lighting: A Systems Approach}
 \author{Gabriel Howland}
 % The month and year that you submit your FINAL draft TO THE LIBRARY (May or December)
 \date{May 2025}
-\division{Mathematical and Natural Sciences}
+%\division{Mathematical and Natural Sciences}
 \advisor{Peter Ksander}
 %If you have two advisors for some reason, you can use the following
 \altadvisor{Jim Fix}
@@ -58,7 +77,7 @@
 % if you're writing a thesis in an interdisciplinary major,
 % uncomment the line below and change the text as appropriate.
 % check the Senior Handbook if unsure.
-%\thedivisionof{The Established Interdisciplinary Committee for}
+\thedivisionof{The Established Interdisciplinary Committee for}
 % if you want the approval page to say "Approved for the Committee",
 % uncomment the next line
 \approvedforthe{Committee}
@@ -106,6 +125,8 @@
 
 % The abstract is not required if you're writing a creative thesis (but aren't they all?)
 % If your abstract is longer than a page, there may be a formatting issue.
+
+% TODO: Need to update 
     \chapter*{Abstract}
 	This thesis studies the development of lighting control throughout history, and attempts to contribute to the next step in controlling lights. In this, I recap the lighting control techniques from the days of candles to DMX. I propose a stereoscopic vision system to track a performer in a theatrical space, and cover the process to creating such a software. Part of that includes an overview of photogrammetry, and the process for calibrating cameras, locating objects in three-dimentional space, and positioning a light in said space.
 	
@@ -134,7 +155,7 @@ This thesis explores lighting control, specifically for live performance. It wil
 
 %ADD SOME SHIT ABOUT APPIA HERE AND LIVENESS AND HOW ITS GOOD FOR PERFORMERS
 
-    This thesis attempts to aleviate those constraints by creating a lighting control scheme that tracks a performer through a theatrical space. It is a reactive scheme that hopes to meet a few criteria: 1) The scheme must be lightweight; 2) The scheme must be able to run using off-the-shelf components and computing resources; 3) The scheme must be open source; 4) The scheme should run on top of existing theater infrastructure. It is worth mentioning that this concept is not revolutionary. There are numerous choices for high-end performer tracking offered by the likes of Cast Group's BLACKTRAX, Follow-Me, and zactrack. However, these systems are often closed-source, prohibitively expensive, hardware intensive, or otherwise difficult for small productions to access. The software developed during this thesis hopes to try to make it easier to access, which is why the scheme has criteria. 
+    This thesis attempts to alleviate those constraints by creating a lighting control scheme that tracks a performer through a theatrical space. It is a reactive scheme that hopes to meet a few criteria: 1) The scheme must be lightweight; 2) The scheme must be able to run using off-the-shelf components and computing resources; 3) The scheme must be open source; 4) The scheme should run on top of existing theater infrastructure. It is worth mentioning that this concept is not revolutionary. There are numerous choices for high-end performer tracking offered by the likes of Cast Group's BLACKTRAX, Follow-Me, and zactrack. However, these systems are often closed-source, prohibitively expensive, hardware intensive, or otherwise difficult for small productions to access. The software developed during this thesis hopes to try to make it easier to access, which is why the scheme has these criteria. 
     
     % probs cant use this line: "With this project comes deep research into the history of performance technology, namely how lighting control technology advanced over the previous ~50 years, and see how the changes affected what lighting meant for the stage."
     
@@ -145,27 +166,28 @@ This thesis explores lighting control, specifically for live performance. It wil
     The second chapter looks at this thesis with a different perspective, namely through the lens of photogrammetry (or the study of cameras). It will be an exposition of the different computational problems that come with tracking a perfomer and what was done to solve them. These problems are, including, but not limited to: calibrating cameras, tracking the performer, and positioning the moving light.
     
     The third chapter will explore the culmination of the work done in the previous two chapters, and the stumbling block I hit when preparing to present the software in a lighting design for the Dance thesis of Beier (Belle) Li. This covers the design process of Li's thesis, the issues relating to scale that I ran into, and what the next steps were in creating a working and presentable demo of the software.
+	% TODO: Modify this so that it matches what chapter 3 actually becomes
 	
 \chapter{A History of Lighting Control}
 In this chapter, I present a comprehensive history of the technologies that controlled Lighting, and the theories posed by notable lighting designers when using the technology of the time. It is not a comprehensive history of Lighting Design as a whole, it is a history on the control technologies that evolved alongside the advancements in lighting. The first section will start out with the basic dousing technologies that obscured candles and oil lamps, and end with the transition into incandescent lighting (1500's-1885). The second will go from the room-sized analogue control, through the advent of the desk lighting console, to just beyond the inception of Digital Multiplex. The third section will jump forward to the modern lighting designer, and what options are in-store for them. It will also discuss the idea of liveness, especially given the toolkit of the designer and the cost of theatre.
 
-The first instances of human-controlled lighting in the theatre was in the form of candle-light. Previously, theatre had relied on the whims of nature and the cycle of the day. However, in the 16th century, an Italian architect by the name of Sebastiano Serlio designed, and then constructed the one of the first theatres with artificial lighting. (\cite{serlio_five_1611}) As this caught on, the equivalent of lighting technicians were tasked with trimming wicks and refilling lamps at the start, and throughout performances. Near the turn of the 17th century, Nicola Sabbattini, also an Italian architect, designed a rudimentary system of dimming light through tin cans suspended over candles or lamps. He describes it as follows: “When it is desired to darken the whole stage in a moment, this method is used: as many cans of soldered tin are made as there are lamps to be darkened. [This] done, you adjust each cylinder over its lamp [in] such a manner that by one motion on the side of the stage, the cylinders descend over the lamps and darken them.” (\cite{internet_archive_renaissance_1958}) This marks the beginning of “lighting control”.
+The first instances of human-controlled lighting in the theatre was in the form of candle-light. Previously, theatre had relied on the whims of nature and the cycle of the day. However, in the 16th century, an Italian architect by the name of Sebastiano Serlio designed, and then constructed the one of the first theatres with artificial lighting. \autocite{serlio_five_1611} As this caught on, the equivalent of lighting technicians were tasked with trimming wicks and refilling lamps at the start, and throughout performances. Near the turn of the 17th century, Nicola Sabbattini, also an Italian architect, designed a rudimentary system of dimming light through tin cans suspended over candles or lamps. He describes it as follows: “When it is desired to darken the whole stage in a moment, this method is used: as many cans of soldered tin are made as there are lamps to be darkened. [This] done, you adjust each cylinder over its lamp [in] such a manner that by one motion on the side of the stage, the cylinders descend over the lamps and darken them.” (\autocite{internet_archive_renaissance_1958}) This marks the beginning of “lighting control”.
  
-Oil lamps and candles were a major step up in depending on the day-night cycle, but they still had their issues. For starters, wax and oil was expensive, and in order to be able to see performers, many were needed. Sabbattini mentions this in his text also: “Every care must be taken to get this done as quickly as possible to avoid restlessness in the spectators who think this business is endless.” (\cite{internet_archive_renaissance_1958}) Wicks needed to be trimmed, lamps refilled, and molten wax would sometimes fall upon the spectators. However, humanity had found a way to do theatre indoors.
+Oil lamps and candles were a major step up in depending on the day-night cycle, but they still had their issues. For starters, wax and oil was expensive, and in order to be able to see performers, many were needed. Sabbattini mentions this in his text also: “Every care must be taken to get this done as quickly as possible to avoid restlessness in the spectators who think this business is endless.” (\autocite{internet_archive_renaissance_1958}) Wicks needed to be trimmed, lamps refilled, and molten wax would sometimes fall upon the spectators. However, humanity had found a way to do theatre indoors.
 
-The next jumps in technology appeared in the 19th century when gas-light entered the theatrical scene in 1803. Quickly after, companies like Clémançon had created gas tables, or elaborate control schemes that could not only modify the intensity of a flame, but also allow color to be mixed within. These tables had pipes that would control sections of the theatre, like footlights, auditorium lights, proscenium lights, etc. (\cite{pilbrow_stage_1997}) As a quick aside, the term limelight comes from the process of heating quicklime under a gas flame, moderated by a supply of hydrogen and oxygen. The resulting–and blinding–light was a force of nature in the theatre world through the 1860s. Gas light, and quicklime was used in theatres until the 1880’s. Following the invention of the incandescent light, large theatre venues were quick to adopt the technology, for a downside of the gas-light is the fact that it consumed oxygen, produced fumes, and lots of heat. Compared to gas, incandescent lamps produce little heat, and consume no oxygen creating a much nicer theatre going experience.(\cite{wild_brief_2015})
+The next jumps in technology appeared in the 19th century when gas-light entered the theatrical scene in 1803. Quickly after, companies like Clémançon had created gas tables, or elaborate control schemes that could not only modify the intensity of a flame, but also allow color to be mixed within. These tables had pipes that would control sections of the theatre, like footlights, auditorium lights, proscenium lights, etc. (\autocite{pilbrow_stage_1997}) As a quick aside, the term limelight comes from the process of heating quicklime under a gas flame, moderated by a supply of hydrogen and oxygen. The resulting–and blinding–light was a force of nature in the theatre world through the 1860s. Gas light, and quicklime was used in theatres until the 1880's. Following the invention of the incandescent light, large theatre venues were quick to adopt the technology, for a downside of the gas-light is the fact that it consumed oxygen, produced fumes, and lots of heat. Compared to gas, incandescent lamps produce little heat, and consume no oxygen creating a much nicer theatre going experience.(\autocite{wild_brief_2015})
 
-The next hurdle to clear was how to control this newfangled electricity, and manufacturers were quick to respond. Operators that used to control gas valves could now flip switches, and dim lights using rheostat dimmers. The technology entering the early 20th century revolved around variable resistance dimmers. Multiple mediums were used: be it sand, water, or different amounts of copper. The gas tables turned into room scale operations, humming with electricity. Lighting control was dominated in the 1930’s by systems such as the Bordoni and Salani control systems, which were variable rate transformers. (\cite{keller_light_2006})
-This wasn’t enough, however. Not 20 years later vacuum tubes were all the rage, and with it came the Thyratron control unit and the “light organ”. These were consoles that controlled lighting at a single desk, not running about a room. This cut down on technicians, and allowed for presets and, shortly after, memory. Once memory was introduced, technicians no longer had to scramble to set each scene, and designers could just load scenes from memory. The console could recreate it.
+The next hurdle to clear was how to control this newfangled electricity, and manufacturers were quick to respond. Operators that used to control gas valves could now flip switches, and dim lights using rheostat dimmers. The technology entering the early 20th century revolved around variable resistance dimmers. Multiple mediums were used: be it sand, water, or different amounts of copper. The gas tables turned into room scale operations, humming with electricity. Lighting control was dominated in the 1930's by systems such as the Bordoni and Salani control systems, which were variable rate transformers. (\autocite{keller_light_2006})
+This wasn't enough, however. Not 20 years later vacuum tubes were all the rage, and with it came the Thyratron control unit and the “light organ”. These were consoles that controlled lighting at a single desk, not running about a room. This cut down on technicians, and allowed for presets and, shortly after, memory. Once memory was introduced, technicians no longer had to scramble to set each scene, and designers could just load scenes from memory. The console could recreate it.
 
-Technology still trudged on. In the 1980’s, the US Institute for Theatre Technology (USITT) made the jump to digital with a signaling protocol called Digital Multiplex (DMX). With it, (and its revision in the 90’s), lighting control devices could continue to shrink. Gone was the need to keep all the dimming capabilities in a single desk. Instead, keep the control part in one room and move the dimming part in a different one and link the two with cable. With the continued growth of LED technology, and the push to run more efficiently, some incandescent lighting is being phased out, replaced by LEDs which no longer require large dimming racks. 
+Technology still trudged on. In the 1980's, the US Institute for Theatre Technology (USITT) made the jump to digital with a signaling protocol called Digital Multiplex (DMX). With it, (and its revision in the 90's), lighting control devices could continue to shrink. Gone was the need to keep all the dimming capabilities in a single desk. Instead, keep the control part in one room and move the dimming part in a different one and link the two with cable. With the continued growth of LED technology, and the push to run more efficiently, some incandescent lighting is being phased out, replaced by LEDs which no longer require large dimming racks. 
 
 %[SIDEBAR - the VL1 and Joseph Svoboda]
 	The three decades following the genesis of DMX paved the way for new protocols, more advanced lanterns, and a full commitment to the world of saving and loading cues. MIDI (or Musical Instrument Digital Interface) was adapted as a control protocol to allow remote activation of lighting cues, often in time with sound or video cues. MIDI then had to contend with OSC (Open Stage Control), a control protocol that allowed specificity in control messages. DMX continued to be used widespread, with spaces taking multiple universes (or groupings of 512 addresses) as intelligent lights required more.
 	 
-	The concept of timecoding is that there is a global clock running through a performance and certain lights activate after a set amount of time. Timecoding is a technique that often plays nice with sound and video cues, allowing lights to match a prerecorded video clip or sound file down to the millisecond. “A time based system is less forgiving to human performers. If, for example, the [cue was] triggered ar 4 minutes and 35 seconds into every performance, the performer would be out of luck if their performance varied much.” (\cite{huntington_introduction_2023}) Timecoding is effective as a synchronization technique, but can be a disservice to performers. So much so, that when it comes to lighting specific performers in major productions, oftentimes they are illuminated by a followspot. These are high-powered, massive instruments that require a human operator to direct. In large venues like stadiums, broadway theatres, and arenas, these can be found along the back walls, their beam easy to spot if there is any haze in the room. The issue with this is that followspots are expensive, and are only really useful in large spaces. More recently, some camera-operated followspots have been hitting the theatre market, but they require even more money.
+	The concept of timecoding is that there is a global clock running through a performance and certain lights activate after a set amount of time. Timecoding is a technique that often plays nice with sound and video cues, allowing lights to match a prerecorded video clip or sound file down to the millisecond. “A time based system is less forgiving to human performers. If, for example, the [cue was] triggered ar 4 minutes and 35 seconds into every performance, the performer would be out of luck if their performance varied much.” (\autocite{huntington_introduction_2023}) Timecoding is effective as a synchronization technique, but can be a disservice to performers. So much so, that when it comes to lighting specific performers in major productions, oftentimes they are illuminated by a followspot. These are high-powered, massive instruments that require a human operator to direct. In large venues like stadiums, broadway theatres, and arenas, these can be found along the back walls, their beam easy to spot if there is any haze in the room. The issue with this is that followspots are expensive, and are only really useful in large spaces. More recently, some camera-operated followspots have been hitting the theatre market, but they require even more money.
 	
-	It’s time to make this more portable. Lighting and other control software has evolved to a point where any designer can run a full show with a single laptop, it should be possible to track a performer with minimal equipment.
+	It's time to make this more portable. Lighting and other control software has evolved to a point where any designer can run a full show with a single laptop, it should be possible to track a performer with minimal equipment.
 	
 	There is a way to do this. The setup I am exploring is a stereo-vision system. Camera feeds take in a frame of the space, and search for an identifier. In my tests, I used a blue LED light. The cameras then perform some calculations to locate the performer in the space. Finally the position information is fed to an intelligent light (which is another word for a moving light), telling it where to move to point at the performer.
 
@@ -173,31 +195,54 @@ Technology still trudged on. In the 1980’s, the US Institute for Theatre Techn
 
 \chapter{Oops all Cameras}	
 \section{Introduction}
-	Now that we are equipped with the context behind this problem, it’s time to dive into the theory and calculations that power my proposed solution. The vast majority of the following content falls under the field of “photogrammetry” or “the art, science, and technology of obtaining reliable information about physical objects and the environment, through processes of recording, measuring, and interpreting images and patterns of electromagnetic radiant energy and other phenomena” i.e. the measurement of life through images. There is a massive open source library for computer vision that will be used to tackle some of the problems in the following chapter. (\cite{pulli_real-time_2012})
+	Now that we are equipped with the context behind this problem, it's time to dive into the theory and calculations that power my proposed solution. The vast majority of the following content falls under the field of “photogrammetry” or “the art, science, and technology of obtaining reliable information about physical objects and the environment, through processes of recording, measuring, and interpreting images and patterns of electromagnetic radiant energy and other phenomena” i.e. the measurement of life through images. There is a massive open source library for computer vision that will be used to tackle some problems in the following chapter. \autocite{pulli_real-time_2012}
 	
-\section{Camera Parameters}
-To start, we must have the same idea on what a “camera” is, and how we use cameras in this process. For this, we develop a camera model based off of the pinhole camera. A pinhole camera is the most basic form of camera, where light from the world enters the camera body through a small “pinhole”. 
+\section{Camera Basics}
+To start, we must have the same idea on what a camera is, and how we use cameras in this process. The most basic form of a camera is the camera obscura (or pinhole camera), where light from the world enters the camera body through a small “pinhole”. 
 
 \begin{figure}[h]
-	%ANY FIGURE USING THE "SUBDIVISION" GRAPHIC NEEDS TO BE REPLACED!!!
-	   
-	       \centering
-	    % DO NOT ADD A FILENAME EXTENSION TO THE GRAPHIC FILE
-	    \includegraphics[scale=0.2]{~/thesis/thesis_doc/figures/pinhole_example.png}
-	     \caption{A Pinhole Camera}
-	 \label{A Pinhole Camera}
+	% Needs replacing/updating
+	    \centering
+	    \includegraphics[scale=0.2]{./figures/pinhole_example.png}
+	    \caption{A Pinhole Camera}
+	\label{Pinhole}
 	\end{figure}
 
-The image that is seen by a pinhole camera is flipped because the ray of light entering the pinhole continues through to the projection surface on the backside (B). Most modern cameras operate in similar fashion, where the lens acts as the pinhole. The camera body contains a sensor that detects the amount of light (or photons) that hit a certain area. Each area is representative of a pixel. In the figure above, the back plate is equivalent to the sensor. The image is not perfect, however; the use of lenses introduces various distortions, and while it is easy to imagine a ray of light entering the camera and hitting the sensor, it isn’t that easy. We need to create a model for the camera to allow us to map any object in 3D space onto a 2D image.
+A couple of things are happening in this image ($\ref{Pinhole}$) that are being glossed over. For example, the image seen by the pinhole camera ends up flipping the image in the real world. The reason for that is due to how light operates, and why the pinhole camera is effective in recreating the image.
 
-We have camera intrinsics and extrinsics. The intrinsics represent the various distortions and qualities intrinsic to the camera itself. The main values we care about are the focal length, FOV, and optical center, that is, the distance between the lens of the camera and the sensor, the field of view for the camera, and the pixel location for the center of the image. This allows us to take an object in 3D space and map it onto pixels in 2D space. We aren’t finished yet, because we have no frame of reference to where the camera exists in the world, these are the extrinsics. For a single camera system this is trivial, we consider the camera to be the center of the world, with no rotation issues whatsoever. When a second camera is involved, things get more complicated. In order to reconstruct a 3D location for an object given two cameras, we need to have a single origin. Otherwise we are unable to recreate all three dimensions accurately As part of the calibration process, we will take an object seen in both cameras, and figure out where the second camera is in relation to the first camera (or the center of the world). The camera extrinsics are represented in rotation and translation matrices. We will cover the calibration part later in this chapter; but the takeaway from this moment is that with these intrinsics and extrinsics that we can calculate through calibration, we can treat the cameras as a “black box” and toss in information about objects in 3D space into the appropriate matrices and the camera will spit out a corresponding image (or collection of pixels representing 3D space). More importantly, we can do this process in reverse, pointing out areas of interest on the cameras’ images, and retrieve information on where those areas are represented in 3D space.
+Imagine some point $p$ on an object in view of the pinhole camera. This object is lit by some light $l$ in the world. As light rays emanate from $l$, they spread out in some direction, most notably, they bounce off objects that lie in the path--and $p$ is one such object ($\ref{Light Bounce Shennanigans}$). Now, a \textit{lot} of rays are sent out by $l$, which means quite a few hit $p$, the trick of the pinhole is that it physically filters the rays of light to prevent blurring. Had the pinhole been larger, then light from $l$ hitting $p$ would result in multiple instances of $p'$ appearing on the screen in different locations. ($\ref{Light Bounce Shennanigans}$) An excellent example of this is a window. We do not see a perfect projection of the outside world on the opposite wall because there is no filter preventing stray bounces of light from filling the room.
 
-Cameras are not perfect however. Lenses contain distortions as light travels through the lens unevenly, especially when going from the center of the lens to the edge of the lens. There are two typical distortions present in our calculations: radial distortion–often dubbed the “fisheye effect” or, inversely, the “pincushion effect”--and tangential distortion, created by a misalignment of the lens and the image plane.. This can be calibrated for, and corrected relatively easily. Lenses have three radial distortion coefficients and two tangential distortion coefficients that can be calculated during calibration and corrected thusly, 
+\begin{figure}[h]
+	% Needs replacing/updating with a point
+	    \centering
+	    \includegraphics[scale=0.1]{~/thesis/thesis_doc/figures/pinhole_example.png}
+		\hfill
+		\includegraphics[scale=0.1]{~/thesis/thesis_doc/figures/pinhole_example.png}
+	    \caption{Light Bouncing Shennanigans}
+	\label{Light Bounce Shennanigans}
+	\end{figure}
 
-The final modification we will make to our camera is to establish a “projection plane” for each camera (this will come up again). In short, we create a plane that is a focal length away from the lens in the opposite direction of the camera sensor. Unlike the candle example, where the resulting image is flipped, we are creating a plane for the image to appear “unflipped”. This allows us to visualize and explain higher-level concepts more simply, as we don’t have to internally flip every image we see.
+Cameras also often utilize lenses to aid in this process. A high-level explanation of a lens's functionality is that it is a curved piece of transparent material that bends the direction of light rays. Going back to our $p$, if there is a second ray of light hitting $p$ that may go in a slightly different direction than $p'$, the lens bends the light to also hit $p'$. This reinforces the light information at point $p'$ which represents point $p$ which grants us. The more light information, the more in-focus a given point on an image is. 
+
+The cameras that are used today are still based on this pinhole principle, but instead of a backplate, there lies a sensor designed to measure how much light hits a specific zone. Those measurements are shown back to us as pixels on a screen.
+
+%This is helpful for now, but we need to address this bending of light, as it will throw a minor wrench in our plans.
+
+\section{The Camera Model}
+
+While this form of pinhole camera may work fine conceptually. We need to define a mathematical model which takes a location of a point in three-dimensional space, and projects it onto a two-dimensional plane. We can represent this process as a matrix:
+% See if this is helpful now, or later
+% \[p = \begin{bmatrix}
+% 	x\\y\\z\\w
+% \end{bmatrix} \;\;\; p' = \begin{bmatrix}
+% 	x\\y\\w
+% \end{bmatrix}\]
+\[p' = Mp\]
+
+Where $p$ is a 4x1 vector representing our point in three-dimensional space (or three-space), $p'$ is a 3x1 vector representing the point in two-space, and $M$ is some 3x4 matrix "black box" which will move $p$ to $p'$. More clarification will come on what that exactly means.
 
 \section{A (brief) Linear Algebra Primer}
-Before we get too deep into the world of matrices and various transformations, it’s important to establish a baseline understanding of the calculations that are happening behind the scenes. We live in a three-dimensional world–at least that is our perception of the world. Thus, we can represent the locations of things in our world using vectors that take three values: $(X, Y, Z)$. Those values represent three different perpendicular directions. Taking those directions and scaling them accordingly, we can represent the location of anything in relation to those original directions. This can be done at home. Take your hand and create the shape of a “finger-gun” (where your index finger and thumb are both fully extended), now extend your middle finger halfway. That creates a coordinate system in terms of your fingers, and you can represent the location of objects in terms of: “how many thumbs, index fingers, and middle fingers does it take to reach an object?”
+Before we get too deep into the world of matrices and various transformations, it's important to establish a baseline understanding of the calculations that are happening behind the scenes. We live in a three-dimensional world--at least that is our perception of the world. Thus, we can represent the locations of things in our world using vectors that take three values: $(X, Y, Z)$. Those values represent positions relative to an origin point in distance along three different perpendicular directions. Taking those directions and scaling them accordingly, we can represent the location of anything in relation to those original directions. This can be done at home. Take your hand and create the shape of a “finger-gun” (where your index finger and thumb are both fully extended), now extend your middle finger halfway. That creates a coordinate system in terms of your fingers, and you can represent the location of objects in terms of: "how many thumbs, index fingers, and middle fingers does it take to reach an object?" ($\ref{Dimensional Fingers}$)
 
 \begin{figure}[h]
 	%ANY FIGURE USING THE "SUBDIVISION" GRAPHIC NEEDS TO BE REPLACED!!!
@@ -205,28 +250,18 @@ Before we get too deep into the world of matrices and various transformations, i
 	       \centering
 	    % DO NOT ADD A FILENAME EXTENSION TO THE GRAPHIC FILE
 	    
-	    \includegraphics[scale=0.15]{./figures/2-space-fingers} 
+	    \includegraphics[scale=0.15]{./figures/2-space-fingers.png} 
 		\hfill	    
 	    \includegraphics[scale=0.15]{./figures/3-space-fingers}
-	     \caption{Dimentional Fingers showcasing 2-Space and 3-Space}
-	 \label{Dimentional Fingers}
+	     \caption{Dimensional Fingers showcasing 2-Space and 3-Space.png}
+	 \label{Dimensional Fingers}
 	\end{figure}
 
-When it comes to the camera, we have two of our directions (the $X$ and $Y$ directions) that are parallel to the $X$ and $Y$ axes of the projection plane and a third direction ($Z$) which is perpendicular to the projection plane. We can then take locations represented by these vectors, and run them through our intrinsic and extrinsic matrices that define the camera to map the location onto the image. The intrinsic and extrinsic parameters of a camera can be represented with matrices. For intrinsic values, they are mapped in the following way:
+When it comes to the camera, we have two of our directions (the X and Y directions) that are parallel to the X and Y axes of the projection plane and a third direction (Z) which is perpendicular to the projection plane. We can then take locations represented by these vectors, and run them through our intrinsic and extrinsic matrices that define the camera to map the location onto the image.
 
-\[\begin{bmatrix}
-\text{focal}_x & \text{skew} & \text{center}_x \\
-0 & \text{focal}_y & \text{center}_y \\
-0 & 0 & 1
-\end{bmatrix}\]
+Notice that the vectors representing the location in three-space and the location on the image plane contain an extra value. That is because these vectors are homogeneous coordinates. Homogeneous coordinates are representations of points in computer graphics (and in our case, photogrammetry) where perspective plays a key role. Here, the vectors take the form of: \[\begin{bmatrix}x\\y\\z\\w\end{bmatrix} \text{ or } \begin{bmatrix}x'\\y'\\z'\end{bmatrix}\] $w$ plays numerous roles, but its primary purpose is the convenience of expressing affine transformations--translation, scaling, and rotation--to be represented by matrices. An important metric of vector spaces, i.e. the three-space that we represent our three-dimensional reality in, is that the origin cannot be moved by a linear transformation, or other matrix operation. The operation of translation to a vector runs the risk of moving the origin of the vector space. If translation is the addition or subtraction of values to a vector, inputting the origin (or a vector of all zeroes) will add or subtract those values to the origin. If one tries to translate a point through clever scaling (to get around the issue of moving the origin), inputting other vectors into the same translation matrix yields wildly different results. With the introduction of a $w$ value, we can represent transformations without moving the origin. ($\ref{Translation Example}$)
 
-We call this matrix the “camera matrix” and it is represented as $K$. Sidenote: This matrix is called “upper diagonal” which allows it some special properties that will be helpful when calibrating and mapping points.
-Extrinsic parameters are commonly represented as $[R t]$, as in, the concatenated matrices of the rotation matrix (which is 3x3) and the translation matrix (which is 1x3). The resulting matrix $[R t]$ is a 3x4 matrix. With these two matrices, the equation to map a point in three-space to pixel coordinates is as follows:
-
-Notice that the vectors representing the location in three-space and the location on the image plane contain an extra value. That is because these vectors are homogeneous coordinates. Homogeneous coordinates are representations of points in computer graphics (and in our case, photogrammetry) where perspective plays a key role. Here, the vectors take the form of $[X,Y,Z,W]$ or $[X,Y,W]$. $W$ plays numerous roles, but its primary purpose is to aid in speedy calculations for computers by allowing translation, scaling, and rotation to be represented by matrices. An important metric of vector spaces, i.e. the three-space that we represent our three-dimensional reality in, is that the origin cannot be moved by a linear transformation, or other matrix operation. The operation of translation to a vector runs the risk of moving the origin of the vector space. If translation is the addition or subtraction of values to a vector, inputting the origin (or a vector of all zeroes) will add or subtract those values to the origin. If one tries to translate a point through clever scaling (to get around the issue of moving the origin), inputting other vectors into the same translation matrix yields wildly different results. With the introduction of a $W$ value, we can represent transformations as the following (without moving the origin).
-
-\begin{figure}[h]
-	%ANY FIGURE USING THE "SUBDIVISION" GRAPHIC NEEDS TO BE REPLACED!!!
+\begin{figure}[t]
 	   
 	       \centering
 	    % DO NOT ADD A FILENAME EXTENSION TO THE GRAPHIC FILE
@@ -238,11 +273,52 @@ Notice that the vectors representing the location in three-space and the locatio
 	 \label{Translation Example}
 	\end{figure}
 	
+
+
+\section{Camera Parameters}
+
+We can be more specific with $M$. $M$ is a combination of two matrices that represents different parameters that belong to the camera. Those parameters are classified as camera intrinsics and extrinsics. The intrinsics represent the various distortions and qualities intrinsic to the camera itself. The main values we care about are the focal length, field of view, and optical center, that is, the distance between the lens of the camera and the sensor, the field of view for the camera, and the pixel location for the center of the image. This allows us to take an object in three-space and map it onto pixels in two-space. 
+
+We aren't finished yet, because we have no frame of reference to where the camera exists in the world; thus, we need the extrinsics. The extrinsics describe the camera's relation to the world origin. With a single camera, the world origin is usually centered on the camera itself. The camera extrinsics are represented in rotation and translation matrices. We will cover the calibration part later in this chapter; but the takeaway from this moment is that with these intrinsics and extrinsics that we can calculate through calibration, we can treat the cameras as a “black box” and toss in information about objects in 3D space into the appropriate matrices and the camera will spit out a corresponding image (or collection of pixels representing 3D space). More importantly, we can do this process in reverse, pointing out areas of interest on the cameras' images, and retrieve information on where those areas are represented in 3D space.
+
+The intrinsic and extrinsic parameters of a camera can be represented with matrices. For intrinsic values, they are mapped in the following way:
+
+\[\begin{bmatrix}
+\text{focal}_x & \text{skew} & \text{center}_x \\
+0 & \text{focal}_y & \text{center}_y \\
+0 & 0 & 1
+\end{bmatrix}\] We call this matrix the “camera matrix” and it is represented as $K$.
+
+Extrinsic parameters are commonly represented as $\rt$, as in, the concatenated matrices of the rotation matrix (which is 3x3) and the translation matrix (which is 1x3). The resulting matrix $\rt$ is a 3x4 matrix. With these two matrices, the equation to map a point in three-space to pixel coordinates is as follows:
+
+\begin{align*}
+p' &= Mp\\
+p' &= K\RT p\\
+\begin{bmatrix}x' \\ y' \\ 1\end{bmatrix} &= \begin{bmatrix}f_x & s & c_x \\ 0 & f_y & c_y \\ 0 & 0 & 1\end{bmatrix} \begin{bmatrix} r_{11}&r_{12}&r_{13}&t{1}\\r_{21}&r_{22}&r_{23}&t{2}\\r_{31}&r_{32}&r_{33}&t{3}\end{bmatrix}\;\;\begin{bmatrix}x \\ y \\ z \\ 1\end{bmatrix} 
+\end{align*}
+
+Cameras are not perfect, however. Lenses contain distortions as light travels through the lens unevenly, especially when going from the center of the lens to the edge of the lens. There are two typical distortions present in our calculations: radial distortion--often dubbed the “fish-eye effect” or, inversely, the “pincushion effect”--and tangential distortion, created by a misalignment of the lens and the image plane. This can be calibrated for, and corrected relatively easily. Lenses have three radial distortion coefficients and two tangential distortion coefficients that can be calculated during calibration and corrected thus.
+
+% TODO: ADD REFERANCE TO PAPER
+% Weng, P. Cohen, and M. Herniou. Camera calibration with distortion models and accuracy evaluation
+
+The final modification we will make to our camera is to establish a “projection plane” for each camera (this will come up again). In short, we create a plane that is a focal length away from the lens in the opposite direction of the camera sensor. Unlike the candle example, where the resulting image is flipped, we are creating a plane for the image to appear “unflipped”. This allows us to visualize and explain higher-level concepts more simply, as we don't have to internally flip every image we see.
+
+% Probably make better later
+\begin{figure}[h]
+	% Needs replacing/updating with a point
+	    \centering
+	    \includegraphics[scale=0.2]{./figures/flipping_proj_plane.png}
+		
+	    \caption{Flipping the Projection Plane}
+	 \label{Flipping the Projection Plane}
+	\end{figure}
+
 \section{The Stereo Normal Example}
 
-Triangulation is relatively straightforward if the cameras are stereo normal (the cameras are adjacent, and on the same plane of $X$ and $Z$ axes). In order to get to DLT, first we should cover the stereo normal base case. Cyrill Stachniss provides a great example, which I will modify for this use case. (\cite{stachniss_lecture_2021})
+Triangulation is relatively straightforward if the cameras are stereo normal (the cameras are adjacent, and on the same plane of X and Z axes). In order to get to DLT, first we should cover the stereo normal base case. Cyrill Stachniss provides a great example, which I will modify for this use case. (\autocite{stachniss_lecture_2021})
 
-	Imagine two cameras $O'$ and $O''$ which share the same $Z$ and $Y$ values, pointing in the same direction (specifically the $Z$ axis), with a distance $D$ being the distance between the two cameras on the X-axis. Now, imagine a projection plane that is infinitely large, is perpendicular to the view direction to the cameras, and located a distance $F$ from the cameras on the $Z$ axis. To finish setting up, draw lines $Z’$ and $Z’'$ perpendicular to the projection plane that go through both cameras respectively. A top down view of this setup would result in the following image: 
+	Imagine two cameras $O'$ and $O''$ which share the same Z and Y-axis, pointing in the same direction (specifically the Z axis), with a distance $D$ being the distance between the two cameras on the X-axis. Now, imagine a projection plane that is infinitely large, is perpendicular to the view direction to the cameras, and located a distance $F$ from the cameras on the Z axis. To finish setting up, draw lines $Z'$ and $Z''$ perpendicular to the projection plane that go through both cameras respectively. A top-down view of this setup would result in the following image: 
 	
 	% INSERT FIG HERE
 	\begin{figure}[h]
@@ -256,39 +332,40 @@ Triangulation is relatively straightforward if the cameras are stereo normal (th
 	 \label{A Stereo Normal Example}
 	\end{figure}
 
-For our stereo normal example, we are going to continue to use this view in our calculations, as we can assume any $Y$ or height information in the image will remain consistent between the two cameras (and in 3D space). This allows for a more simplistic base case, and we can elaborate on how further examples require more thought.
+For our stereo normal example, we are going to continue to use this view in our calculations, as we can assume any Y or height information in the image will remain consistent between the two cameras (and in 3D space). This allows for a more simplistic base case, and we can elaborate on how further examples require more thought.
 
 Now, imagine that, on the projection plane, there exists two points that map to where our blob detector has spat out the locations of the LED on each camera. Because we imagine the projection plane to be infinitely large, we map the pixel locations onto this plane using the projection, translation, and rotation matrices we were given in the initial calibration process. We will name these two points $P'$ and $P''$ which map to cameras $O'$ and $O''$ respectively. If we draw a line from $O'$ through $P'$ and the same for the other camera, the point at which both cameras intersect will be the location of the LED, which we will call $P$. To get that result, the math is pretty straightforward.
 
-First, note the distance from $P'$ to $Z'$ and $P’'$ to $Z''$ on the projection plane which we will label $x'$ and $x''$. Through the intercept theorem, we can find the $Z$ coordinate of $P$ by solving the following relation:
+First, note the distance from $P'$ to $Z'$ and $P''$ to $Z''$ on the projection plane which we will label $x'$ and $x''$. Through the intercept theorem, we can find the Z coordinate of $P$ by solving the following relation:
 \[\frac{Z}{c} = \frac{D}{-(x'' - x')}\]
 Once that's done, through Law of Similar Triangles, we can find the X coordinate of P using Z. That relation is as follows:
 \[\frac{X}{x'}=\frac{Z}{c}\]
 Finally, we can assume that the Y value of the coordinates is whatever the Y pixel value maps to the projection plane. This value is less important for placing the light as we can assume performers stay within the same height for this demo.
 
 \section{Camera Calibration Process}
-The camera calibration is largely done automatically through OpenCV. The method for calibrating the camera that we use is called Zhang's method. The goal here is to gather the extrinsic and intrinsic parameters of the camera. Remember, the extrinsic and intrinsic parameters of a camera allow us to map an object in three-dimensional space onto a two-dimensional plane. To start, we want to begin with just determining the intrinsic parameters for each camera. We can assume that each camera is in the origin of their own world. The high-level explanation of this process is to choose points whose locations are known in two-dimensional space (the image) and in three-dimensional space (the world). Using that information, and the knowledge that the camera is in the origin, we can reverse engineer the camera matrix (and its parameters). However, this method is easier said than done. The current issues we face is that we want a fast way to calibrate a camera and we may not have points measured out (in three-space where the camera is the origin). We need to do some tricks.
+% ADD CITATION FOR ZHANGS METHOD
+The camera calibration is largely done automatically through OpenCV. The method for calibrating the camera that we use is called Zhang's method. The goal here is to gather the extrinsic and intrinsic parameters of the camera. Remember, the extrinsic and intrinsic parameters of a camera allow us to map an object in three-dimensional space onto a two-dimensional plane. To start, we want to begin with just determining the intrinsic parameters for each camera. We can assume that each camera is in the origin of their own world. The high-level explanation of this process is to choose points whose locations are known in two-dimensional space (the image) and in three-dimensional space (the world). Using that information, and the knowledge that the camera is in the origin, we can reverse engineer the camera matrix (and its parameters). However, this method is easier said than done. The current issues we face is that we want a fast way to calibrate a camera, and we may not have points measured out (in three-space where the camera is the origin). We need to do some tricks.
 
-Zhang's method relies on the usage of a checkerboard with defined parameters; these parameters are the size of squares and the size of the grid (e.g. a 3 X 5 grid). We assume that the checkerboard is planar–or flat–on some surface. If we are able to detect the corners of the squares on the checkerboard, we could pick a single corner and know where all other corners exist in relation to it. Our first trick is setting the world coordinate system to the bottom-left corner of the checkerboard, with the $-Z$ axis being normal to the checkerboard. Then, for all corner locations on the checkerboard, they all have a single thing in common. The $Z$ coordinate of each point in three-space is 0 (or all points lie in the X/Y plane). This trick simplifies the current matrices by a significant amount. Recall that the way to convert a three-dimensional point to a two-dimensional one is as follows:
-\[\begin{bmatrix}x \\ y \\ 1\end{bmatrix} = \begin{bmatrix}c & cs & x_H \\ 0 & c(1+m) & y_H \\ 0 & 0 & 1\end{bmatrix} \begin{bmatrix} r_{11}&r_{12}&r_{13}&t{1}\\r_{21}&r_{22}&r_{23}&t{2}\\r_{31}&r_{32}&r_{33}&t{3}\end{bmatrix}\;\;\begin{bmatrix}X \\ Y \\ Z \\ 1\end{bmatrix} \]
+Zhang's method relies on the usage of a checkerboard with defined parameters; these parameters are the size of squares and the size of the grid (e.g. a 3 X 5 grid). We assume that the checkerboard is planar--or flat--on some surface. If we are able to detect the corners of the squares on the checkerboard, we could pick a single corner and know where all other corners exist in relation to it. Our first trick is setting the world coordinate system to the bottom-left corner of the checkerboard, with the $-Z$ axis being normal to the checkerboard. Then, for all corner locations on the checkerboard, they all have a single thing in common. The Z coordinate of each point in three-space is 0 (or all points lie in the X/Y plane). This trick simplifies the current matrices by a significant amount. Recall that the way to convert a three-dimensional point to a two-dimensional one is as follows:
+\[\begin{bmatrix}x' \\ y' \\ 1\end{bmatrix} = \begin{bmatrix}f_x & s & c_x \\ 0 & f_y & c_y \\ 0 & 0 & 1\end{bmatrix} \begin{bmatrix} r_{11}&r_{12}&r_{13}&t{1}\\r_{21}&r_{22}&r_{23}&t{2}\\r_{31}&r_{32}&r_{33}&t{3}\end{bmatrix}\;\;\begin{bmatrix}x \\ y \\ z \\ 1\end{bmatrix}\]
 
 % FIX THE MATH
 
 Since Z = 0, we can simplify down to:
-\[\begin{bmatrix}x \\ y \\ 1\end{bmatrix} = \begin{bmatrix}c & cs & x_H \\ 0 & c(1+m) & y_H \\ 0 & 0 & 1\end{bmatrix} \begin{bmatrix} r_{11}&r_{12}&t{1}\\r_{21}&r_{22}&t{2}\\r_{31}&r_{32}&t{3}\end{bmatrix}\;\;\begin{bmatrix}X \\ Y \\ 1\end{bmatrix} \]
-During this process, we take multiple photos of the checkerboard in view of the camera. For each image we take, we find the bottom left corner of the checkerboard and establish it as the world origin. Then, knowing the size of the checkerboard squares in the real world, we generate a version of the above matrices for each corner in the checkerboard, where $K$ and $[R t]$ are the same. At this point, all we care about is what $[X, Y, 1]$ and $[x, y, 1]$ are. The OpenCV library takes the checkerboard locations as input. Using it's implementation of Zhang's method--which we will treat as a black box for brevity's sake--we can complete our calibration of both cameras.
+\[\begin{bmatrix}x' \\ y' \\ 1\end{bmatrix} = \begin{bmatrix}f_x & s & c_x \\ 0 & f_y & c_y \\ 0 & 0 & 1\end{bmatrix} \begin{bmatrix} r_{11}&r_{12}&t{1}\\r_{21}&r_{22}&t{2}\\r_{31}&r_{32}&t{3}\end{bmatrix}\;\;\begin{bmatrix}x \\ y \\ 1\end{bmatrix} \]
+During this process, we take multiple photos of the checkerboard in view of the camera. For each image we take, we find the bottom left corner of the checkerboard and establish it as the world origin. Then, knowing the size of the checkerboard squares in the real world, we generate a version of the above matrices for each corner in the checkerboard, where $K$ and $\rt$ are the same. At this point, all we care about is what $p$ and $p'$ are. The OpenCV library takes the checkerboard locations as input. Using its implementation of Zhang's method--which we will treat as a black box for brevity's sake--we can complete our calibration of both cameras.
 
 \section{DLT to 3D}
 With the knowledge of the stereo normal example under our belt, alongside the knowledge of how the calibration process works, it's time to create a non-normalized version. With the generation of projection matrices for each camera through calibration, we can theoretically take two points (one on each image), plug their location into the camera matrices, and get a point in three-space that represents the object seen in both cameras. Neither camera can output all the location information about the object on its own. A single camera can calculate the line that would intersect the object, but the second camera is needed to provide feedback on where the object is located along said line.
 
-	One method to accomplish this is through a process called Direct Linear Transformation. At its core, it is the process of taking a matrix $Ax = w$ and minimizing $w$ (which allows us to account for noise or imperfect measurements). In this scenario, we know $A$ is the camera matrix containing intrinsic and extrinsic parameters, and we are solving for some point $x$ such that $w$ is minimized. Note here that $A$ is representing all the camera matrices, which is done using singular value decomposition. Essentially, the matrices that we described as the properties of the camera are in special formats that allow them to be merged into a single matrix $A$. Using SVD and DLT, we can take our two points on the image planes, and find a point in three-space where $w$ (or the distance between the two vectors) is minimized. DLT and SVD are provided within the code, which allows us to treat it also like a black box for now.
+	One method to accomplish this is through a process called Direct Linear Transformation. At its core, it is the process of taking a matrix $Ax = w$ and minimizing $w$ (which allows us to account for noise or imperfect measurements). In this scenario, we know $A$ is the camera matrix containing intrinsic and extrinsic parameters, and we are solving for some point X such that $w$ is minimized. Note here that $A$ is representing all the camera matrices, which is done using singular value decomposition. Essentially, the matrices that we described as the properties of the camera are in special formats that allow them to be merged into a single matrix $A$. Using SVD and DLT, we can take our two points on the image planes, and find a point in three-space where $w$ (or the distance between the two vectors) is minimized. DLT and SVD are provided within the code, which allows us to treat it also like a black box for now.
 
 \section{From Pixels to Position}
 Finally, we are in a position to cover the pipeline that exists in this project. We begin with setting up the cameras in the performance space and calibrating the cameras to the space. The program contains a calibration mode which is modified from Dr. Batpurev's work in stereo calibration. The script takes advantage of the OpenCV library which has in-built functions to calibrate the cameras individually and as a stereo pair through Zhang's method. We take a couple of photos for each calibration step.
 
 Once that calibration is complete, we need to calibrate the cameras to be sensitive to only the LED that we hope to have tracked. Modern representations of images are as a matrix of three vectors, where each pixel corresponds to a set of red, green, and blue (RGB) values (sidenote, OpenCV defaults to a format of green, red, blue (GRB) values). The webcams that are used in this project operate at a resolution of 1080 pixels by 720 pixels, so to analyze a single frame of video data, the computer needs to work with 777,600 three vectors of GRB data. In order to aid the software, we want to filter out the data we don't care about.
 
-I used a blue LED light because it was visually distinct. That way, I can filter out pixels that don't appear as shades of blue. This technique is called “masking”, and is pretty straightforward: First, we need to discuss a different representation of color referred to as HSV. While BGR (and other representations of RGB color) store the image as representations of the amount of red, green, and blue appear in a pixel, HSV approaches color through hue, saturation, and value. Hue represents the color, and is a value from 0-359. Colors that feature red range in the hue values of 0-60, green in the range of 60-180, blue in the range from 180-300, and back to red in the range of 300-359. The peak or most pure forms of red, green, and blue are at hues 0, 120, and 240, and allows for easy translation between RGB and HSV. Saturation represents the distance from white a color sits, and is a range from 0-100. Value is the distance from black a color sits.
+I used a blue LED light because it was visually distinct. That way, I could filter out pixels that don't appear as shades of blue. This technique is called “masking”, and is pretty straightforward: First, we need to discuss a different representation of color referred to as HSV. While BGR (and other representations of RGB color) store the image as representations of the amount of red, green, and blue appear in a pixel, HSV approaches color through hue, saturation, and value. Hue represents the color, and is a value from 0-359. Colors that feature red range in the hue values of 0-60, green in the range of 60-180, blue in the range from 180-300, and back to red in the range of 300-359. The peak or most pure forms of red, green, and blue are at hues 0, 120, and 240, and allows for easy translation between RGB and HSV. Saturation represents the distance from white a color sits, and is a range from 0-100. Value is the distance from black a color sits.
 
 HSV is actually great for image processing because it interprets color in a similar way the brain perceives color. For example, we do not see a color as a specific mix of red, green, and blue light, and when comparing two shades of the same, or similar color, we may say that one is darker or lighter, which HSV primarily encodes. In this use case, if we want to mask the image down to a certain color, we can first convert all the pixels to an HSV format, then go pixel-by-pixel, and look for pixels that fall within a certain range of hue. Because the LED light reflects off of objects, we can also filter by saturation and values to remove darker blues and focus purely on the brighter shades coming directly out of the LED.
 
@@ -388,15 +465,16 @@ All code can be accessed at \url{https://github.com/gabeah/thesis}
 % Rename my bibliography to be called "Works Cited" and not "References" or ``Bibliography''
 % \renewcommand{\bibname}{Works Cited}
 
-\bibliographystyle{bsts/mla-good} % there are a variety of styles available; 
+%\bibliographystyle{bsts/mla-good} % there are a variety of styles available; 
 %  \bibliographystyle{plainnat}
 % replace ``plainnat'' with the style of choice. You can refer to files in the bsts or APA 
 % subfolder, e.g. 
  %\bibliographystyle{bsts/mla-good}  % or
  %
- \bibliography{thesis}
+ %\bibliography{thesis}
  % Comment the above two lines and uncomment the next line to use biblatex-chicago.
- %\printbibliography[heading=bibintoc]
+ \printbibliography[heading=bibintoc]
 
 % Finally, an index would go here... but it is also optional.
 \end{document}
+
