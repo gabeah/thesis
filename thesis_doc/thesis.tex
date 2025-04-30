@@ -57,9 +57,9 @@
 \usepackage{rotating} 
 \usepackage[english]{babel}
 
-\newcommand{\rt}{\left[\begin{smallmatrix}R &| t\end{smallmatrix}\right]}
+\newcommand{\rt}{\left[\begin{smallmatrix}R &|\; t\end{smallmatrix}\right]}
 
-\newcommand{\RT}{\begin{bmatrix}R & t\end{bmatrix}}
+\newcommand{\RT}{\begin{bmatrix}R &|\; t\end{bmatrix}}
 
 
 % \usepackage{times} % other fonts are available like times, bookman, charter, palatino
@@ -193,12 +193,15 @@ Technology still trudged on. In the 1980's, the US Institute for Theatre Technol
 
 
 
-\chapter{Oops all Cameras}	
+\chapter{Oops all Cameras}
+
+% NOTE: Make the figure labels actual descriptions of what is happening in the figure!
+
 \section{Introduction}
 	Now that we are equipped with the context behind this problem, it's time to dive into the theory and calculations that power my proposed solution. The vast majority of the following content falls under the field of “photogrammetry” or “the art, science, and technology of obtaining reliable information about physical objects and the environment, through processes of recording, measuring, and interpreting images and patterns of electromagnetic radiant energy and other phenomena” i.e. the measurement of life through images. There is a massive open source library for computer vision that will be used to tackle some problems in the following chapter. \autocite{pulli_real-time_2012}
 	
 \section{Camera Basics}
-To start, we must have the same idea on what a camera is, and how we use cameras in this process. The most basic form of a camera is the camera obscura (or pinhole camera), where light from the world enters the camera body through a small “pinhole”. 
+To start, we must have the same idea on what a camera is, and how we use cameras in this process. The most basic cameras is a pinhole camera, made of a small light-sealed box with a small hole on one end. Light enters the box through that pinhole and creates an image projected on the opposite side of the box.
 
 \begin{figure}[h]
 	% Needs replacing/updating
@@ -208,11 +211,19 @@ To start, we must have the same idea on what a camera is, and how we use cameras
 	\label{Pinhole}
 	\end{figure}
 
-A couple of things are happening in this image ($\ref{Pinhole}$) that are being glossed over. For example, the image seen by the pinhole camera ends up flipping the image in the real world. The reason for that is due to how light operates, and why the pinhole camera is effective in recreating the image.
+This setup is pictured in Figure $\ref{Pinhole}$. A couple of things are happening in this image that are being glossed over. For example, the image seen by the pinhole camera ends up flipping the image in the real world. The reason for that is due to how light operates, and why the pinhole camera is effective in recreating the image.
 
-Imagine some point $p$ on an object in view of the pinhole camera. This object is lit by some light $l$ in the world. As light rays emanate from $l$, they spread out in some direction, most notably, they bounce off objects that lie in the path--and $p$ is one such object ($\ref{Light Bounce Shennanigans}$). Now, a \textit{lot} of rays are sent out by $l$, which means quite a few hit $p$, the trick of the pinhole is that it physically filters the rays of light to prevent blurring. Had the pinhole been larger, then light from $l$ hitting $p$ would result in multiple instances of $p'$ appearing on the screen in different locations. ($\ref{Light Bounce Shennanigans}$) An excellent example of this is a window. We do not see a perfect projection of the outside world on the opposite wall because there is no filter preventing stray bounces of light from filling the room.
+Let's discuss how this image of the world appears as a projection inside the camera. This is depicted in Figure $\ref{Pinhole}$. Consider an illuminated object sitting in the world in front of the pinhole camera. The light energy hitting the object is diffused, with some rays of light going in the direction of the camera, and others going elsewhere. Figure $\ref{Pinhole}$ showcases one such ray, reflecting off of point $p$, which travels through the pinhole, and onto the back face of the camera's body at point $p'$. Note that in this example, only a single ray is reflected off of point $p$ and makes it through the pinhole, and so $p'$ is where that part of the object is represented.
 
-\begin{figure}[h]
+Tracing similar rays of light off of different points across the object leads to an (upside down) image within the camera. The result of this method is a cone of rays that pass through the pinhole.
+
+Realistically, the pinhole does need to have some width. That results in allowing more than a single ray of light to project from a single point. For example, $p$ would have a cone of rays that would project onto the back wall of the camera, which would misrepresent the exact placement of $p$. However, the smaller the pinhole is, the less light information resulting from each point, thus projecting a dimmer object.
+
+The fix for this is to increase the size of the pinhole, and placing lenses in the created aperture. The intention of the lenses are to focus the cone of light rays from a point $p$ on the object to a single spot $p'$ inside the camera. An example of the lensless and lensed cameras are depicted in Figure $\ref{Light Bounce Shennanigans}$. 
+
+%Imagine some point $p$ on an object in view of the pinhole camera. This object is lit by some light $l$ in the world. Light emanates from $l$ in all directions. most notably, they bounce off objects that lie in the path--and $p$ is one such object ($\ref{Light Bounce Shennanigans}$). Now, a \textit{lot} of rays are sent out by $l$, which means quite a few hit $p$, the trick of the pinhole is that it physically filters the rays of light to prevent blurring. Had the pinhole been larger, then light from $l$ hitting $p$ would result in multiple instances of $p'$ appearing on the screen in different locations. ($\ref{Light Bounce Shennanigans}$) An excellent example of this is a window. We do not see a perfect projection of the outside world on the opposite wall because there is no filter preventing stray bounces of light from filling the room.
+
+\begin{figure}[t]
 	% Needs replacing/updating with a point
 	    \centering
 	    \includegraphics[scale=0.1]{~/thesis/thesis_doc/figures/pinhole_example.png}
@@ -222,7 +233,6 @@ Imagine some point $p$ on an object in view of the pinhole camera. This object i
 	\label{Light Bounce Shennanigans}
 	\end{figure}
 
-Cameras also often utilize lenses to aid in this process. A high-level explanation of a lens's functionality is that it is a curved piece of transparent material that bends the direction of light rays. Going back to our $p$, if there is a second ray of light hitting $p$ that may go in a slightly different direction than $p'$, the lens bends the light to also hit $p'$. This reinforces the light information at point $p'$ which represents point $p$ which grants us. The more light information, the more in-focus a given point on an image is. 
 
 The cameras that are used today are still based on this pinhole principle, but instead of a backplate, there lies a sensor designed to measure how much light hits a specific zone. Those measurements are shown back to us as pixels on a screen.
 
@@ -230,22 +240,21 @@ The cameras that are used today are still based on this pinhole principle, but i
 
 \section{The Camera Model}
 
-While this form of pinhole camera may work fine conceptually. We need to define a mathematical model which takes a location of a point in three-dimensional space, and projects it onto a two-dimensional plane. We can represent this process as a matrix:
-% See if this is helpful now, or later
-% \[p = \begin{bmatrix}
-% 	x\\y\\z\\w
-% \end{bmatrix} \;\;\; p' = \begin{bmatrix}
-% 	x\\y\\w
-% \end{bmatrix}\]
+While this form of pinhole camera may work fine conceptually. We need to define a mathematical model which takes a location of a point in three-dimensional space, and projects it onto a two-dimensional plane. We can represent this process as a matrix:\footnote{You may expect the position in $n$ dimensions to be represented with $n$ coordinates. However, we will use homogeneous coordinates which adds an extra component $w$. Its advantages are forthcoming}
+\[p = \left[\begin{smallmatrix}
+	x\\y\\z\\w
+\end{smallmatrix}\right] \;\;\; p' = \left[\begin{smallmatrix}
+	x\\y\\w
+\end{smallmatrix}\right]\]
 \[p' = Mp\]
 
-Where $p$ is a 4x1 vector representing our point in three-dimensional space (or three-space), $p'$ is a 3x1 vector representing the point in two-space, and $M$ is some 3x4 matrix "black box" which will move $p$ to $p'$. More clarification will come on what that exactly means.
+Where $p$ is a $4\times1$ vector representing our point in three-dimensional space (or three-space), $p'$ is a $3\times1$ vector representing the point in two-space, and $M$ is some $3\times4$ matrix "black box" which will move $p$ to $p'$. More clarification will come on what that exactly means.
 
 \section{A (brief) Linear Algebra Primer}
-Before we get too deep into the world of matrices and various transformations, it's important to establish a baseline understanding of the calculations that are happening behind the scenes. We live in a three-dimensional world--at least that is our perception of the world. Thus, we can represent the locations of things in our world using vectors that take three values: $(X, Y, Z)$. Those values represent positions relative to an origin point in distance along three different perpendicular directions. Taking those directions and scaling them accordingly, we can represent the location of anything in relation to those original directions. This can be done at home. Take your hand and create the shape of a “finger-gun” (where your index finger and thumb are both fully extended), now extend your middle finger halfway. That creates a coordinate system in terms of your fingers, and you can represent the location of objects in terms of: "how many thumbs, index fingers, and middle fingers does it take to reach an object?" ($\ref{Dimensional Fingers}$)
+Before we get too deep into the world of matrices and various transformations, it's important to establish a baseline understanding of the calculations that are happening behind the scenes. We live in a three-dimensional world--at least that is our perception of the world. Thus, we can represent the locations of things in our world using vectors of three values: $(x, y, z)$. These values represent positions relative to an origin point in distances along three different perpendicular directions. This way of describing a position can be done at home. Take your hand and create the shape of a “finger gun” (where your index finger and thumb are both fully extended), now extend your middle finger halfway. That creates a coordinate system in terms of your fingers, and you can represent the location of objects in terms of: "how many thumbs, index fingers, and middle fingers does it take to reach an object?" ($\ref{Dimensional Fingers}$)
 
-\begin{figure}[h]
-	%ANY FIGURE USING THE "SUBDIVISION" GRAPHIC NEEDS TO BE REPLACED!!!
+\begin{figure}[b]
+	% NOTE: THIS FIGURE NEEDS REPLACEMENT WITH UPDATED VERSION
 	   
 	       \centering
 	    % DO NOT ADD A FILENAME EXTENSION TO THE GRAPHIC FILE
@@ -253,21 +262,25 @@ Before we get too deep into the world of matrices and various transformations, i
 	    \includegraphics[scale=0.15]{./figures/2-space-fingers.png} 
 		\hfill	    
 	    \includegraphics[scale=0.15]{./figures/3-space-fingers}
-	     \caption{Dimensional Fingers showcasing 2-Space and 3-Space.png}
+	     \caption{Dimensional Fingers showcasing 2-Space and 3-Space}
 	 \label{Dimensional Fingers}
 	\end{figure}
 
-When it comes to the camera, we have two of our directions (the X and Y directions) that are parallel to the X and Y axes of the projection plane and a third direction (Z) which is perpendicular to the projection plane. We can then take locations represented by these vectors, and run them through our intrinsic and extrinsic matrices that define the camera to map the location onto the image.
+When it comes to the camera, we have two of our directions (the $X$ and $Y$ directions) that are parallel to the $X$ and $Y$ axes of the projection plane and a third direction ($Z$) which is perpendicular to the projection plane. We can then take locations represented by these vectors, and run them through our intrinsic and extrinsic matrices that define the camera to map the location onto the image.
 
-Notice that the vectors representing the location in three-space and the location on the image plane contain an extra value. That is because these vectors are homogeneous coordinates. Homogeneous coordinates are representations of points in computer graphics (and in our case, photogrammetry) where perspective plays a key role. Here, the vectors take the form of: \[\begin{bmatrix}x\\y\\z\\w\end{bmatrix} \text{ or } \begin{bmatrix}x'\\y'\\z'\end{bmatrix}\] $w$ plays numerous roles, but its primary purpose is the convenience of expressing affine transformations--translation, scaling, and rotation--to be represented by matrices. An important metric of vector spaces, i.e. the three-space that we represent our three-dimensional reality in, is that the origin cannot be moved by a linear transformation, or other matrix operation. The operation of translation to a vector runs the risk of moving the origin of the vector space. If translation is the addition or subtraction of values to a vector, inputting the origin (or a vector of all zeroes) will add or subtract those values to the origin. If one tries to translate a point through clever scaling (to get around the issue of moving the origin), inputting other vectors into the same translation matrix yields wildly different results. With the introduction of a $w$ value, we can represent transformations without moving the origin. ($\ref{Translation Example}$)
+Notice that the vectors representing the location in three-space and the location on the image plane contain an extra value. That is because these vectors are homogeneous coordinates. Homogeneous coordinates are representations of points in computer graphics (and in our case, photogrammetry) where perspective plays a key role. Here, the vectors take the form of: \[p = \begin{bmatrix}x\\y\\z\\w\end{bmatrix}\;\; \text{ or }\;\; p' = \begin{bmatrix}x'\\y'\\w'\end{bmatrix}\] $w$ plays numerous roles, but its primary purpose is the convenience of expressing affine transformations---translation, scaling, and rotation---to be represented by translation, scaling, and rotation matrices.
+
+% SHOW FIGURES ON THE FOLLOWING PAGE
+
+
+%An important metric of vector spaces, i.e. the three-space that we represent our three-dimensional reality in, is that the origin cannot be moved by a linear transformation, or other matrix operation. The operation of translation to a vector runs the risk of moving the origin of the vector space. If translation is the addition or subtraction of values to a vector, inputting the origin (or a vector of all zeroes) will add or subtract those values to the origin. If one tries to translate a point through clever scaling (to get around the issue of moving the origin), inputting other vectors into the same translation matrix yields wildly different results. With the introduction of a $w$ value, we can represent transformations without moving the origin. ($\ref{Translation Example}$)
 
 \begin{figure}[t]
 	   
-	       \centering
-	    % DO NOT ADD A FILENAME EXTENSION TO THE GRAPHIC FILE
+	    \centering
 	    
 	    \includegraphics[scale=0.10]{./figures/translation_example}
-	    \[A = \begin{bmatrix}5\\3\\1\end{bmatrix} \implies A' = \begin{bmatrix}1&0&1\\0&1&2\\0&0&1\end{bmatrix}\begin{bmatrix}5\\3\\1\end{bmatrix} = \begin{bmatrix}5 + 1(1)\\3 + 1(2)\\1 + 0(1)\end{bmatrix}= \begin{bmatrix}6\\5\\1\end{bmatrix}
+	    \[q = \begin{bmatrix}5\\3\\1\end{bmatrix} \implies q' = \begin{bmatrix}1&0&1\\0&1&2\\0&0&1\end{bmatrix}\begin{bmatrix}5\\3\\1\end{bmatrix} = \begin{bmatrix}5 + 1(1)\\3 + 1(2)\\1 + 0(1)\end{bmatrix}= \begin{bmatrix}6\\5\\1\end{bmatrix}
 	    \]
 	    \caption{An example of translation with homogeneous coordinates:}
 	 \label{Translation Example}
@@ -277,7 +290,7 @@ Notice that the vectors representing the location in three-space and the locatio
 
 \section{Camera Parameters}
 
-We can be more specific with $M$. $M$ is a combination of two matrices that represents different parameters that belong to the camera. Those parameters are classified as camera intrinsics and extrinsics. The intrinsics represent the various distortions and qualities intrinsic to the camera itself. The main values we care about are the focal length, field of view, and optical center, that is, the distance between the lens of the camera and the sensor, the field of view for the camera, and the pixel location for the center of the image. This allows us to take an object in three-space and map it onto pixels in two-space. 
+We can be more specific about what $M$ is for a camera taking a picture. $M$ is a combination of two matrices that represents different parameters that belong to the camera. Those parameters are classified as camera intrinsics and extrinsics. The intrinsics represent the various distortions and qualities intrinsic to the camera itself. The main values we care about are the focal length, field of view, and optical center, that is, the distance between the lens of the camera and the sensor, the field of view for the camera, and the pixel location for the center of the image. This allows us to take an object in three-space and map it onto pixels in two-space. 
 
 We aren't finished yet, because we have no frame of reference to where the camera exists in the world; thus, we need the extrinsics. The extrinsics describe the camera's relation to the world origin. With a single camera, the world origin is usually centered on the camera itself. The camera extrinsics are represented in rotation and translation matrices. We will cover the calibration part later in this chapter; but the takeaway from this moment is that with these intrinsics and extrinsics that we can calculate through calibration, we can treat the cameras as a “black box” and toss in information about objects in 3D space into the appropriate matrices and the camera will spit out a corresponding image (or collection of pixels representing 3D space). More importantly, we can do this process in reverse, pointing out areas of interest on the cameras' images, and retrieve information on where those areas are represented in 3D space.
 
@@ -289,7 +302,7 @@ The intrinsic and extrinsic parameters of a camera can be represented with matri
 0 & 0 & 1
 \end{bmatrix}\] We call this matrix the “camera matrix” and it is represented as $K$.
 
-Extrinsic parameters are commonly represented as $\rt$, as in, the concatenated matrices of the rotation matrix (which is 3x3) and the translation matrix (which is 1x3). The resulting matrix $\rt$ is a 3x4 matrix. With these two matrices, the equation to map a point in three-space to pixel coordinates is as follows:
+Extrinsic parameters are commonly represented as $\rt$, as in, the concatenated matrices of the rotation matrix (which is 3x3) and the translation matrix (which is 1x3). The resulting matrix $\rt$ is a $3\times4$ matrix. With these two matrices, the equation to map a point in three-space to pixel coordinates is as follows:
 
 \begin{align*}
 p' &= Mp\\
@@ -316,9 +329,9 @@ The final modification we will make to our camera is to establish a “projectio
 
 \section{The Stereo Normal Example}
 
-Triangulation is relatively straightforward if the cameras are stereo normal (the cameras are adjacent, and on the same plane of X and Z axes). In order to get to DLT, first we should cover the stereo normal base case. Cyrill Stachniss provides a great example, which I will modify for this use case. (\autocite{stachniss_lecture_2021})
+Triangulation is relatively straightforward if the cameras are stereo normal (the cameras are adjacent, and on the same plane of $X$ and $Z$ axes). In order to get to DLT, first we should cover the stereo normal base case. Cyrill Stachniss provides a great example, which I will modify for this use case. (\autocite{stachniss_lecture_2021})
 
-	Imagine two cameras $O'$ and $O''$ which share the same Z and Y-axis, pointing in the same direction (specifically the Z axis), with a distance $D$ being the distance between the two cameras on the X-axis. Now, imagine a projection plane that is infinitely large, is perpendicular to the view direction to the cameras, and located a distance $F$ from the cameras on the Z axis. To finish setting up, draw lines $Z'$ and $Z''$ perpendicular to the projection plane that go through both cameras respectively. A top-down view of this setup would result in the following image: 
+	Imagine two cameras $O'$ and $O''$ which share the same $Z$ and $Y$ axis, pointing in the same direction (specifically the $Z$ axis), with a distance $D$ being the distance between the two cameras on the $X$-axis. Now, imagine a projection plane that is infinitely large, is perpendicular to the view direction to the cameras, and located a distance $F$ from the cameras on the $Z$ axis. To finish setting up, draw lines $z'$ and $z''$ perpendicular to the projection plane that go through both cameras respectively. A top-down view of this setup would result in the following image: 
 	
 	% INSERT FIG HERE
 	\begin{figure}[h]
@@ -332,33 +345,33 @@ Triangulation is relatively straightforward if the cameras are stereo normal (th
 	 \label{A Stereo Normal Example}
 	\end{figure}
 
-For our stereo normal example, we are going to continue to use this view in our calculations, as we can assume any Y or height information in the image will remain consistent between the two cameras (and in 3D space). This allows for a more simplistic base case, and we can elaborate on how further examples require more thought.
+For our stereo normal example, we are going to continue to use this view in our calculations, as we can assume any $y$ or height information in the image will remain consistent between the two cameras (and in 3D space). This allows for a more simplistic base case, and we can elaborate on how further examples require more thought.
 
 Now, imagine that, on the projection plane, there exists two points that map to where our blob detector has spat out the locations of the LED on each camera. Because we imagine the projection plane to be infinitely large, we map the pixel locations onto this plane using the projection, translation, and rotation matrices we were given in the initial calibration process. We will name these two points $P'$ and $P''$ which map to cameras $O'$ and $O''$ respectively. If we draw a line from $O'$ through $P'$ and the same for the other camera, the point at which both cameras intersect will be the location of the LED, which we will call $P$. To get that result, the math is pretty straightforward.
 
-First, note the distance from $P'$ to $Z'$ and $P''$ to $Z''$ on the projection plane which we will label $x'$ and $x''$. Through the intercept theorem, we can find the Z coordinate of $P$ by solving the following relation:
-\[\frac{Z}{c} = \frac{D}{-(x'' - x')}\]
-Once that's done, through Law of Similar Triangles, we can find the X coordinate of P using Z. That relation is as follows:
-\[\frac{X}{x'}=\frac{Z}{c}\]
-Finally, we can assume that the Y value of the coordinates is whatever the Y pixel value maps to the projection plane. This value is less important for placing the light as we can assume performers stay within the same height for this demo.
+First, note the distance from $P'$ to $z'$ and $P''$ to $z''$ on the projection plane which we will label $x'$ and $x''$. Through the intercept theorem, we can find the $z$ coordinate of $P$ by solving the following relation:
+\[\frac{z}{c} = \frac{D}{-(x'' - x')}\]
+Once that's done, through Law of Similar Triangles, we can find the$x$coordinate of P using $z$. That relation is as follows:
+\[\frac{X}{x'}=\frac{z}{c}\]
+Finally, we can assume that the $y$ value of the coordinates is whatever the $y$ pixel value maps to the projection plane. This value is less important for placing the light as we can assume performers stay within the same height for this demo.
 
 \section{Camera Calibration Process}
 % ADD CITATION FOR ZHANGS METHOD
 The camera calibration is largely done automatically through OpenCV. The method for calibrating the camera that we use is called Zhang's method. The goal here is to gather the extrinsic and intrinsic parameters of the camera. Remember, the extrinsic and intrinsic parameters of a camera allow us to map an object in three-dimensional space onto a two-dimensional plane. To start, we want to begin with just determining the intrinsic parameters for each camera. We can assume that each camera is in the origin of their own world. The high-level explanation of this process is to choose points whose locations are known in two-dimensional space (the image) and in three-dimensional space (the world). Using that information, and the knowledge that the camera is in the origin, we can reverse engineer the camera matrix (and its parameters). However, this method is easier said than done. The current issues we face is that we want a fast way to calibrate a camera, and we may not have points measured out (in three-space where the camera is the origin). We need to do some tricks.
 
-Zhang's method relies on the usage of a checkerboard with defined parameters; these parameters are the size of squares and the size of the grid (e.g. a 3 X 5 grid). We assume that the checkerboard is planar--or flat--on some surface. If we are able to detect the corners of the squares on the checkerboard, we could pick a single corner and know where all other corners exist in relation to it. Our first trick is setting the world coordinate system to the bottom-left corner of the checkerboard, with the $-Z$ axis being normal to the checkerboard. Then, for all corner locations on the checkerboard, they all have a single thing in common. The Z coordinate of each point in three-space is 0 (or all points lie in the X/Y plane). This trick simplifies the current matrices by a significant amount. Recall that the way to convert a three-dimensional point to a two-dimensional one is as follows:
+Zhang's method relies on the usage of a checkerboard with defined parameters; these parameters are the size of squares and the size of the grid (e.g. a $3\times5$ grid). We assume that the checkerboard is planar--or flat--on some surface. If we are able to detect the corners of the squares on the checkerboard, we could pick a single corner and know where all other corners exist in relation to it. Our first trick is setting the world coordinate system to the bottom-left corner of the checkerboard, with the $-Z$ axis being normal to the checkerboard. Then, for all corner locations on the checkerboard, they all have a single thing in common. The $z$ coordinate of each point in three-space is 0 (or all points lie in the X/$y$ plane). This trick simplifies the current matrices by a significant amount. Recall that the way to convert a three-dimensional point to a two-dimensional one is as follows:
 \[\begin{bmatrix}x' \\ y' \\ 1\end{bmatrix} = \begin{bmatrix}f_x & s & c_x \\ 0 & f_y & c_y \\ 0 & 0 & 1\end{bmatrix} \begin{bmatrix} r_{11}&r_{12}&r_{13}&t{1}\\r_{21}&r_{22}&r_{23}&t{2}\\r_{31}&r_{32}&r_{33}&t{3}\end{bmatrix}\;\;\begin{bmatrix}x \\ y \\ z \\ 1\end{bmatrix}\]
 
 % FIX THE MATH
 
-Since Z = 0, we can simplify down to:
+Since $z$ = 0, we can simplify down to:
 \[\begin{bmatrix}x' \\ y' \\ 1\end{bmatrix} = \begin{bmatrix}f_x & s & c_x \\ 0 & f_y & c_y \\ 0 & 0 & 1\end{bmatrix} \begin{bmatrix} r_{11}&r_{12}&t{1}\\r_{21}&r_{22}&t{2}\\r_{31}&r_{32}&t{3}\end{bmatrix}\;\;\begin{bmatrix}x \\ y \\ 1\end{bmatrix} \]
 During this process, we take multiple photos of the checkerboard in view of the camera. For each image we take, we find the bottom left corner of the checkerboard and establish it as the world origin. Then, knowing the size of the checkerboard squares in the real world, we generate a version of the above matrices for each corner in the checkerboard, where $K$ and $\rt$ are the same. At this point, all we care about is what $p$ and $p'$ are. The OpenCV library takes the checkerboard locations as input. Using its implementation of Zhang's method--which we will treat as a black box for brevity's sake--we can complete our calibration of both cameras.
 
 \section{DLT to 3D}
 With the knowledge of the stereo normal example under our belt, alongside the knowledge of how the calibration process works, it's time to create a non-normalized version. With the generation of projection matrices for each camera through calibration, we can theoretically take two points (one on each image), plug their location into the camera matrices, and get a point in three-space that represents the object seen in both cameras. Neither camera can output all the location information about the object on its own. A single camera can calculate the line that would intersect the object, but the second camera is needed to provide feedback on where the object is located along said line.
 
-	One method to accomplish this is through a process called Direct Linear Transformation. At its core, it is the process of taking a matrix $Ax = w$ and minimizing $w$ (which allows us to account for noise or imperfect measurements). In this scenario, we know $A$ is the camera matrix containing intrinsic and extrinsic parameters, and we are solving for some point X such that $w$ is minimized. Note here that $A$ is representing all the camera matrices, which is done using singular value decomposition. Essentially, the matrices that we described as the properties of the camera are in special formats that allow them to be merged into a single matrix $A$. Using SVD and DLT, we can take our two points on the image planes, and find a point in three-space where $w$ (or the distance between the two vectors) is minimized. DLT and SVD are provided within the code, which allows us to treat it also like a black box for now.
+	One method to accomplish this is through a process called Direct Linear Transformation. At its core, it is the process of taking a matrix $Ax = w$ and minimizing $w$ (which allows us to account for noise or imperfect measurements). In this scenario, we know $A$ is the camera matrix containing intrinsic and extrinsic parameters, and we are solving for some point$x$such that $w$ is minimized. Note here that $A$ is representing all the camera matrices, which is done using singular value decomposition. Essentially, the matrices that we described as the properties of the camera are in special formats that allow them to be merged into a single matrix $A$. Using SVD and DLT, we can take our two points on the image planes, and find a point in three-space where $w$ (or the distance between the two vectors) is minimized. DLT and SVD are provided within the code, which allows us to treat it also like a black box for now.
 
 \section{From Pixels to Position}
 Finally, we are in a position to cover the pipeline that exists in this project. We begin with setting up the cameras in the performance space and calibrating the cameras to the space. The program contains a calibration mode which is modified from Dr. Batpurev's work in stereo calibration. The script takes advantage of the OpenCV library which has in-built functions to calibrate the cameras individually and as a stereo pair through Zhang's method. We take a couple of photos for each calibration step.

@@ -6,7 +6,7 @@
 \contentsline {section}{\numberline {2.2}Camera Basics}{9}{section.2.2}%
 \contentsline {section}{\numberline {2.3}The Camera Model}{11}{section.2.3}%
 \contentsline {section}{\numberline {2.4}A (brief) Linear Algebra Primer}{12}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Camera Parameters}{13}{section.2.5}%
+\contentsline {section}{\numberline {2.5}Camera Parameters}{14}{section.2.5}%
 \contentsline {section}{\numberline {2.6}The Stereo Normal Example}{16}{section.2.6}%
 \contentsline {section}{\numberline {2.7}Camera Calibration Process}{18}{section.2.7}%
 \contentsline {section}{\numberline {2.8}DLT to 3D}{20}{section.2.8}%

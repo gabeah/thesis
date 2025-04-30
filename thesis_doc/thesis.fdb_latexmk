@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber thesis"] 1745400625.47614 "thesis.bcf" "thesis.bbl" "thesis" 1745400959.07393 0
-  "thesis.bcf" 1745400958.97388 160283 54efc38858a438f64ca7ed44510485fd "pdflatex"
+["biber thesis"] 1745996024.41764 "thesis.bcf" "thesis.bbl" "thesis" 1745996276.24555 0
+  "thesis.bcf" 1745996276.16513 160283 54efc38858a438f64ca7ed44510485fd "pdflatex"
   "thesis.bib" 1743814428.70034 19937 7a8adceb2a01c46e68ea481974fc2413 ""
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1745400956.60882 "/home/gabeh/thesis/thesis_doc/thesis.tex" "thesis.pdf" "thesis" 1745400959.07435 0
-  "/home/gabeh/thesis/thesis_doc/thesis.tex" 1745400956.38534 56260 a1516945050ba68bd528500dd1d20aed ""
+["pdflatex"] 1745996274.18292 "/home/gabeh/thesis/thesis_doc/thesis.tex" "thesis.pdf" "thesis" 1745996276.24594 0
+  "/home/gabeh/thesis/thesis_doc/thesis.tex" 1745996273.87613 57746 8cc23a7a8d3bb805d6b9a88f5ff758e0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -41,6 +41,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb" 1248133631 32001 6aeea3afe875097b1eb0da29acd61e28 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
@@ -149,13 +150,13 @@
   "figures/stereo_normal.png" 1743758552.80192 76595 9efbd033a4575eac7f6a9c08c16c27a8 ""
   "figures/translation_example.png" 1743766197.92023 123079 799ebd8424164c97afe7357ab5407a31 ""
   "reedthesis.cls" 1745015876 11288 a86de0336931b0e8ee18be6a25e790e0 ""
-  "thesis.aux" 1745400958.97161 9188 d0cf967f504ae7f48f508928aa7a9e13 "pdflatex"
-  "thesis.bbl" 1745400626.26475 48292 0a27417ebe533bc0b48529c0735ca7ef "biber thesis"
-  "thesis.lof" 1745400958.976 904 3af0e346727396ddbcc8e086f9ac300a "pdflatex"
-  "thesis.out" 1745400958.97288 3702 ecdc1bb16ddb8903ebd18d33306f8ebd "pdflatex"
-  "thesis.run.xml" 1745400958.976 2363 dacfb94a3f116c252bc3659ad03a2012 "pdflatex"
-  "thesis.tex" 1745400956.38534 56260 a1516945050ba68bd528500dd1d20aed ""
-  "thesis.toc" 1745400958.976 1645 960149b3b7ba61c7589b5b97a7f7a17b "pdflatex"
+  "thesis.aux" 1745996276.16213 9180 d86a15171d1e371d4ed0dd96b1de4779 "pdflatex"
+  "thesis.bbl" 1745996025.07099 48292 0a27417ebe533bc0b48529c0735ca7ef "biber thesis"
+  "thesis.lof" 1745996276.16659 900 ef494cf44404f5899b836c29c4679c19 "pdflatex"
+  "thesis.out" 1745996276.16413 3702 ecdc1bb16ddb8903ebd18d33306f8ebd "pdflatex"
+  "thesis.run.xml" 1745996276.16659 2363 dacfb94a3f116c252bc3659ad03a2012 "pdflatex"
+  "thesis.tex" 1745996273.87613 57746 8cc23a7a8d3bb805d6b9a88f5ff758e0 ""
+  "thesis.toc" 1745996276.16659 1645 0ac0f402a158806a2270125572378be1 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.bcf"
