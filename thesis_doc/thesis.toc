@@ -6,17 +6,17 @@
 \contentsline {section}{\numberline {2.2}Camera Basics}{9}{section.2.2}%
 \contentsline {section}{\numberline {2.3}The Camera Model}{11}{section.2.3}%
 \contentsline {section}{\numberline {2.4}A (brief) Linear Algebra Primer}{12}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Camera Parameters}{14}{section.2.5}%
-\contentsline {section}{\numberline {2.6}The Stereo Normal Example}{16}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Camera Calibration Process}{18}{section.2.7}%
-\contentsline {section}{\numberline {2.8}DLT to 3D}{20}{section.2.8}%
-\contentsline {section}{\numberline {2.9}From Pixels to Position}{21}{section.2.9}%
-\contentsline {chapter}{Chapter 3: Bringing the Project to Life (?)}{25}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Where we started (spring semester):}{25}{section.3.1}%
-\contentsline {section}{\numberline {3.2}DMX "Hell"}{26}{section.3.2}%
-\contentsline {section}{\numberline {3.3}So how did you get so close?}{27}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Where does that put us now:}{28}{section.3.4}%
-\contentsline {chapter}{Conclusion}{31}{chapter*.7}%
-\contentsline {chapter}{Appendix A: The Code of the Project}{33}{appendix.A}%
-\contentsline {chapter}{Appendix B: Photos of the demo (?)}{35}{appendix.B}%
-\contentsline {chapter}{Bibliography}{37}{appendix*.8}%
+\contentsline {section}{\numberline {2.5}Camera Parameters}{15}{section.2.5}%
+\contentsline {section}{\numberline {2.6}The Stereo Normal Example}{18}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Camera Calibration Process}{20}{section.2.7}%
+\contentsline {section}{\numberline {2.8}DLT to 3D}{22}{section.2.8}%
+\contentsline {section}{\numberline {2.9}From Pixels to Position}{23}{section.2.9}%
+\contentsline {chapter}{Chapter 3: Bringing the Project to Life (?)}{27}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Where we started (spring semester):}{27}{section.3.1}%
+\contentsline {section}{\numberline {3.2}DMX "Hell"}{28}{section.3.2}%
+\contentsline {section}{\numberline {3.3}So how did you get so close?}{29}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Where does that put us now:}{30}{section.3.4}%
+\contentsline {chapter}{Conclusion}{33}{chapter*.7}%
+\contentsline {chapter}{Appendix A: The Code of the Project}{35}{appendix.A}%
+\contentsline {chapter}{Appendix B: Photos of the demo (?)}{37}{appendix.B}%
+\contentsline {chapter}{Bibliography}{39}{appendix*.8}%

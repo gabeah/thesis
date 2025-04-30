@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2025.4.4)  29 APR 2025 23:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2025.4.4)  30 APR 2025 02:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -599,6 +599,8 @@ Package babel Info: Hyphen rules for 'newzealand' set to \l@english
 )) (/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
 Package babel Info: Importing font and identification data for english
 (babel)             from babel-en.ini. Reported on input line 11.
+) (./gensymb.sty
+Package: gensymb 2022/10/17 v1.0.2 (KJH)
 )
 
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
@@ -613,24 +615,24 @@ LaTeX Warning: Unused global option(s):
 (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
 Package biblatex Info: Trying to load language 'english' -> 'cms-american'...
 Package biblatex Info: ... file 'cms-american.lbx' found.
  (/usr/share/texlive/texmf-dist/tex/latex/biblatex-chicago/cms-american.lbx
@@ -657,8 +659,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'thesis.bbl' found.
  (./thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 90.
-Package biblatex Info: Reference segment=0 on input line 90.
+Package biblatex Info: Reference section=0 on input line 91.
+Package biblatex Info: Reference segment=0 on input line 91.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -695,13 +697,13 @@ Package biblatex Info: Reference segment=0 on input line 90.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 90.
+Package hyperref Info: Link coloring OFF on input line 91.
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
 \openout4 = `thesis.out'.
 
-Class reedthesis Info: Uppercase headers enabled on input line 90.
-Class reedthesis Info: Small caps headers disabled on input line 90.
+Class reedthesis Info: Uppercase headers enabled on input line 91.
+Class reedthesis Info: Small caps headers disabled on input line 91.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count435
@@ -717,28 +719,33 @@ Class reedthesis Info: Small caps headers disabled on input line 90.
 \everyMPtoPDFconversion=\toks33
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
- (/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
+LaTeX Info: Redefining \celsius on input line 91.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 91.
+
+
+Package gensymb Warning: Not defining \perthousand.
+
+LaTeX Info: Redefining \ohm on input line 91.
+Package gensymb Info: Using \Omega for \ohm on input line 91.
+
+Package gensymb Warning: Not defining \micro.
+
 
 LaTeX Warning: No \division given.
 
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 92.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 93.
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 92.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 93.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 92.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 93.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -776,7 +783,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.159 
+l.160 
        [1
 
 ]
@@ -791,7 +798,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.171 \chapter
+l.172 \chapter
               {A History of Lighting Control} [2]
 Chapter 1.
 
@@ -801,7 +808,7 @@ Underfull \vbox (badness 2460) has occurred while \output is active []
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.175 
+l.176 
        [3
 
 ]
@@ -819,7 +826,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.179 
+l.180 
        [4]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -848,10 +855,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 Chapter 2.
-<./figures/pinhole_example.png, id=252, 1896.08376pt x 1002.74625pt>
+<./figures/pinhole_example.png, id=258, 1896.08376pt x 1002.74625pt>
 File: ./figures/pinhole_example.png Graphic file (type png)
 <use ./figures/pinhole_example.png>
-Package pdftex.def Info: ./figures/pinhole_example.png  used on input line 209.
+Package pdftex.def Info: ./figures/pinhole_example.png  used on input line 210.
 (pdftex.def)             Requested size: 379.21004pt x 200.5457pt.
 [9]
 
@@ -862,14 +869,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [10 <./figures/pinhole_example.png>]
-<~/thesis/thesis_doc/figures/pinhole_example.png, id=272, 1896.08376pt x 1002.74625pt>
+<~/thesis/thesis_doc/figures/pinhole_example.png, id=276, 1896.08376pt x 1002.74625pt>
 File: ~/thesis/thesis_doc/figures/pinhole_example.png Graphic file (type png)
 <use ~/thesis/thesis_doc/figures/pinhole_example.png>
-Package pdftex.def Info: ~/thesis/thesis_doc/figures/pinhole_example.png  used on input line 229.
+Package pdftex.def Info: ~/thesis/thesis_doc/figures/pinhole_example.png  used on input line 230.
 (pdftex.def)             Requested size: 189.61948pt x 100.28049pt.
 File: ~/thesis/thesis_doc/figures/pinhole_example.png Graphic file (type png)
 <use ~/thesis/thesis_doc/figures/pinhole_example.png>
-Package pdftex.def Info: ~/thesis/thesis_doc/figures/pinhole_example.png  used on input line 231.
+Package pdftex.def Info: ~/thesis/thesis_doc/figures/pinhole_example.png  used on input line 232.
 (pdftex.def)             Requested size: 189.61948pt x 100.28049pt.
 
 Underfull \vbox (badness 1360) has occurred while \output is active []
@@ -883,16 +890,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [11 </home/gabeh/thesis/thesis_doc/figures/pinhole_example.png>]
-<./figures/2-space-fingers.png, id=285, 1425.325pt x 1003.75pt>
+<./figures/2-space-fingers.png, id=289, 1425.325pt x 1003.75pt>
 File: ./figures/2-space-fingers.png Graphic file (type png)
 <use ./figures/2-space-fingers.png>
-Package pdftex.def Info: ./figures/2-space-fingers.png  used on input line 262.
-(pdftex.def)             Requested size: 213.78952pt x 150.556pt.
-<./figures/3-space-fingers.png, id=286, 1329.96875pt x 1003.75pt>
+Package pdftex.def Info: ./figures/2-space-fingers.png  used on input line 263.
+(pdftex.def)             Requested size: 199.54414pt x 140.52403pt.
+<./figures/3-space-fingers.png, id=290, 1279.78125pt x 965.6075pt>
 File: ./figures/3-space-fingers.png Graphic file (type png)
 <use ./figures/3-space-fingers.png>
-Package pdftex.def Info: ./figures/3-space-fingers.png  used on input line 264.
-(pdftex.def)             Requested size: 199.48671pt x 150.556pt.
+Package pdftex.def Info: ./figures/3-space-fingers.png  used on input line 265.
+(pdftex.def)             Requested size: 191.95891pt x 144.83487pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -902,11 +909,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [12 <./figures/2-space-fingers.png> <./figures/3-space-fingers.png>]
-<./figures/translation_example.png, id=294, 2434.09375pt x 1003.75pt>
-File: ./figures/translation_example.png Graphic file (type png)
-<use ./figures/translation_example.png>
-Package pdftex.def Info: ./figures/translation_example.png  used on input line 282.
-(pdftex.def)             Requested size: 243.42363pt x 100.38087pt.
+<figures/translation_example_new.png, id=297, 1936.23375pt x 825.0825pt>
+File: figures/translation_example_new.png Graphic file (type png)
+<use figures/translation_example_new.png>
+Package pdftex.def Info: figures/translation_example_new.png  used on input line 284.
+(pdftex.def)             Requested size: 390.25537pt x 166.29773pt.
+<figures/scale_sxample.png, id=298, 1946.27126pt x 828.09375pt>
+File: figures/scale_sxample.png Graphic file (type png)
+<use figures/scale_sxample.png>
+Package pdftex.def Info: figures/scale_sxample.png  used on input line 287.
+(pdftex.def)             Requested size: 390.25537pt x 166.04543pt.
+<figures/rotation_example.png, id=299, 1820.8025pt x 892.33376pt>
+File: figures/rotation_example.png Graphic file (type png)
+<use figures/rotation_example.png>
+Package pdftex.def Info: figures/rotation_example.png  used on input line 290.
+(pdftex.def)             Requested size: 390.25537pt x 191.24892pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -918,10 +935,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[13 <./figures/translation_example.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
+[13]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -929,13 +943,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[14]
-<./figures/flipping_proj_plane.png, id=304, 1842.885pt x 1003.75pt>
-File: ./figures/flipping_proj_plane.png Graphic file (type png)
-<use ./figures/flipping_proj_plane.png>
-Package pdftex.def Info: ./figures/flipping_proj_plane.png  used on input line 324.
-(pdftex.def)             Requested size: 368.57048pt x 200.74644pt.
-
+[14 <./figures/translation_example_new.png> <./figures/scale_sxample.png> <./figures/rotation_example.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -947,39 +955,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [15]
-<./figures/stereo_normal.png, id=312, 1295.84125pt x 1003.75pt>
-File: ./figures/stereo_normal.png Graphic file (type png)
-<use ./figures/stereo_normal.png>
-Package pdftex.def Info: ./figures/stereo_normal.png  used on input line 343.
-(pdftex.def)             Requested size: 388.75537pt x 301.12732pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[16 <./figures/flipping_proj_plane.png>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[17 <./figures/stereo_normal.png>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[18]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -990,8 +965,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[19]
-Underfull \vbox (badness 3407) has occurred while \output is active []
+[16]
+<./figures/flipping_proj_plane.png, id=321, 1842.885pt x 1003.75pt>
+File: ./figures/flipping_proj_plane.png Graphic file (type png)
+<use ./figures/flipping_proj_plane.png>
+Package pdftex.def Info: ./figures/flipping_proj_plane.png  used on input line 348.
+(pdftex.def)             Requested size: 368.57048pt x 200.74644pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
@@ -1001,8 +986,45 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
+[17]
+<./figures/stereo_normal.png, id=330, 1295.84125pt x 1003.75pt>
+File: ./figures/stereo_normal.png Graphic file (type png)
+<use ./figures/stereo_normal.png>
+Package pdftex.def Info: ./figures/stereo_normal.png  used on input line 367.
+(pdftex.def)             Requested size: 388.75537pt x 301.12732pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 2837) has occurred while \output is active []
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[18 <./figures/flipping_proj_plane.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[19 <./figures/stereo_normal.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
 [20]
-Underfull \vbox (badness 3407) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
@@ -1013,15 +1035,37 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [21]
-<./figures/example_img.png, id=343, 505.89pt x 379.4175pt>
+Underfull \vbox (badness 3407) has occurred while \output is active []
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[22]
+Underfull \vbox (badness 1609) has occurred while \output is active []
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[23]
+<./figures/example_img.png, id=361, 505.89pt x 379.4175pt>
 File: ./figures/example_img.png Graphic file (type png)
 <use ./figures/example_img.png>
-Package pdftex.def Info: ./figures/example_img.png  used on input line 391.
+Package pdftex.def Info: ./figures/example_img.png  used on input line 415.
 (pdftex.def)             Requested size: 202.3524pt x 151.7643pt.
-<./figures/example_mask.png, id=344, 505.89pt x 379.4175pt>
+<./figures/example_mask.png, id=362, 505.89pt x 379.4175pt>
 File: ./figures/example_mask.png Graphic file (type png)
 <use ./figures/example_mask.png>
-Package pdftex.def Info: ./figures/example_mask.png  used on input line 393.
+Package pdftex.def Info: ./figures/example_mask.png  used on input line 417.
 (pdftex.def)             Requested size: 202.3524pt x 151.7643pt.
 
 
@@ -1031,7 +1075,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[22 <./figures/example_img.png (PNG copy)> <./figures/example_mask.png (PNG copy)>]
+[24 <./figures/example_img.png (PNG copy)> <./figures/example_mask.png (PNG copy)>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1039,32 +1083,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[23] [24
+[25] [26
 
 ]
 Chapter 3.
-[25]
-Underfull \vbox (badness 3407) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[26]
-Underfull \vbox (badness 3407) has occurred while \output is active []
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
 [27]
 Underfull \vbox (badness 3407) has occurred while \output is active []
 
@@ -1077,6 +1099,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [28]
+Underfull \vbox (badness 3407) has occurred while \output is active []
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1084,12 +1109,31 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[29] [30
+[29]
+Underfull \vbox (badness 3407) has occurred while \output is active []
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[30]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[31] [32
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31]
+ [33]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1097,17 +1141,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[32]
+[34]
 Appendix A.
-[33
+[35
 
-] [34
+] [36
 
 ]
 Appendix B.
-[35] [36
+[37] [38
 
-] [37
+] [39
 
 ]
 
@@ -1117,7 +1161,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[38]
+[40]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1125,7 +1169,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[39]
+[41]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1133,7 +1177,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[40] (./thesis.aux)
+[42] (./thesis.aux)
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: ECDC1BB16DDB8903EBD18D33306F8EBD;3702.
 Package logreq Info: Writing requests to 'thesis.run.xml'.
@@ -1141,10 +1185,10 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22033 strings out of 477985
- 399773 string characters out of 5839381
- 1867388 words of memory out of 6000000
- 41836 multiletter control sequences out of 15000+600000
+ 22084 strings out of 477985
+ 400613 string characters out of 5839381
+ 1874388 words of memory out of 6000000
+ 41881 multiletter control sequences out of 15000+600000
  522792 words of font info for 75 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  100i,14n,104p,2722b,3950s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1178,11 +1222,11 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on thesis.pdf (54 pages, 6647450 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on thesis.pdf (56 pages, 4809571 bytes).
 PDF statistics:
- 567 PDF objects out of 1000 (max. 8388607)
- 462 compressed objects within 5 object streams
- 126 named destinations out of 1000 (max. 500000)
- 214 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 590 PDF objects out of 1000 (max. 8388607)
+ 481 compressed objects within 5 object streams
+ 130 named destinations out of 1000 (max. 500000)
+ 224 words of extra memory for PDF output out of 10000 (max. 10000000)
 

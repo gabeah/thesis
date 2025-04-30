@@ -56,6 +56,7 @@
 \usepackage{longtable,booktabs,setspace} 
 \usepackage{rotating} 
 \usepackage[english]{babel}
+\usepackage{gensymb}
 
 \newcommand{\rt}{\left[\begin{smallmatrix}R &|\; t\end{smallmatrix}\right]}
 
@@ -251,7 +252,7 @@ While this form of pinhole camera may work fine conceptually. We need to define 
 Where $p$ is a $4\times1$ vector representing our point in three-dimensional space (or three-space), $p'$ is a $3\times1$ vector representing the point in two-space, and $M$ is some $3\times4$ matrix "black box" which will move $p$ to $p'$. More clarification will come on what that exactly means.
 
 \section{A (brief) Linear Algebra Primer}
-Before we get too deep into the world of matrices and various transformations, it's important to establish a baseline understanding of the calculations that are happening behind the scenes. We live in a three-dimensional world--at least that is our perception of the world. Thus, we can represent the locations of things in our world using vectors of three values: $(x, y, z)$. These values represent positions relative to an origin point in distances along three different perpendicular directions. This way of describing a position can be done at home. Take your hand and create the shape of a “finger gun” (where your index finger and thumb are both fully extended), now extend your middle finger halfway. That creates a coordinate system in terms of your fingers, and you can represent the location of objects in terms of: "how many thumbs, index fingers, and middle fingers does it take to reach an object?" ($\ref{Dimensional Fingers}$)
+Before we get too deep into the world of matrices and various transformations, it's important to establish a baseline understanding of the calculations that are happening behind the scenes. We live in a three-dimensional world--at least that is our perception of the world. Thus, we can represent the locations of things in our world using vectors of three values: $(x, y, z)$. These values represent positions relative to an origin point in distances along three different perpendicular directions. This way of describing a position can be done at home. Take your hand and create the shape of a “finger gun” (where your index finger and thumb are both fully extended), now extend your middle finger halfway (see Figure $\ref{Dimensional Fingers}$ for an example). That creates a coordinate system in terms of your fingers, and you can represent the location of objects in terms of: "how many thumbs, index fingers, and middle fingers does it take to reach an object?" 
 
 \begin{figure}[b]
 	% NOTE: THIS FIGURE NEEDS REPLACEMENT WITH UPDATED VERSION
@@ -259,7 +260,7 @@ Before we get too deep into the world of matrices and various transformations, i
 	       \centering
 	    % DO NOT ADD A FILENAME EXTENSION TO THE GRAPHIC FILE
 	    
-	    \includegraphics[scale=0.15]{./figures/2-space-fingers.png} 
+	    \includegraphics[scale=0.14]{./figures/2-space-fingers} 
 		\hfill	    
 	    \includegraphics[scale=0.15]{./figures/3-space-fingers}
 	     \caption{Dimensional Fingers showcasing 2-Space and 3-Space}
@@ -268,25 +269,48 @@ Before we get too deep into the world of matrices and various transformations, i
 
 When it comes to the camera, we have two of our directions (the $X$ and $Y$ directions) that are parallel to the $X$ and $Y$ axes of the projection plane and a third direction ($Z$) which is perpendicular to the projection plane. We can then take locations represented by these vectors, and run them through our intrinsic and extrinsic matrices that define the camera to map the location onto the image.
 
-Notice that the vectors representing the location in three-space and the location on the image plane contain an extra value. That is because these vectors are homogeneous coordinates. Homogeneous coordinates are representations of points in computer graphics (and in our case, photogrammetry) where perspective plays a key role. Here, the vectors take the form of: \[p = \begin{bmatrix}x\\y\\z\\w\end{bmatrix}\;\; \text{ or }\;\; p' = \begin{bmatrix}x'\\y'\\w'\end{bmatrix}\] $w$ plays numerous roles, but its primary purpose is the convenience of expressing affine transformations---translation, scaling, and rotation---to be represented by translation, scaling, and rotation matrices.
+Notice that the vectors representing the location in three-space and the location on the image plane contain an extra value. That is because these vectors are homogeneous coordinates. Homogeneous coordinates are representations of points in computer graphics (and in our case, photogrammetry) where perspective plays a key role. Remember our representation of $p$ and $p'$ from earlier: \[p = \left[\begin{smallmatrix}x\\y\\z\\w\end{smallmatrix}\right]\;\; \text{ and }\;\; p' = \left[\begin{smallmatrix}x'\\y'\\w'\end{smallmatrix}\right]\] $w$ plays numerous roles, but its primary purpose is the convenience of expressing affine transformations---translation, scaling, and rotation---to be represented by translation, scaling, and rotation matrices.
+
+% Can go from smallmatrix back to bmatrix, just wonder if the form fits better here.
 
 % SHOW FIGURES ON THE FOLLOWING PAGE
 
 
 %An important metric of vector spaces, i.e. the three-space that we represent our three-dimensional reality in, is that the origin cannot be moved by a linear transformation, or other matrix operation. The operation of translation to a vector runs the risk of moving the origin of the vector space. If translation is the addition or subtraction of values to a vector, inputting the origin (or a vector of all zeroes) will add or subtract those values to the origin. If one tries to translate a point through clever scaling (to get around the issue of moving the origin), inputting other vectors into the same translation matrix yields wildly different results. With the introduction of a $w$ value, we can represent transformations without moving the origin. ($\ref{Translation Example}$)
 
-\begin{figure}[t]
+\begin{figure}[p]
 	   
-	    \centering
-	    
-	    \includegraphics[scale=0.10]{./figures/translation_example}
-	    \[q = \begin{bmatrix}5\\3\\1\end{bmatrix} \implies q' = \begin{bmatrix}1&0&1\\0&1&2\\0&0&1\end{bmatrix}\begin{bmatrix}5\\3\\1\end{bmatrix} = \begin{bmatrix}5 + 1(1)\\3 + 1(2)\\1 + 0(1)\end{bmatrix}= \begin{bmatrix}6\\5\\1\end{bmatrix}
-	    \]
-	    \caption{An example of translation with homogeneous coordinates:}
-	 \label{Translation Example}
-	\end{figure}
-	
+        \centering
+        \includegraphics[width=0.9\textwidth]{figures/translation_example_new}
+        \caption{Translation of a point $A$ to $A'$}    \label{fig:Translation Representation}
+        \bigskip%% To get some more space after the caption
+        \includegraphics[width=0.9\textwidth]{figures/scale_sxample}
+        \caption{Scaling of a point $A$ to $A'$}    \label{fig:Scale Representation}
+        \bigskip
+        \includegraphics[width=0.9\textwidth]{figures/rotation_example}
+        \caption{Rotation of a point $A$ to $A'$}    \label{fig:Rotation Representation}
 
+\end{figure}
+	
+% ASK JIM ABOUT LAYOUT RECOMMENDATIONS
+
+% Translation Matrix
+Translation Matrix as seen in $\ref{fig:Translation Representation}$:
+\[A = \begin{bmatrix}5\\3\\1\end{bmatrix} \implies A' = \begin{bmatrix}1&0&1\\0&1&2\\0&0&1\end{bmatrix}\begin{bmatrix}5\\3\\1\end{bmatrix} = \begin{bmatrix}5 + 1(1)\\3 + 1(2)\\1 + 0(1)\end{bmatrix}= \begin{bmatrix}6\\5\\1\end{bmatrix}\]
+
+% Scale Matrix
+Scalar Matrix as seen in $\ref{fig:Scale Representation}$:
+\[A = \begin{bmatrix}5\\3\\1\end{bmatrix} \implies A' = \begin{bmatrix}\frac{4}{5}&0&0\\0&\frac{5}{3}&0\\0&0&1\end{bmatrix}\begin{bmatrix}5\\3\\1\end{bmatrix} = \begin{bmatrix}5 \times \frac{4}{5}\\3 \times \frac{5}{3}\\1\end{bmatrix}= \begin{bmatrix}4\\5\\1\end{bmatrix}\]
+
+% Rotation Matrix (Gross format)
+Rotation Matrix as seen in $\ref{fig:Rotation Representation}$:
+\begin{align*}	
+A = \begin{bmatrix}5\\3\\1\end{bmatrix} \implies A' &= 
+\begin{bmatrix}\cos(90\degree)&-\sin(90\degree)&0\\\sin(90\degree)&\cos(90\degree)&0\\0&0&1\end{bmatrix}
+\begin{bmatrix}5\\3\\1\end{bmatrix}\\ &= 
+\begin{bmatrix}5(\cos(90\degree)) &-& 3(\sin(90\degree)) &+& 1(0)\\5(\sin(90\degree)) &+& 3(\cos(90\degree)) &+& 1(0)\\5(0) &+& 3(0) &+& 1(1)\end{bmatrix}&\\ &=
+\begin{bmatrix}5(0) &-& 3(1) &+& 1(0)\\5(1) &+& 3(0) &+& 1(0)\\0 &+& 0 &+& 1\end{bmatrix}\\ &= \begin{bmatrix}3\\5\\1\end{bmatrix}
+\end{align*}
 
 \section{Camera Parameters}
 
@@ -302,7 +326,7 @@ The intrinsic and extrinsic parameters of a camera can be represented with matri
 0 & 0 & 1
 \end{bmatrix}\] We call this matrix the “camera matrix” and it is represented as $K$.
 
-Extrinsic parameters are commonly represented as $\rt$, as in, the concatenated matrices of the rotation matrix (which is 3x3) and the translation matrix (which is 1x3). The resulting matrix $\rt$ is a $3\times4$ matrix. With these two matrices, the equation to map a point in three-space to pixel coordinates is as follows:
+Extrinsic parameters are commonly represented as $\rt$, as in, the concatenated matrices of the rotation matrix (which is $3\times3$) and the translation matrix (which is $1\times3$). The resulting matrix $\rt$ is a $3\times4$ matrix. With these two matrices, the equation to map a point in three-space to pixel coordinates is as follows:
 
 \begin{align*}
 p' &= Mp\\
@@ -310,7 +334,7 @@ p' &= K\RT p\\
 \begin{bmatrix}x' \\ y' \\ 1\end{bmatrix} &= \begin{bmatrix}f_x & s & c_x \\ 0 & f_y & c_y \\ 0 & 0 & 1\end{bmatrix} \begin{bmatrix} r_{11}&r_{12}&r_{13}&t{1}\\r_{21}&r_{22}&r_{23}&t{2}\\r_{31}&r_{32}&r_{33}&t{3}\end{bmatrix}\;\;\begin{bmatrix}x \\ y \\ z \\ 1\end{bmatrix} 
 \end{align*}
 
-Cameras are not perfect, however. Lenses contain distortions as light travels through the lens unevenly, especially when going from the center of the lens to the edge of the lens. There are two typical distortions present in our calculations: radial distortion--often dubbed the “fish-eye effect” or, inversely, the “pincushion effect”--and tangential distortion, created by a misalignment of the lens and the image plane. This can be calibrated for, and corrected relatively easily. Lenses have three radial distortion coefficients and two tangential distortion coefficients that can be calculated during calibration and corrected thus.
+Cameras are not perfect, however. Lenses contain distortions as light travels through the lens unevenly, especially when going from the center of the lens to the edge of the lens. There are two typical distortions present in our calculations: radial distortion--often dubbed the “fish-eye effect” or, inversely, the “pincushion effect”--and tangential distortion, created by a misalignment of the lens and the image plane. This can be calibrated for, and corrected relatively easily. Lenses have three radial distortion coefficients and two tangential distortion coefficients that can be calculated during calibration and corrected through scaling the $x$ and $y$ coordinates of pixels to compensate.
 
 % TODO: ADD REFERANCE TO PAPER
 % Weng, P. Cohen, and M. Herniou. Camera calibration with distortion models and accuracy evaluation
@@ -331,7 +355,7 @@ The final modification we will make to our camera is to establish a “projectio
 
 Triangulation is relatively straightforward if the cameras are stereo normal (the cameras are adjacent, and on the same plane of $X$ and $Z$ axes). In order to get to DLT, first we should cover the stereo normal base case. Cyrill Stachniss provides a great example, which I will modify for this use case. (\autocite{stachniss_lecture_2021})
 
-	Imagine two cameras $O'$ and $O''$ which share the same $Z$ and $Y$ axis, pointing in the same direction (specifically the $Z$ axis), with a distance $D$ being the distance between the two cameras on the $X$-axis. Now, imagine a projection plane that is infinitely large, is perpendicular to the view direction to the cameras, and located a distance $F$ from the cameras on the $Z$ axis. To finish setting up, draw lines $z'$ and $z''$ perpendicular to the projection plane that go through both cameras respectively. A top-down view of this setup would result in the following image: 
+	Imagine two cameras $c'$ and $c''$ which share the same $Z$ and $Y$ axis, pointing in the same direction (specifically the $Z$ axis), with a distance $d$ being the distance between the two cameras on the $X$-axis. Now, imagine a projection plane that is infinitely large, is perpendicular to the view direction to the cameras, and located a distance $f$ from the cameras on the $Z$ axis. To finish setting up, draw lines $z'$ and $z''$ perpendicular to the projection plane that go through both cameras respectively. A top-down view of this setup would result in Figure $\ref{A Stereo Normal Example}$: 
 	
 	% INSERT FIG HERE
 	\begin{figure}[h]
@@ -347,13 +371,13 @@ Triangulation is relatively straightforward if the cameras are stereo normal (th
 
 For our stereo normal example, we are going to continue to use this view in our calculations, as we can assume any $y$ or height information in the image will remain consistent between the two cameras (and in 3D space). This allows for a more simplistic base case, and we can elaborate on how further examples require more thought.
 
-Now, imagine that, on the projection plane, there exists two points that map to where our blob detector has spat out the locations of the LED on each camera. Because we imagine the projection plane to be infinitely large, we map the pixel locations onto this plane using the projection, translation, and rotation matrices we were given in the initial calibration process. We will name these two points $P'$ and $P''$ which map to cameras $O'$ and $O''$ respectively. If we draw a line from $O'$ through $P'$ and the same for the other camera, the point at which both cameras intersect will be the location of the LED, which we will call $P$. To get that result, the math is pretty straightforward.
+Now, imagine that, on the projection plane, there exists two points that map to where our blob detector has spat out the locations of the LED on each camera. Because we imagine the projection plane to be infinitely large, we map the pixel locations onto this plane using the projection, translation, and rotation matrices we were given in the initial calibration process. We will name these two points $p'$ and $p''$ which map to cameras $c'$ and $c''$ respectively. If we draw a line from $c'$ through $p'$ and the same for the other camera, the point at which both cameras intersect will be the location of the LED, which we will call $p$. To get that result, the math is pretty straightforward.
 
-First, note the distance from $P'$ to $z'$ and $P''$ to $z''$ on the projection plane which we will label $x'$ and $x''$. Through the intercept theorem, we can find the $z$ coordinate of $P$ by solving the following relation:
-\[\frac{z}{c} = \frac{D}{-(x'' - x')}\]
+First, note the distance from $p'$ to $z'$ and $p''$ to $z''$ on the projection plane which we will label $x'$ and $x''$. Through the intercept theorem, we can find the $z$ coordinate of $p$ by solving the following relation:
+\[\frac{z}{c} = \frac{d}{-(x'' - x')}\]
 Once that's done, through Law of Similar Triangles, we can find the$x$coordinate of P using $z$. That relation is as follows:
-\[\frac{X}{x'}=\frac{z}{c}\]
-Finally, we can assume that the $y$ value of the coordinates is whatever the $y$ pixel value maps to the projection plane. This value is less important for placing the light as we can assume performers stay within the same height for this demo.
+\[\frac{x}{x'}=\frac{z}{c}\]
+Finally, we can assume that the $y$ value of the coordinates is whatever the $y$ pixel value maps to the projection plane. This value is less important for placing the light as we can assume performers stay within the same height for this example.
 
 \section{Camera Calibration Process}
 % ADD CITATION FOR ZHANGS METHOD
