@@ -1,15 +1,15 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces A Pinhole Camera}}{12}{figure.2.1}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Left: A camera with a wide aperture, allowing for light from one point to project in multiple areas. Right: A camera with a lens to refocus the light back to where it should go.}}{13}{figure.2.2}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Dimensional Fingers showcasing 2-Space and 3-Space}}{14}{figure.2.3}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Translation of a point $q$ to $q'$}}{16}{figure.2.4}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Scaling of a point $q$ to $q'$}}{16}{figure.2.5}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Counter-clockwise rotation of a point $q$ to $q'$ by 90\ensuremath {^\circ }}}{16}{figure.2.6}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Flipping the Projection Plane}}{20}{figure.2.7}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces A Stereo Normal Example}}{21}{figure.2.8}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Left: Image of LED, Right: Mask of LED by HSV}}{26}{figure.2.9}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces A Pinhole Camera}}{18}{figure.2.1}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Left: A camera with a wide aperture, allowing for light from one point to project in multiple areas. Right: A camera with a lens to refocus the light back to where it should go.}}{19}{figure.2.2}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Dimensional Fingers showcasing 2-Space and 3-Space}}{21}{figure.2.3}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Translation of a point $q$ to $q'$}}{24}{figure.2.4}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Scaling of a point $q$ to $q'$}}{24}{figure.2.5}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Counter-clockwise rotation of a point $q$ to $q'$ by 90\ensuremath {^\circ }}}{24}{figure.2.6}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Flipping the Projection Plane}}{26}{figure.2.7}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces A Stereo Normal Example}}{27}{figure.2.8}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Left: Image of LED, Right: Mask of LED by HSV}}{33}{figure.2.9}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
