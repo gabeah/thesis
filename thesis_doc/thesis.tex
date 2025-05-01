@@ -65,7 +65,7 @@
 
 % \usepackage{times} % other fonts are available like times, bookman, charter, palatino
 
-\title{Lighting: A Systems Approach}
+\title{"Lights Are Gonna Find Me": Creating a Reactive Lighting Control Scheme}
 \author{Gabriel Howland}
 % The month and year that you submit your FINAL draft TO THE LIBRARY (May or December)
 \date{May 2025}
@@ -201,7 +201,8 @@ Following the advent of the incandescent lamp in 1879, the Savoy Theatre in Lond
 
 % TAKE CARE OF PETER NOTES REMEMBER
 
-Electricity requires a different form of control. Instead of a flame providing the illumination, light is produced by running current through a thin filament. When provided current, the filament heated up, reaching temperatures high enough to make the filament glow. If a light wanted to be dimmed, one could decrease the current going to a bulb by increasing resistance. Multiple mediums were used: be it sand, water, or different amounts of copper. In its early introduction, dimmers took up lots of room; the gas tables---which could be operated by a single person---turned into room scale operations, humming with electricity.\footcite[p. 179]{pilbrowStageLightingDesign1997} Lighting control was dominated in the 1930's by systems such as the Bordoni and Salani control systems, which were variable rate transformers.\footcite[p. 207]{kellerLightFantasticArt2006} These were mechanical apparatus, with interlocking gears that often required multiple technicians to manage it.\footcite[p. 84-89]{benthamStageLighting1980} A byproduct of these room scale dimmers was the Grand Master and Master control arms. These were levers or wheels that could be locked to specific dimmers to allow all of them to dim at the same time, even if set at different levels.
+Electricity requires a different form of control. Instead of a flame providing the illumination, light is produced by running current through a thin filament. When provided current, the filament heated up, reaching temperatures high enough to make the filament glow. If a light wanted to be dimmed, one could decrease the current going to a bulb by increasing resistance. Multiple mediums were used: be it sand, water, or different amounts of copper. In its early introduction, dimmers took up lots of room; the gas tables---which could be operated by a single person---turned into room scale operations, humming with electricity.\footcite[p. 179]{pilbrowStageLightingDesign1997} % Put something about how electrical control needed less infrastructure requirements so more lights could be controlled, but that means that more dimmers were needed which made things larger again.
+ Lighting control was dominated in the 1930's by systems such as the Bordoni and Salani control systems, which were variable rate transformers.\footcite[p. 207]{kellerLightFantasticArt2006} These were mechanical apparatus, with interlocking gears that often required multiple technicians to manage it.\footcite[p. 84-89]{benthamStageLighting1980} A byproduct of these room scale dimmers was the Grand Master and Master control arms. These were levers or wheels that could be locked to specific dimmers to allow all of them to dim at the same time, even if set at different levels.
 
 Technological advancements progressed swiftly. The next step was to shrink the footprint of the control surface. This was originally done through hundreds of small lines of wire called “tracker wire” which allowed the levers or switches to be placed closer together---and more importantly, further from the dimmers---into one large bank. Not twenty years later vacuum tubes and relays were all the rage, and the “light organ” became the first lighting console that was mechanically independent from the dimmers (opting to control the dimmers electrically rather than mechanically).\footcite[480]{kellerLightFantasticArt2006} These were consoles that controlled lighting at a single desk, not by running about a room. Like the gas table previously, the job of lighting a theatrical space returned to just one operator. This cut down on technicians and costs. Newer consoles allowed for presets and, shortly after, memory. This was initially set up on punch cards, but as magnetic tape became prominent in computing, it too transitioned to theatre.\footcite[481]{kellerLightFantasticArt2006} Once memory was introduced, technicians no longer had to scramble to set each scene, and designers could just load scenes from memory; the console could recreate it with minimal effort.
 
@@ -411,7 +412,7 @@ The final modification we will make to our camera is to establish a “projectio
 
 Triangulation is relatively straightforward if the cameras are stereo normal (the cameras are adjacent, and on the same plane of $X$ and $Z$ axes). In order to get to DLT, first we should cover the stereo normal base case. Cyrill Stachniss provides a great example, which I will modify for this use case. \autocite{stachnissLecturePhotogrammetryII2021}
 
-Imagine two cameras $c'$ and $c''$ which share the same $Z$ and $Y$ axis, pointing in the same direction (specifically the $Z$ axis), with a distance $d$ being the distance between the two cameras on the $X$-axis. Now, imagine a projection plane that is infinitely large, is perpendicular to the view direction to the cameras, and located a distance $f$ from the cameras on the $Z$ axis. To finish setting up, draw lines $z'$ and $z''$ perpendicular to the projection plane that go through both cameras respectively. A top-down view of this setup would result in Figure $\ref{A Stereo Normal Example}$.
+Imagine two cameras $c_1$ and $c_2$ which share the same $Z$ and $Y$ axis, pointing in the same direction (specifically the $Z$ axis), with a distance $d$ being the distance between the two cameras on the $X$-axis. Now, imagine a projection plane that is infinitely large, is perpendicular to the view direction to the cameras, and located a distance $f$ from the cameras on the $Z$ axis. To finish setting up, draw lines $z_1$ and $z_2'$ perpendicular to the projection plane that go through both cameras respectively. A top-down view of this setup would result in Figure $\ref{A Stereo Normal Example}$.
 	
 	\begin{figure}[h]
 	%ANY FIGURE USING THE "SUBDIVISION" GRAPHIC NEEDS TO BE REPLACED!!!
@@ -426,12 +427,12 @@ Imagine two cameras $c'$ and $c''$ which share the same $Z$ and $Y$ axis, pointi
 
 For our stereo normal example, we are going to continue to use this view in our calculations, as we can assume any $y$ or height information in the image will remain consistent between the two cameras (and in 3D space). This allows for a more simplistic base case, and we can elaborate on how further examples require more thought.
 
-Now, imagine that, on the projection plane, there exists two points that map to where our blob detector has spat out the locations of the LED on each camera. Because we imagine the projection plane to be infinitely large, we map the pixel locations onto this plane using the projection, translation, and rotation matrices we were given in the initial calibration process. We will name these two points $p'$ and $p''$ which map to cameras $c'$ and $c''$ respectively. If we draw a line from $c'$ through $p'$ and the same for the other camera, the point at which both cameras intersect will be the location of the LED, which we will call $p$. To get that result, the math is pretty straightforward.
+Now, imagine that, on the projection plane, there exists two points that map to where our blob detector has spat out the locations of the LED on each camera. Because we imagine the projection plane to be infinitely large, we map the pixel locations onto this plane using the projection, translation, and rotation matrices we were given in the initial calibration process. We will name these two points $p_1'$ and $p_2'$ which map to cameras $c_1$ and $c_2$ respectively. If we draw a line from $c_1$ through $p_1'$ and the same for the other camera, the point at which both cameras intersect will be the location of the LED, which we will call $p$. To get that result, the math is pretty straightforward.
 
-First, note the distance from $p'$ to $z'$ and $p''$ to $z''$ on the projection plane which we will label $x'$ and $x''$. Through the intercept theorem, we can find the $z$ coordinate of $p$ by solving the following relation:
-\[\frac{z}{c} = \frac{d}{-(x'' - x')}\]
+First, note the distance from $p_1'$ to $z_1'$ and $p_2'$ to $z_2'$ on the projection plane which we will label $x_1$ and $x_2$. Through the intercept theorem, we can find the $z$ coordinate of $p$ by solving the following relation:
+\[\frac{z}{c} = \frac{d}{-(x_2 - x_1)}\]
 Once that's done, through Law of Similar Triangles, we can find the$x$coordinate of P using $z$. That relation is as follows:
-\[\frac{x}{x'}=\frac{z}{c}\]
+\[\frac{x}{x_1}=\frac{z}{c}\]
 Finally, we can assume that the $y$ value of the coordinates is whatever the $y$ pixel value maps to the projection plane. This value is less important for placing the light as we can assume performers stay within the same height for this example.
 
 \section{Camera Calibration Process}
@@ -553,17 +554,6 @@ The idea is still a sound one, and absolutely accomplishable in the remaining ti
 There are many places I hope to take this software upon it's completion. For starters, the current implementation has communication with a lighting instrument in isolation from the rest of the lighting network. While this is not an issue for my specific project, it means that the instrument cannot be controlled by a conventional lighting console. One of my original dreams for this process was to create an injector/extractor duo which took two DMX lines as input: one from the console, one from my software; the injector would interweave the signals together, encoding the signal with a different start code so all other lights would ignore its instructions. The extractor would sit between the DMX chain and the moving light, and listen for instructions destined for the instrument with either start codes. Once recieving those instructions, the extractor would reencode the start code for the instrument, and forward the instruction. This is also possible using network switches and a dedicated conversion into sACN, where the instrument could be referred to by IP address.
 
 Regardless of the result for this project, it will be released publicly with an open source license. I have benefitted much from the availability of code from my peers and the least I can do is pay it forward. This stereo vision also has more applications beyond just lighting tracking. With calibrated cameras, one could do all manner of performance art. Thus, take a swing at my software. Tweak and modify and make it your own.
-
-% REMOVE THE APPENDIX
-%If you feel it necessary to include an appendix, it goes here.
-    \appendix
-      \chapter{The Code of the Project}
-      To be added...
-      
-All code can be accessed at \url{https://github.com/gabeah/thesis}      
-      
-      \chapter{Photos of the demo (?)}
-      To be added...
 
 
 %This is where endnotes are supposed to go, if you have them.

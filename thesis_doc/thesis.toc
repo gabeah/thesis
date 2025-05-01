@@ -20,6 +20,4 @@
 \contentsline {section}{\numberline {3.3}So how did you get so close?}{37}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Where does that put us now:}{38}{section.3.4}%
 \contentsline {chapter}{Conclusion}{39}{chapter*.7}%
-\contentsline {chapter}{Appendix A: The Code of the Project}{41}{appendix.A}%
-\contentsline {chapter}{Appendix B: Photos of the demo (?)}{43}{appendix.B}%
-\contentsline {chapter}{Bibliography}{45}{appendix*.8}%
+\contentsline {chapter}{Bibliography}{41}{chapter*.8}%
