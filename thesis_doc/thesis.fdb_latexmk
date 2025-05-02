@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber thesis"] 1746098349.46773 "thesis.bcf" "thesis.bbl" "thesis" 1746098811.00806 0
-  "biblatex_updating.bib" 1746097643.16172 20990 741e7e3079be6163c3dc0613de12cf3a ""
-  "thesis.bcf" 1746098810.91571 162261 d18e4cf6b5f0f916a5c4a2a1c4c3ebd4 "pdflatex"
+["biber thesis"] 1746189692.1574 "thesis.bcf" "thesis.bbl" "thesis" 1746208070.51007 0
+  "biblatex_updating.bib" 1746187309.82442 23174 878e0738ac3c26c2c91e0c6a9554c787 ""
+  "thesis.bcf" 1746208070.41111 162817 b0adb91c38ab625249d4e99978cd84ff "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1746098808.79827 "/home/gabeh/thesis/thesis_doc/thesis.tex" "thesis.pdf" "thesis" 1746098811.00845 0
-  "/home/gabeh/thesis/thesis_doc/thesis.tex" 1746098808.564 72436 b076a8d608d17bb9caddbfd95a655971 ""
+["pdflatex"] 1746208068.15301 "/home/gabeh/thesis/thesis_doc/thesis.tex" "thesis.pdf" "thesis" 1746208070.51057 0
+  "/home/gabeh/thesis/thesis_doc/thesis.tex" 1746208067.80603 76159 7a490c02a4feaa4259dfbc2ce1a98ff5 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -152,19 +152,19 @@
   "figures/lens_hotness.png" 1746008920.45394 140322 6282cdc42ee9d3f11e8048636577808c ""
   "figures/no_lens_badness.png" 1746008225.81826 146624 8cb16bd13cd48a1116c3efc7bb254504 ""
   "figures/pinhole_example.png" 1746007676.0195 119941 26afdc140a66af164ce4d9f8b5a1fb92 ""
-  "figures/rotation_example.png" 1746007392.96136 145251 d3cd04437e5222aec73e8f4b810b44de ""
-  "figures/scale_example.png" 1746007392.96073 140964 cfc0528420567535d039e6cc047f5fac ""
-  "figures/stereo_normal.png" 1743758552.80192 76595 9efbd033a4575eac7f6a9c08c16c27a8 ""
-  "figures/translation_example_new.png" 1746007392.96014 139754 05d6705bfe07c490da09c99925cc2cee ""
+  "figures/rotation_example.png" 1746189587.74633 145311 e15a1ba0d922e2d16c22a1be1541c812 ""
+  "figures/scale_example.png" 1746189587.74585 142381 3f57ecb5b7075b0375ff8190252866f3 ""
+  "figures/stereo_normal.png" 1746189978.88286 78305 4e13aa57d921f82bb851ec208e5e269c ""
+  "figures/translation_example_new.png" 1746189587.74518 141594 549345525bfd0422d6538c54502e2173 ""
   "gensymb.sty" 1745999930.67804 4629 bbc3d88bc1fe1146ecbefa95c41cab26 ""
   "reedthesis.cls" 1745015876 11288 a86de0336931b0e8ee18be6a25e790e0 ""
-  "thesis.aux" 1746098810.91171 14461 63da1f98fd548d1ababf00fed0e3f3b5 "pdflatex"
-  "thesis.bbl" 1746098350.22129 55619 b3324be5d4cecf337eaecbfd720409f8 "biber thesis"
-  "thesis.lof" 1746098810.91816 1245 32547a06ebfe85ba11370a39a3f0843f "pdflatex"
-  "thesis.out" 1746098810.91471 3782 f484eccb007eccb9855dc5cc13be413b "pdflatex"
-  "thesis.run.xml" 1746098810.91816 2374 7b040ebd7a4fbb776a331a7000498ed7 "pdflatex"
-  "thesis.tex" 1746098808.564 72436 b076a8d608d17bb9caddbfd95a655971 ""
-  "thesis.toc" 1746098810.91816 1746 d3a797f1e515f0a2be27b6c7da8f7450 "pdflatex"
+  "thesis.aux" 1746208070.40614 16421 2bacc59225c97a04c50797347c599b4f "pdflatex"
+  "thesis.bbl" 1746189692.94277 60647 71de5bad8c69334e0d1dde1233231234 "biber thesis"
+  "thesis.lof" 1746208070.41322 1265 daea9534393ab41c8ab1d7124d2f55c8 "pdflatex"
+  "thesis.out" 1746208070.41011 3990 df816754a99d8390f810686eb789fbec "pdflatex"
+  "thesis.run.xml" 1746208070.41322 2374 7b040ebd7a4fbb776a331a7000498ed7 "pdflatex"
+  "thesis.tex" 1746208067.80603 76159 7a490c02a4feaa4259dfbc2ce1a98ff5 ""
+  "thesis.toc" 1746208070.41322 1823 dc060d871caf692b4e13df4e154bbb71 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.bcf"

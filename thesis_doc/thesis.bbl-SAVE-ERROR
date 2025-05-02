@@ -1,0 +1,1351 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{cms/global//global/global}
+    \entry{AutomatedFollowSystem2025}{online}{}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{month}{5}
+      \field{title}{Automated {{Follow System}} | {{Zactrack Lighting Technologies GmbH}} | {{Wien}}}
+      \field{urlday}{2}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/JKLE55MN/www.zactrack.com.html
+      \endverb
+      \verb{urlraw}
+      \verb https://web.archive.org/web/20250501182028/https://www.zactrack.com/
+      \endverb
+      \verb{url}
+      \verb https://web.archive.org/web/20250501182028/https://www.zactrack.com/
+      \endverb
+    \endentry
+    \entry{batpurevDirectLinearTransforms2021}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ec37b9e8f07044857fd18cfadc7fe5e9}{%
+           family={Batpurev},
+           familyi={B\bibinitperiod},
+           given={Temuge},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Temuge Batpurev}%
+      }
+      \strng{namehash}{ec37b9e8f07044857fd18cfadc7fe5e9}
+      \strng{fullhash}{ec37b9e8f07044857fd18cfadc7fe5e9}
+      \strng{bibnamehash}{ec37b9e8f07044857fd18cfadc7fe5e9}
+      \strng{authorbibnamehash}{ec37b9e8f07044857fd18cfadc7fe5e9}
+      \strng{authornamehash}{ec37b9e8f07044857fd18cfadc7fe5e9}
+      \strng{authorfullhash}{ec37b9e8f07044857fd18cfadc7fe5e9}
+      \field{extraname}{1}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{I wrote this post to make my previous post on camera calibration and triangulation more complete. That post can be found here. Here, I will detail the math behind DLT in the context of 3D point triangulation from multiple camera views. The DLT method is based on singular value decomposition (SVD). If you’re not familiar with SVD, please read up on it first. Also knowledge of homogeneous coordinates is required.}
+      \field{day}{6}
+      \field{hour}{10}
+      \field{langid}{english}
+      \field{minute}{0}
+      \field{month}{2}
+      \field{second}{0}
+      \field{timezone}{Z}
+      \field{title}{Direct {{Linear Transforms}} ({{DLT}})}
+      \field{urlday}{1}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/E7G395W9/direct-linear-transorms.html
+      \endverb
+      \verb{urlraw}
+      \verb https://temugeb.github.io/computer_vision/2021/02/06/direct-linear-transorms.html
+      \endverb
+      \verb{url}
+      \verb https://temugeb.github.io/computer_vision/2021/02/06/direct-linear-transorms.html
+      \endverb
+    \endentry
+    \entry{batpurevStereoCameraCalibration2021}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ec37b9e8f07044857fd18cfadc7fe5e9}{%
+           family={Batpurev},
+           familyi={B\bibinitperiod},
+           given={Temuge},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Temuge’s webpage}%
+      }
+      \strng{namehash}{ec37b9e8f07044857fd18cfadc7fe5e9}
+      \strng{fullhash}{ec37b9e8f07044857fd18cfadc7fe5e9}
+      \strng{bibnamehash}{ec37b9e8f07044857fd18cfadc7fe5e9}
+      \strng{authorbibnamehash}{ec37b9e8f07044857fd18cfadc7fe5e9}
+      \strng{authornamehash}{ec37b9e8f07044857fd18cfadc7fe5e9}
+      \strng{authorfullhash}{ec37b9e8f07044857fd18cfadc7fe5e9}
+      \field{extraname}{2}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{2022.06 UPDATE: The code in this post has be updated and turned into a package. If you just want the calibration results, go here: Stereo Camera Calibration}
+      \field{day}{2}
+      \field{hour}{10}
+      \field{langid}{english}
+      \field{minute}{0}
+      \field{month}{2}
+      \field{second}{0}
+      \field{timezone}{Z}
+      \field{title}{Stereo {{Camera Calibration}} and {{Triangulation}} with {{OpenCV}} and {{Python}}}
+      \field{urlday}{1}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/47CS6N6D/stereo-camera-calibration-and-triangulation.html
+      \endverb
+      \verb{urlraw}
+      \verb https://temugeb.github.io/opencv/python/2021/02/02/stereo-camera-calibration-and-triangulation.html
+      \endverb
+      \verb{url}
+      \verb https://temugeb.github.io/opencv/python/2021/02/02/stereo-camera-calibration-and-triangulation.html
+      \endverb
+    \endentry
+    \entry{benthamStageLighting1980}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=85286e4b9ff3defe0c86e96ecc1ad231}{%
+           family={Bentham},
+           familyi={B\bibinitperiod},
+           given={Frederick},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{namea}{1}{}{%
+        {{hash=cbd2fd311741990b3e76308c90a5ddf2}{%
+           family={{Internet Archive}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {London : G. Allen \& Unwin}%
+      }
+      \strng{namehash}{85286e4b9ff3defe0c86e96ecc1ad231}
+      \strng{fullhash}{85286e4b9ff3defe0c86e96ecc1ad231}
+      \strng{bibnamehash}{85286e4b9ff3defe0c86e96ecc1ad231}
+      \strng{authorbibnamehash}{85286e4b9ff3defe0c86e96ecc1ad231}
+      \strng{authornamehash}{85286e4b9ff3defe0c86e96ecc1ad231}
+      \strng{authorfullhash}{85286e4b9ff3defe0c86e96ecc1ad231}
+      \strng{nameabibnamehash}{cbd2fd311741990b3e76308c90a5ddf2}
+      \strng{nameanamehash}{cbd2fd311741990b3e76308c90a5ddf2}
+      \strng{nameafullhash}{cbd2fd311741990b3e76308c90a5ddf2}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{viii, 499 p. : 24 cm}
+      \field{langid}{english}
+      \field{nameatype}{collaborator}
+      \field{pagetotal}{394}
+      \field{title}{Stage Lighting}
+      \field{urlday}{1}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{1980}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://archive.org/details/stagelighting0000fuch
+      \endverb
+      \verb{url}
+      \verb http://archive.org/details/stagelighting0000fuch
+      \endverb
+      \keyw{Stage lighting}
+    \endentry
+    \entry{birringerDanceMediaTechnologies2002}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=205bebb78d347060d59cee08b463d9cb}{%
+           family={Birringer},
+           familyi={B\bibinitperiod},
+           given={Johannes},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{205bebb78d347060d59cee08b463d9cb}
+      \strng{fullhash}{205bebb78d347060d59cee08b463d9cb}
+      \strng{bibnamehash}{205bebb78d347060d59cee08b463d9cb}
+      \strng{authorbibnamehash}{205bebb78d347060d59cee08b463d9cb}
+      \strng{authornamehash}{205bebb78d347060d59cee08b463d9cb}
+      \strng{authorfullhash}{205bebb78d347060d59cee08b463d9cb}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1520-281X, 1537-9477}
+      \field{journaltitle}{PAJ: A Journal of Performance and Art}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{number}{1}
+      \field{shortjournal}{PAJ: A Journal of Performance and Art}
+      \field{title}{Dance and {{Media Technologies}}}
+      \field{urlday}{13}
+      \field{urlmonth}{9}
+      \field{urlyear}{2024}
+      \field{volume}{24}
+      \field{year}{2002}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \field{pages}{84\bibrangedash 93}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1162/152028101753401811
+      \endverb
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/PJWKT6H5/Birringer - 2002 - Dance and Media Technologies.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://direct.mit.edu/pajj/article/24/1 (70)/84-93/55164
+      \endverb
+      \verb{url}
+      \verb https://direct.mit.edu/pajj/article/24/1%20(70)/84-93/55164
+      \endverb
+    \endentry
+    \entry{BlackTraxCASTGroup2025}{online}{}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labeltitlesource}{title}
+      \field{day}{13}
+      \field{month}{4}
+      \field{title}{{{BlackTrax}} – {{CAST Group}} of {{Companies}}}
+      \field{urlday}{2}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/IE39YJDW/blacktrax.html
+      \endverb
+      \verb{urlraw}
+      \verb https://web.archive.org/web/20250413233816/https://cast-soft.com/blacktrax/
+      \endverb
+      \verb{url}
+      \verb https://web.archive.org/web/20250413233816/https://cast-soft.com/blacktrax/
+      \endverb
+    \endentry
+    \entry{bowmanModernTheatreLighting1957a}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5e66129c575cb4298ee89f7adcea3a8f}{%
+           family={Bowman},
+           familyi={B\bibinitperiod},
+           given={Wayne},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a105e415cd4b0ec477696d664679e655}{%
+           family={Bowman},
+           familyi={B\bibinitperiod},
+           given={Jean},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Harper}%
+      }
+      \strng{namehash}{2289f754163dbd4eaa997c3245b68eca}
+      \strng{fullhash}{2289f754163dbd4eaa997c3245b68eca}
+      \strng{bibnamehash}{2289f754163dbd4eaa997c3245b68eca}
+      \strng{authorbibnamehash}{2289f754163dbd4eaa997c3245b68eca}
+      \strng{authornamehash}{2289f754163dbd4eaa997c3245b68eca}
+      \strng{authorfullhash}{2289f754163dbd4eaa997c3245b68eca}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Modern Theatre Lighting}
+      \field{year}{1957}
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{Stage lighting}
+    \endentry
+    \entry{cadenaAutomatedLightingArt2006}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=411ec27cc382e5f987501c462400cd02}{%
+           family={Cadena},
+           familyi={C\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Amsterdam ; Boston}%
+      }
+      \list{publisher}{1}{%
+        {Focal Press}%
+      }
+      \strng{namehash}{411ec27cc382e5f987501c462400cd02}
+      \strng{fullhash}{411ec27cc382e5f987501c462400cd02}
+      \strng{bibnamehash}{411ec27cc382e5f987501c462400cd02}
+      \strng{authorbibnamehash}{411ec27cc382e5f987501c462400cd02}
+      \strng{authornamehash}{411ec27cc382e5f987501c462400cd02}
+      \strng{authorfullhash}{411ec27cc382e5f987501c462400cd02}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{annotation}{OCLC: ocm65165447}
+      \field{isbn}{978-0-240-80703-4}
+      \field{langid}{english}
+      \field{pagetotal}{474}
+      \field{shorttitle}{Automated Lighting}
+      \field{title}{Automated Lighting: The Art and Science of Moving Light in Theatre, Live Performance, Broadcast, and Entertainment}
+      \field{year}{2006}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/CYCRTHFS/Cadena - 2006 - Automated lighting the art and science of moving light in theatre, live performance, broadcast, and.pdf
+      \endverb
+      \keyw{Lighting,Stage lighting,Television}
+    \endentry
+    \entry{craigm.carverHistoryEnglishIts1991}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ec39db0c361fb73360b3b49cd1d9a713}{%
+           family={{Craig M. Carver}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \name{namea}{1}{}{%
+        {{hash=cbd2fd311741990b3e76308c90a5ddf2}{%
+           family={{Internet Archive}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {HarperCollins}%
+      }
+      \strng{namehash}{ec39db0c361fb73360b3b49cd1d9a713}
+      \strng{fullhash}{ec39db0c361fb73360b3b49cd1d9a713}
+      \strng{bibnamehash}{ec39db0c361fb73360b3b49cd1d9a713}
+      \strng{authorbibnamehash}{ec39db0c361fb73360b3b49cd1d9a713}
+      \strng{authornamehash}{ec39db0c361fb73360b3b49cd1d9a713}
+      \strng{authorfullhash}{ec39db0c361fb73360b3b49cd1d9a713}
+      \strng{nameabibnamehash}{cbd2fd311741990b3e76308c90a5ddf2}
+      \strng{nameanamehash}{cbd2fd311741990b3e76308c90a5ddf2}
+      \strng{nameafullhash}{cbd2fd311741990b3e76308c90a5ddf2}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-06-270013-1}
+      \field{langid}{english}
+      \field{nameatype}{collaborator}
+      \field{pagetotal}{298}
+      \field{title}{A History of {{English}} in Its Own Words}
+      \field{urlday}{1}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{1991}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://archive.org/details/historyofenglish00carv
+      \endverb
+      \verb{url}
+      \verb http://archive.org/details/historyofenglish00carv
+      \endverb
+      \keyw{English language -- Etymology.}
+    \endentry
+    \entry{culjakBriefIntroductionOpenCV2012}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=9a08365643505b372bc1751d6398f64b}{%
+           family={Culjak},
+           familyi={C\bibinitperiod},
+           given={Ivan},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6f2c58fe7311ada86b9a8b10b9891611}{%
+           family={Abram},
+           familyi={A\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=db42afd54d11740cfbc1809f793b7733}{%
+           family={Pribanic},
+           familyi={P\bibinitperiod},
+           given={Tomislav},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c49bc26343ffd39a8beb244f63b67bac}{%
+           family={Dzapo},
+           familyi={D\bibinitperiod},
+           given={Hrvoje},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e5d0e5896609d6204524762c8365dea7}{%
+           family={Cifrek},
+           familyi={C\bibinitperiod},
+           given={Mario},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2e86bd2de64eefd645f10ae0f8625bf1}
+      \strng{fullhash}{dc1e5d929194fcea1cb499c81acecbf6}
+      \strng{bibnamehash}{dc1e5d929194fcea1cb499c81acecbf6}
+      \strng{authorbibnamehash}{dc1e5d929194fcea1cb499c81acecbf6}
+      \strng{authornamehash}{2e86bd2de64eefd645f10ae0f8625bf1}
+      \strng{authorfullhash}{dc1e5d929194fcea1cb499c81acecbf6}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The purpose of this paper is to introduce and quickly make a reader familiar with OpenCV (Open Source Computer Vision) basics without having to go through the lengthy reference manuals and books. OpenCV is an open source library for image and video analysis, originally introduced more than decade ago by Intel. Since then, a number of programmers have contributed to the most recent library developments. The latest major change took place in 2009 (OpenCV 2) which includes main changes to the C++ interface. Nowadays the library has {$>$}2500 optimized algorithms. It is extensively used around the world, having {$>$}2.5M downloads and {$>$}40K people in the user group. Regardless of whether one is a novice C++ programmer or a professional software developer, unaware of OpenCV, the main library content should be interesting for the graduate students and researchers in image processing and computer vision areas. To master every library element it is necessary to consult many books available on the topic of OpenCV. However, reading such more comprehensive material should be easier after comprehending some basics about OpenCV from this paper.}
+      \field{booktitle}{2012 {{Proceedings}} of the 35th {{International Convention MIPRO}}}
+      \field{eventtitle}{2012 {{Proceedings}} of the 35th {{International Convention MIPRO}}}
+      \field{month}{5}
+      \field{title}{A Brief Introduction to {{OpenCV}}}
+      \field{urlday}{4}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{year}{2012}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \field{pages}{1725\bibrangedash 1730}
+      \range{pages}{6}
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/K6H6M75P/6240859.html
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/6240859
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/6240859
+      \endverb
+      \keyw{Cameras,Computer vision,Detectors,Histograms,Image edge detection,Libraries,Low pass filters}
+    \endentry
+    \entry{EntertainmentTechnologyUSITT2024}{standard}{}
+      \list{publisher}{1}{%
+        {ESTA}%
+      }
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labeltitlesource}{title}
+      \field{title}{Entertainment {{Technology}}—{{USITT DMX512-A Asynchronous Serial Digital Data Transmission Standard}} for {{Controlling Lighting Equipment}} and {{Accessories}}}
+      \field{urlday}{1}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/9LJ6VHR8/ANSI E1.11 - 2024.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://tsp.esta.org/tsp/documents/docs/ANSI%20E1.11%20-%202024.pdf
+      \endverb
+      \verb{url}
+      \verb https://tsp.esta.org/tsp/documents/docs/ANSI%20E1.11%20-%202024.pdf
+      \endverb
+    \endentry
+    \entry{frenzelHandbookSerialCommunications2015}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=add716a9a0c367389f2de4e247b705f5}{%
+           family={Frenzel},
+           familyi={F\bibinitperiod},
+           given={Louis\bibnamedelima E.},
+           giveni={L\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Chantilly, UNITED STATES}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier Science \& Technology}%
+      }
+      \strng{namehash}{add716a9a0c367389f2de4e247b705f5}
+      \strng{fullhash}{add716a9a0c367389f2de4e247b705f5}
+      \strng{bibnamehash}{add716a9a0c367389f2de4e247b705f5}
+      \strng{authorbibnamehash}{add716a9a0c367389f2de4e247b705f5}
+      \strng{authornamehash}{add716a9a0c367389f2de4e247b705f5}
+      \strng{authorfullhash}{add716a9a0c367389f2de4e247b705f5}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-12-800671-9}
+      \field{title}{Handbook of {{Serial Communications Interfaces}} : {{A Comprehensive Compendium}} of {{Serial Digital Input}}/{{Output}} ({{I}}/o) {{Standards}}}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://ebookcentral.proquest.com/lib/reed/detail.action?docID=2189944
+      \endverb
+      \verb{url}
+      \verb http://ebookcentral.proquest.com/lib/reed/detail.action?docID=2189944
+      \endverb
+      \keyw{Serial communications}
+    \endentry
+    \entry{guarnieriSwitchingLightChemical2015}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d435c3494300a80c84a7a9fd6e96ad5d}{%
+           family={Guarnieri},
+           familyi={G\bibinitperiod},
+           given={Massimo},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d435c3494300a80c84a7a9fd6e96ad5d}
+      \strng{fullhash}{d435c3494300a80c84a7a9fd6e96ad5d}
+      \strng{bibnamehash}{d435c3494300a80c84a7a9fd6e96ad5d}
+      \strng{authorbibnamehash}{d435c3494300a80c84a7a9fd6e96ad5d}
+      \strng{authornamehash}{d435c3494300a80c84a7a9fd6e96ad5d}
+      \strng{authorfullhash}{d435c3494300a80c84a7a9fd6e96ad5d}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{issn}{1932-4529}
+      \field{journaltitle}{IEEE Industrial Electronics Magazine}
+      \field{langid}{english}
+      \field{month}{9}
+      \field{number}{3}
+      \field{shortjournal}{EEE Ind. Electron. Mag.}
+      \field{shorttitle}{Switching the {{Light}}}
+      \field{title}{Switching the {{Light}}: {{From Chemical}} to {{Electrical}} [{{Historical}}]}
+      \field{urlday}{4}
+      \field{urlmonth}{10}
+      \field{urlyear}{2024}
+      \field{volume}{9}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \field{pages}{44\bibrangedash 47}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/MIE.2015.2454038
+      \endverb
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/HVGNRP3A/Guarnieri - 2015 - Switching the Light From Chemical to Electrical [Historical].pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://ieeexplore.ieee.org/document/7271159/
+      \endverb
+      \verb{url}
+      \verb http://ieeexplore.ieee.org/document/7271159/
+      \endverb
+    \endentry
+    \entry{hartleyMultipleViewGeometry2003a}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a0cea72f57464ff654a3f8362e58503d}{%
+           family={Hartley},
+           familyi={H\bibinitperiod},
+           given={Richard.},
+           giveni={Richard\bibinitperiod\bibinitdelim \bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c72fc39e94030f67717052309266a44d}{%
+           family={Zisserman},
+           familyi={Z\bibinitperiod},
+           given={Andrew.},
+           giveni={Andrew\bibinitperiod\bibinitdelim \bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, UK ;}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{0e3dfde06144cdf8ac37a2746457797e}
+      \strng{fullhash}{0e3dfde06144cdf8ac37a2746457797e}
+      \strng{bibnamehash}{0e3dfde06144cdf8ac37a2746457797e}
+      \strng{authorbibnamehash}{0e3dfde06144cdf8ac37a2746457797e}
+      \strng{authornamehash}{0e3dfde06144cdf8ac37a2746457797e}
+      \strng{authorfullhash}{0e3dfde06144cdf8ac37a2746457797e}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A basic problem in computer vision is to understand the structure of a real world scene given several images of it. The authors cover the geometric principles and their algebraic representation in terms of camera projection matrices, the fundamental matrix and the trifocal tensor.}
+      \field{edition}{2nd ed.}
+      \field{isbn}{0-521-54051-8}
+      \field{title}{Multiple View Geometry in Computer Vision}
+      \field{year}{2003}
+      \field{dateera}{ce}
+      \keyw{Computer vision,Geometry Projective}
+    \endentry
+    \entry{haysLightSubjectStage1989}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=12e2bf5f185f6e91d663dd02fd995a11}{%
+           family={Hays},
+           familyi={H\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Limelight Editions}%
+      }
+      \strng{namehash}{12e2bf5f185f6e91d663dd02fd995a11}
+      \strng{fullhash}{12e2bf5f185f6e91d663dd02fd995a11}
+      \strng{bibnamehash}{12e2bf5f185f6e91d663dd02fd995a11}
+      \strng{authorbibnamehash}{12e2bf5f185f6e91d663dd02fd995a11}
+      \strng{authornamehash}{12e2bf5f185f6e91d663dd02fd995a11}
+      \strng{authorfullhash}{12e2bf5f185f6e91d663dd02fd995a11}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1st Limelight ed.}
+      \field{isbn}{0-87910-126-1}
+      \field{title}{Light on the Subject : Stage Lighting for Directors and Actors --and the Rest of Us}
+      \field{year}{1989}
+      \field{dateera}{ce}
+      \keyw{Stage lighting}
+    \endentry
+    \entry{hewittRenaissanceStageDocuments1958}{book}{}
+      \name{editor}{1}{}{%
+        {{un=0,uniquepart=base,hash=d3478c52985c21f973cb68891d7b8dd0}{%
+           family={Hewitt},
+           familyi={H\bibinitperiod},
+           given={Barnard},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{translator}{3}{}{%
+        {{hash=108d3cb9aa2ea7e45dbeee60b14cd27c}{%
+           family={Nicoll},
+           familyi={N\bibinitperiod},
+           given={Allardyce},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e9d0327e7b3c36a20491c96f6ffdea4c}{%
+           family={McDowell},
+           familyi={M\bibinitperiod},
+           given={John\bibnamedelima H.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=5d56cdd4acae335ad61b5227d11ffe40}{%
+           family={Kernodle},
+           familyi={K\bibinitperiod},
+           given={George\bibnamedelima R.},
+           giveni={G\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Coral Gables, Fla. : University of Miami Press}%
+      }
+      \strng{namehash}{d3478c52985c21f973cb68891d7b8dd0}
+      \strng{fullhash}{d3478c52985c21f973cb68891d7b8dd0}
+      \strng{bibnamehash}{d3478c52985c21f973cb68891d7b8dd0}
+      \strng{editorbibnamehash}{d3478c52985c21f973cb68891d7b8dd0}
+      \strng{editornamehash}{d3478c52985c21f973cb68891d7b8dd0}
+      \strng{editorfullhash}{d3478c52985c21f973cb68891d7b8dd0}
+      \strng{translatorbibnamehash}{55bf5a7a9039bf04efc370d987b1295f}
+      \strng{translatornamehash}{55bf5a7a9039bf04efc370d987b1295f}
+      \strng{translatorfullhash}{55bf5a7a9039bf04efc370d987b1295f}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{ix, 256 pages : 25 cm; "The present translations grew out of Allardyce Nicoll's seminars in theatre history at Yale in the years 1934-1936."; Includes bibliographical references; From The second book of architecture (Il primo (secondo) libro d'architettura, Paris, 1545 / Sebastiano Serlio ; translated by Allardyce Nicholl; Manual for constructing theatrical scenes and machines (Practica di fabricar scene e machine ne' teatri, Ravenna, 1638) / Nicola Sabbattini ; translated by John H. McDowell; From Civil architecture (Architectura civilis, Ulm, 1628) ; From Recreational architecture (Architectura recreationis, Augsburg, 1640) ; From The noble mirror of art (Mannhaffter Kunstspiegel, Augsburg, 1663 / Joseph Furttenbach the Elder ; translated by George R. Kernodle}
+      \field{isbn}{978-0-87024-004-1}
+      \field{langid}{english}
+      \field{pagetotal}{282}
+      \field{shorttitle}{The {{Renaissance}} Stage}
+      \field{title}{The {{Renaissance}} Stage : {{Documents}} of {{Serlio}}, {{Sabbattini}} and {{Furttenbach}}}
+      \field{urlday}{9}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{year}{1958}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://archive.org/details/renaissancestage0000unse
+      \endverb
+      \verb{url}
+      \verb http://archive.org/details/renaissancestage0000unse
+      \endverb
+      \keyw{Bühnenbild}
+    \endentry
+    \entry{HomeFollowMe2025}{online}{}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labeltitlesource}{title}
+      \field{day}{13}
+      \field{month}{2}
+      \field{title}{Home - {{Follow-Me}}}
+      \field{urlday}{2}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/J78RCV7J/follow-me.com.html
+      \endverb
+      \verb{urlraw}
+      \verb https://web.archive.org/web/20250213084710/https://follow-me.com/
+      \endverb
+      \verb{url}
+      \verb https://web.archive.org/web/20250213084710/https://follow-me.com/
+      \endverb
+    \endentry
+    \entry{HowHumansSee2017}{online}{}
+      \list{organization}{1}{%
+        {American Academy of Ophthalmology}%
+      }
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Color helps us remember objects, influences our purchases and sparks our emotions. But did you know that objects do not possess color? They reflect wavelengths of light that are seen as color by the h}
+      \field{langid}{english}
+      \field{title}{How {{Humans See In Color}}}
+      \field{urlday}{2}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{6/8/2017 12:00:00 AM}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/P8DNQ3F2/how-humans-see-in-color.html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.aao.org/eye-health/tips-prevention/how-humans-see-in-color
+      \endverb
+      \verb{url}
+      \verb https://www.aao.org/eye-health/tips-prevention/how-humans-see-in-color
+      \endverb
+    \endentry
+    \entry{huntingtonIntroductionShowControl2023}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4d634b6ef6a34c6b8b149e2e203e94e6}{%
+           family={Huntington},
+           familyi={H\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {NYC, USA}%
+      }
+      \list{publisher}{1}{%
+        {Zircon Designs Press}%
+      }
+      \strng{namehash}{4d634b6ef6a34c6b8b149e2e203e94e6}
+      \strng{fullhash}{4d634b6ef6a34c6b8b149e2e203e94e6}
+      \strng{bibnamehash}{4d634b6ef6a34c6b8b149e2e203e94e6}
+      \strng{authorbibnamehash}{4d634b6ef6a34c6b8b149e2e203e94e6}
+      \strng{authornamehash}{4d634b6ef6a34c6b8b149e2e203e94e6}
+      \strng{authorfullhash}{4d634b6ef6a34c6b8b149e2e203e94e6}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{isbn}{978-1-7357638-4-2}
+      \field{shorttitle}{Introduction to {{Show Control}}}
+      \field{title}{Introduction to {{Show Control}}: {{Connecting Entertainment Control Systems}} for {{Live Shows}}}
+      \field{year}{2023}
+      \field{dateera}{ce}
+    \endentry
+    \entry{kellerLightFantasticArt2006}{book}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=1841004cba2c60579500c0519af927b6}{%
+           family={Keller},
+           familyi={K\bibinitperiod},
+           given={Max.},
+           giveni={Max\bibinitperiod\bibinitdelim \bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=91d06c98c622080d375f05c2a26ab7bd}{%
+           family={Weiss},
+           familyi={W\bibinitperiod},
+           given={Johannes.},
+           giveni={Johannes\bibinitperiod\bibinitdelim \bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3f581620e6960d943a58390afabd7d2c}{%
+           family={Robinson},
+           familyi={R\bibinitperiod},
+           given={Michael.},
+           giveni={Michael\bibinitperiod\bibinitdelim \bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=47fd2cbb9ef4fae3efc43f8ed186fe20}{%
+           family={Klotz},
+           familyi={K\bibinitperiod},
+           given={Andreas.},
+           giveni={Andreas\bibinitperiod\bibinitdelim \bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Munich ;}%
+      }
+      \list{publisher}{1}{%
+        {Prestel}%
+      }
+      \strng{namehash}{510c570afcaad7b5959e6526b02f942e}
+      \strng{fullhash}{b25996152484224622a03fc71102cfbd}
+      \strng{bibnamehash}{b25996152484224622a03fc71102cfbd}
+      \strng{authorbibnamehash}{b25996152484224622a03fc71102cfbd}
+      \strng{authornamehash}{510c570afcaad7b5959e6526b02f942e}
+      \strng{authorfullhash}{b25996152484224622a03fc71102cfbd}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{"A virtuoso in the field, Max Keller has set new standards of technical and artistic excellence. In this book he divulges his extensive knowledge of every aspect of stage lighting, from natural phenomena and the history of light in the theatre, to Goethe's and Runge's theories of colour, to the fundamentals of optics and projection. This revised edition of Light Fantastic includes new images from Keller's most recent productions as well as completely updated information on optics, lamps, lanterns, projection and lighting consoles. In more than 600 stunning photographs and illustrations, the power of Keller's expertise shines through, making this a visually exciting and highly informative work for those involved in theatre technology."--Jacket.}
+      \field{edition}{2nd rev. and updated ed.}
+      \field{isbn}{978-3-7913-3685-5}
+      \field{series}{Light}
+      \field{title}{Light Fantastic : The Art and Design of Stage Lighting}
+      \field{year}{2006}
+      \field{dateera}{ce}
+      \keyw{Stage lighting}
+    \endentry
+    \entry{MIDIShowControl}{online}{}
+      \list{organization}{1}{%
+        {Google Docs}%
+      }
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labeltitlesource}{title}
+      \field{title}{{{MIDI Show Control Specification}}}
+      \field{urlday}{29}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/INIAG88I/view.html
+      \endverb
+      \verb{urlraw}
+      \verb https://drive.google.com/file/d/1Hbix4KbuQRysnEF6L3sXhlwJtc4RE33L/view?usp=drive_link&usp=embed_facebook
+      \endverb
+      \verb{url}
+      \verb https://drive.google.com/file/d/1Hbix4KbuQRysnEF6L3sXhlwJtc4RE33L/view?usp=drive_link&usp=embed_facebook
+      \endverb
+    \endentry
+    \entry{OpencvOpencv2025}{online}{}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Open Source Computer Vision Library}
+      \field{day}{4}
+      \field{hour}{12}
+      \field{minute}{44}
+      \field{month}{4}
+      \field{origday}{19}
+      \field{orighour}{9}
+      \field{origminute}{40}
+      \field{origmonth}{7}
+      \field{origsecond}{17}
+      \field{origtimezone}{Z}
+      \field{origyear}{2012}
+      \field{second}{11}
+      \field{timezone}{Z}
+      \field{title}{Opencv/Opencv}
+      \field{urlday}{4}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{origdateera}{ce}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://github.com/opencv/opencv
+      \endverb
+      \verb{url}
+      \verb https://github.com/opencv/opencv
+      \endverb
+      \keyw{c-plus-plus,computer-vision,deep-learning,image-processing,opencv}
+    \endentry
+    \entry{OSCSpecification102021}{online}{}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labeltitlesource}{title}
+      \field{day}{7}
+      \field{month}{4}
+      \field{title}{{{OSC Specification}} 1.0}
+      \field{urlday}{29}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/IQRZMM4U/spec-1_0.html
+      \endverb
+      \verb{urlraw}
+      \verb https://opensoundcontrol.stanford.edu/spec-1_0.html#introduction
+      \endverb
+      \verb{url}
+      \verb https://opensoundcontrol.stanford.edu/spec-1_0.html#introduction
+      \endverb
+    \endentry
+    \entry{penzelTheatreLightingElectricity1978}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c35c2b54d5770a1f38790ec129555215}{%
+           family={Penzel},
+           familyi={P\bibinitperiod},
+           given={Frederick},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{namea}{1}{}{%
+        {{hash=cbd2fd311741990b3e76308c90a5ddf2}{%
+           family={{Internet Archive}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Middletown, Conn. : Wesleyan University Press}%
+      }
+      \strng{namehash}{c35c2b54d5770a1f38790ec129555215}
+      \strng{fullhash}{c35c2b54d5770a1f38790ec129555215}
+      \strng{bibnamehash}{c35c2b54d5770a1f38790ec129555215}
+      \strng{authorbibnamehash}{c35c2b54d5770a1f38790ec129555215}
+      \strng{authornamehash}{c35c2b54d5770a1f38790ec129555215}
+      \strng{authorfullhash}{c35c2b54d5770a1f38790ec129555215}
+      \strng{nameabibnamehash}{cbd2fd311741990b3e76308c90a5ddf2}
+      \strng{nameanamehash}{cbd2fd311741990b3e76308c90a5ddf2}
+      \strng{nameafullhash}{cbd2fd311741990b3e76308c90a5ddf2}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{179 p. : 26 cm; Includes bibliographical references (p. 165-[171]) and index}
+      \field{isbn}{978-0-8195-5021-7}
+      \field{langid}{english}
+      \field{nameatype}{collaborator}
+      \field{pagetotal}{202}
+      \field{title}{Theatre Lighting before Electricity}
+      \field{urlday}{1}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{1978}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://archive.org/details/theatrelightingb0000penz
+      \endverb
+      \verb{url}
+      \verb http://archive.org/details/theatrelightingb0000penz
+      \endverb
+      \keyw{Stage lighting -- History}
+    \endentry
+    \entry{pilbrowStageLightingDesign1997}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=63358ffb52a869c9ae70b3647ec553a0}{%
+           family={Pilbrow},
+           familyi={P\bibinitperiod},
+           given={Richard.},
+           giveni={Richard\bibinitperiod\bibinitdelim \bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {By Design Press}%
+      }
+      \strng{namehash}{63358ffb52a869c9ae70b3647ec553a0}
+      \strng{fullhash}{63358ffb52a869c9ae70b3647ec553a0}
+      \strng{bibnamehash}{63358ffb52a869c9ae70b3647ec553a0}
+      \strng{authorbibnamehash}{63358ffb52a869c9ae70b3647ec553a0}
+      \strng{authornamehash}{63358ffb52a869c9ae70b3647ec553a0}
+      \strng{authorfullhash}{63358ffb52a869c9ae70b3647ec553a0}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{"Stage Lighting Design" covers the complete history, theory and - above all - practice of lighting design. It contains 450 black and white half tones, 60 colour photos and innumerable diagrams, lighting plots, etc. "Stage Lighting Design" is arranged in four sections: Design: the basic principles, illustrated with reference to specific productions; History: a brief survey of the historical development of stage lighting; Life: interviews with 14 other lighting designers, plus notes on Pilbrow's own career; and Mechanics: a vast section dealing with all the technical data today's designer will need."--Book description, Amazon.com.}
+      \field{isbn}{0-89676-139-8}
+      \field{title}{Stage Lighting Design : The Art, the Craft, the Life}
+      \field{year}{1997}
+      \field{dateera}{ce}
+      \keyw{Stage lighting}
+    \endentry
+    \entry{pulliRealtimeComputerVision2012}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=e427a227c39ff15e725716775899bd4f}{%
+           family={Pulli},
+           familyi={P\bibinitperiod},
+           given={Kari},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=67b2623eb5f6ca51d92af0964c87658a}{%
+           family={Baksheev},
+           familyi={B\bibinitperiod},
+           given={Anatoly},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=13883f8ac4de89f2264d62e96c6109b2}{%
+           family={Kornyakov},
+           familyi={K\bibinitperiod},
+           given={Kirill},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1d098c5c830e11de425b6a216ed38c01}{%
+           family={Eruhimov},
+           familyi={E\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a9ec0119930923dff52d5e0849cd3954}
+      \strng{fullhash}{2eba54ac9ea2161c11c8e6fe3d4f9458}
+      \strng{bibnamehash}{2eba54ac9ea2161c11c8e6fe3d4f9458}
+      \strng{authorbibnamehash}{2eba54ac9ea2161c11c8e6fe3d4f9458}
+      \strng{authornamehash}{a9ec0119930923dff52d5e0849cd3954}
+      \strng{authorfullhash}{2eba54ac9ea2161c11c8e6fe3d4f9458}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Mobile computer-vision technology will soon become as ubiquitous as touch interfaces.}
+      \field{issn}{0001-0782, 1557-7317}
+      \field{journaltitle}{Communications of the ACM}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{number}{6}
+      \field{shortjournal}{Commun. ACM}
+      \field{title}{Real-Time Computer Vision with {{OpenCV}}}
+      \field{urlday}{4}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{volume}{55}
+      \field{year}{2012}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{61\bibrangedash 69}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1145/2184319.2184337
+      \endverb
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/PYWA7SQJ/Pulli et al. - 2012 - Real-time computer vision with OpenCV.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://dl.acm.org/doi/10.1145/2184319.2184337
+      \endverb
+      \verb{url}
+      \verb https://dl.acm.org/doi/10.1145/2184319.2184337
+      \endverb
+    \endentry
+    \entry{serlioFiveBookesArchitecture1611}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e20e893f661ce36ad5e6d04b755ee9fd}{%
+           family={Serlio},
+           familyi={S\bibinitperiod},
+           given={Sebastiano},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{namea}{1}{}{%
+        {{hash=b4ed7431e33c8a8764a77f87a4272702}{%
+           family={{Glasgow School of Art Library}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Robert Peake}%
+      }
+      \strng{namehash}{e20e893f661ce36ad5e6d04b755ee9fd}
+      \strng{fullhash}{e20e893f661ce36ad5e6d04b755ee9fd}
+      \strng{bibnamehash}{e20e893f661ce36ad5e6d04b755ee9fd}
+      \strng{authorbibnamehash}{e20e893f661ce36ad5e6d04b755ee9fd}
+      \strng{authornamehash}{e20e893f661ce36ad5e6d04b755ee9fd}
+      \strng{authorfullhash}{e20e893f661ce36ad5e6d04b755ee9fd}
+      \strng{nameabibnamehash}{b4ed7431e33c8a8764a77f87a4272702}
+      \strng{nameanamehash}{b4ed7431e33c8a8764a77f87a4272702}
+      \strng{nameafullhash}{b4ed7431e33c8a8764a77f87a4272702}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Book 1 features a dedication page from Robert Peake to Henry, Prince of Wales. Manuscript note dated 1756 on verso of book 3, chapter 4, fol. 1: "On the sixth of Nov. the Rotunda of the ancient Pantheon at Rome suddenly fell in, to the [ ] demolition of that amazing}
+      \field{langid}{english}
+      \field{nameatype}{collaborator}
+      \field{pagetotal}{426}
+      \field{shorttitle}{Five Bookes of Architecture}
+      \field{title}{Five Bookes of Architecture: Translated out of {{Italian}} into {{Dutch}} and out of {{Dutch}} into {{English}}}
+      \field{urlday}{9}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{year}{1611}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://archive.org/details/firstbookeofarch00serl
+      \endverb
+      \verb{url}
+      \verb http://archive.org/details/firstbookeofarch00serl
+      \endverb
+    \endentry
+    \entry{seulPracticalAlgorithmsImage2000a}{book}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=f3ad9002eb7fb325cf38915604b35527}{%
+           family={Seul},
+           familyi={S\bibinitperiod},
+           given={Michael.},
+           giveni={Michael\bibinitperiod\bibinitdelim \bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a18036d24b0902cfd7a095189f068c0b}{%
+           family={O'Gorman},
+           familyi={O\bibinitperiod},
+           given={Lawrence.},
+           giveni={Lawrence\bibinitperiod\bibinitdelim \bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=354f1567066e75d79b19ab15e345e36a}{%
+           family={Sammon},
+           familyi={S\bibinitperiod},
+           given={Michael\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cambridge ;}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{67dcf8ee06c2066c635712d9ebb6f8ae}
+      \strng{fullhash}{67dcf8ee06c2066c635712d9ebb6f8ae}
+      \strng{bibnamehash}{67dcf8ee06c2066c635712d9ebb6f8ae}
+      \strng{authorbibnamehash}{67dcf8ee06c2066c635712d9ebb6f8ae}
+      \strng{authornamehash}{67dcf8ee06c2066c635712d9ebb6f8ae}
+      \strng{authorfullhash}{67dcf8ee06c2066c635712d9ebb6f8ae}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{CD-ROM contains C programs that implement the algorithms discussed in the book, plus the LIBTIFF, LIBMIG, and LIBIP libraries and sample images in TIFF format.}
+      \field{isbn}{0-521-66065-3}
+      \field{title}{Practical Algorithms for Image Analysis : Description, Examples, and Code}
+      \field{year}{2000}
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{Algorithms,Image analysis -- Data processing,Image processing -- Digital techniques}
+    \endentry
+    \entry{simpsonLightingControlTechnology2003}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=359b2232bc91ad8c84bbdff760dd1d28}{%
+           family={Simpson},
+           familyi={S\bibinitperiod},
+           given={Robert\bibnamedelima S.},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{359b2232bc91ad8c84bbdff760dd1d28}
+      \strng{fullhash}{359b2232bc91ad8c84bbdff760dd1d28}
+      \strng{bibnamehash}{359b2232bc91ad8c84bbdff760dd1d28}
+      \strng{authorbibnamehash}{359b2232bc91ad8c84bbdff760dd1d28}
+      \strng{authornamehash}{359b2232bc91ad8c84bbdff760dd1d28}
+      \strng{authorfullhash}{359b2232bc91ad8c84bbdff760dd1d28}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Robert Simpson's comprehensive volume covers all aspects of lighting control systems. It starts with two foundation chapters outlining the basics of electricity, light and electronics as they apply to lighting control. It then reviews all current artificial lightsources, and comments on their suitability for control. A section on lighting control components covers electronic and electromagnetic dimmers, ballasts and transformers. The next section reviews lighting control systems, including those for stage and entertainment, architectural applications, energy management and building control; and includes a chapter on control signals protocols. The final part is an extensive applications review, fully illustrated, covering everything from hotels and cruise ships to homes and churches; and taking in offices, factories, simulators, trains and planes on the way. Lighting Control: technology and applications brings together information not otherwise available from a single source. It is intended as a training resource within the lighting industry, both for those completely new to the subject, and for those coming to it from another technical field. It will also be useful for lighting designers, consulting engineers and electrical contractors as a reference book covering current and emerging lighting control techniques - with special emphasis on new light sources and new digital control standards. Information, case histories and illustrations for the book have been provided by many leading lighting companies and organizations in North America and Europe.}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-0-240-51566-3}
+      \field{langid}{english}
+      \field{pagetotal}{574}
+      \field{shorttitle}{Lighting {{Control}}}
+      \field{title}{Lighting {{Control}}: {{Technology}} and {{Applications}}}
+      \field{year}{2003}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{eprint}
+      \verb gS1EfPUOTUoC
+      \endverb
+      \keyw{Architecture / Interior Design / Lighting,Education / Counseling / Career Development,Performing Arts / Theater / General,Performing Arts / Theater / Stagecraft & Scenography,Photography / Techniques / Lighting,Technology & Engineering / Construction / Electrical,Technology & Engineering / Electrical}
+    \endentry
+    \entry{stachnissLecturePhotogrammetryII2021}{video}{}
+      \name{editor}{1}{}{%
+        {{un=0,uniquepart=base,hash=5d87e0c36213202151bff64fdd9346a3}{%
+           family={Stachniss},
+           familyi={S\bibinitperiod},
+           given={Cyrill},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Uni Bonn}%
+      }
+      \strng{namehash}{5d87e0c36213202151bff64fdd9346a3}
+      \strng{fullhash}{5d87e0c36213202151bff64fdd9346a3}
+      \strng{bibnamehash}{5d87e0c36213202151bff64fdd9346a3}
+      \strng{editorbibnamehash}{5d87e0c36213202151bff64fdd9346a3}
+      \strng{editornamehash}{5d87e0c36213202151bff64fdd9346a3}
+      \strng{editorfullhash}{5d87e0c36213202151bff64fdd9346a3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.}
+      \field{editortype}{director}
+      \field{entrysubtype}{video}
+      \field{langid}{english}
+      \field{shorttitle}{Photogrammetry {{I}} \& {{II}}}
+      \field{title}{Lecture: {{Photogrammetry I}} \& {{II}} (2021, {{Uni Bonn}}, {{Cyrill Stachniss}}) - {{YouTube}}}
+      \field{urlday}{4}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/6ZGQARN9/playlist.html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.youtube.com/playlist?list=PLgnQpQtFTOGRYjqjdZxTEQPZuFHQa7O7Y
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/playlist?list=PLgnQpQtFTOGRYjqjdZxTEQPZuFHQa7O7Y
+      \endverb
+    \endentry
+    \entry{stokerIrvingStageLighting1911}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3da5a1a714cccb8041597357ea057aca}{%
+           family={Stoker},
+           familyi={S\bibinitperiod},
+           given={Bram},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3da5a1a714cccb8041597357ea057aca}
+      \strng{fullhash}{3da5a1a714cccb8041597357ea057aca}
+      \strng{bibnamehash}{3da5a1a714cccb8041597357ea057aca}
+      \strng{authorbibnamehash}{3da5a1a714cccb8041597357ea057aca}
+      \strng{authornamehash}{3da5a1a714cccb8041597357ea057aca}
+      \strng{authorfullhash}{3da5a1a714cccb8041597357ea057aca}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Nineteenth Century and After: A Monthly Review}
+      \field{month}{5}
+      \field{title}{Irving and {{Stage Lighting}}}
+      \field{urlday}{1}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{1911}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/J79437JC/lighting.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.bramstoker.org/pdf/nonfic/lighting.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.bramstoker.org/pdf/nonfic/lighting.pdf
+      \endverb
+    \endentry
+    \entry{swannSoundDesignSystems2016}{thesis}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ac0e0bdc9c69753090c486aa5145b684}{%
+           family={Swann},
+           familyi={S\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Reed College}%
+      }
+      \strng{namehash}{ac0e0bdc9c69753090c486aa5145b684}
+      \strng{fullhash}{ac0e0bdc9c69753090c486aa5145b684}
+      \strng{bibnamehash}{ac0e0bdc9c69753090c486aa5145b684}
+      \strng{authorbibnamehash}{ac0e0bdc9c69753090c486aa5145b684}
+      \strng{authornamehash}{ac0e0bdc9c69753090c486aa5145b684}
+      \strng{authorfullhash}{ac0e0bdc9c69753090c486aa5145b684}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Sound Design : A Systems Approach}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \true{nocite}
+    \endentry
+    \entry{zhangFlexibleNewTechnique2000a}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5ee5d3d5470ac29a2e7c8df70ed54725}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5ee5d3d5470ac29a2e7c8df70ed54725}
+      \strng{fullhash}{5ee5d3d5470ac29a2e7c8df70ed54725}
+      \strng{bibnamehash}{5ee5d3d5470ac29a2e7c8df70ed54725}
+      \strng{authorbibnamehash}{5ee5d3d5470ac29a2e7c8df70ed54725}
+      \strng{authornamehash}{5ee5d3d5470ac29a2e7c8df70ed54725}
+      \strng{authorfullhash}{5ee5d3d5470ac29a2e7c8df70ed54725}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We propose a flexible new technique to easily calibrate a camera. It is well suited for use without specialized knowledge of 3D geometry or computer vision. The technique only requires the camera to observe a planar pattern shown at a few (at least two) different orientations. Either the camera or the planar pattern can be freely moved. The motion need not be known. Radial lens distortion is modeled. The proposed procedure consists of a closed-form solution, followed by a nonlinear refinement based on the maximum likelihood criterion. Both computer simulation and real data have been used to test the proposed technique, and very good results have been obtained. Compared with classical techniques which use expensive equipment such as two or three orthogonal planes, the proposed technique is easy to use and flexible. It advances 3D computer vision one step from laboratory environments to real world use.}
+      \field{issn}{01628828}
+      \field{journaltitle}{IEEE Transactions on Pattern Analysis and Machine Intelligence}
+      \field{langid}{english}
+      \field{month}{11}
+      \field{number}{11}
+      \field{shortjournal}{IEEE Trans. Pattern Anal. Machine Intell.}
+      \field{title}{A Flexible New Technique for Camera Calibration}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2025}
+      \field{volume}{22}
+      \field{year}{2000}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1330\bibrangedash 1334}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/34.888718
+      \endverb
+      \verb{file}
+      \verb /home/gabeh/Zotero/storage/EBJN5V9M/Zhang - 2000 - A flexible new technique for camera calibration.pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://ieeexplore.ieee.org/document/888718/
+      \endverb
+      \verb{url}
+      \verb http://ieeexplore.ieee.org/document/888718/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

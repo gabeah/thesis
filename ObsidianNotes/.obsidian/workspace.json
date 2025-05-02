@@ -69,12 +69,24 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Thesis Menu.md",
+                "file": "Thesis Meetings.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Thesis Menu"
+              "title": "Thesis Meetings"
+            }
+          },
+          {
+            "id": "519a1a53022eb6ec",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.8.10"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.8.10"
             }
           },
           {
@@ -234,8 +246,8 @@
   },
   "active": "ec7d8b0650914dd8",
   "lastOpenFiles": [
-    "Thesis Meetings.md",
     "Thesis Menu.md",
+    "Thesis Meetings.md",
     "belle thesis update.md",
     "Automated Lighting - The Art and Science of Moving Light in Theatre.md",
     "Chapter 1 - History of Lighting Control.md",

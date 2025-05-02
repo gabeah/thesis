@@ -2,22 +2,23 @@
 \contentsline {chapter}{Introduction}{1}{chapter*.6}%
 \contentsline {chapter}{Chapter 1: The Problem}{5}{chapter.1}%
 \contentsline {section}{\numberline {1.1}A History of Lighting Control}{6}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Taking the "Live" out of "Liveness"}{11}{section.1.2}%
-\contentsline {section}{\numberline {1.3}The Solution (A Solution?)}{13}{section.1.3}%
+\contentsline {section}{\numberline {1.2}Taking the ``Live'' out of ``Liveness''}{11}{section.1.2}%
+\contentsline {section}{\numberline {1.3}The Solution (A Solution?)}{14}{section.1.3}%
 \contentsline {chapter}{Chapter 2: Oops all Cameras}{17}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Introduction}{17}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Camera Basics}{18}{section.2.2}%
 \contentsline {section}{\numberline {2.3}The Camera Model}{20}{section.2.3}%
-\contentsline {section}{\numberline {2.4}A (brief) Linear Algebra Primer}{20}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Camera Parameters}{23}{section.2.5}%
-\contentsline {section}{\numberline {2.6}The Stereo Normal Example}{26}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Camera Calibration Process}{29}{section.2.7}%
-\contentsline {section}{\numberline {2.8}DLT to 3D}{30}{section.2.8}%
-\contentsline {section}{\numberline {2.9}From Pixels to Position}{32}{section.2.9}%
-\contentsline {chapter}{Chapter 3: Bringing the Project to Life (?)}{35}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Where we started (spring semester):}{35}{section.3.1}%
-\contentsline {section}{\numberline {3.2}DMX "Hell"}{36}{section.3.2}%
-\contentsline {section}{\numberline {3.3}So how did you get so close?}{37}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Where does that put us now:}{38}{section.3.4}%
-\contentsline {chapter}{Conclusion}{39}{chapter*.7}%
-\contentsline {chapter}{Bibliography}{41}{chapter*.8}%
+\contentsline {section}{\numberline {2.4}A (Brief) Linear Algebra Primer}{20}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Camera Parameters}{25}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Stereo Normal Triangulation}{27}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Camera Calibration}{29}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Generalized Triangulation}{31}{section.2.8}%
+\contentsline {section}{\numberline {2.9}From Pixels to Position}{33}{section.2.9}%
+\contentsline {chapter}{Chapter 3: Bringing the Project to Life (?)}{37}{chapter.3}%
+\contentsline {section}{\numberline {3.1}The Process Begins}{37}{section.3.1}%
+\contentsline {section}{\numberline {3.2}DMX ``Hell''}{38}{section.3.2}%
+\contentsline {section}{\numberline {3.3}So how did you get so close?}{39}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Where does that put us now}{40}{section.3.4}%
+\contentsline {chapter}{Conclusion}{43}{chapter*.7}%
+\contentsline {chapter}{Appendix A: The Code of the Project}{45}{appendix.A}%
+\contentsline {chapter}{Bibliography}{47}{appendix*.8}%
